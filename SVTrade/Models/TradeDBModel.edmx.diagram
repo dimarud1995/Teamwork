@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e98c358f0ecb42ccb2b238009c112ef5" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="TradeDBModel.Article" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.ChoosedCategory" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.Order" Width="1.5" PointX="7.375" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.Product" Width="1.5" PointX="0.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.ProductCategory" Width="1.5" PointX="3.125" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.ShowedProduct" Width="1.5" PointX="7.375" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.User" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.UserGroup" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="TradeDBModel.FK_Article_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_ChoosedCategory_ToProductCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_ChoosedCategory_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_Order_ToProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_Order_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_Product_ToProductCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_ShowedProduct_ToProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_ShowedProduct_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_User_ToUserGroup" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
