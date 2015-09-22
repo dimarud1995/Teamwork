@@ -4,15 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e98c358f0ecb42ccb2b238009c112ef5" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="TradeDBModel.Article" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDBModel.ChoosedCategory" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDBModel.Order" Width="1.5" PointX="7.375" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDBModel.Product" Width="1.5" PointX="0.5" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDBModel.ProductCategory" Width="1.5" PointX="3.125" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDBModel.ShowedProduct" Width="1.5" PointX="7.375" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDBModel.User" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeDBModel.UserGroup" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
+      <Diagram DiagramId="d8c58927eb3d4cb681566583c4f9cce7" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="TradeDBModel.Article" Width="1.5" PointX="6.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.ChoosedCategory" Width="1.5" PointX="1.125" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.Order" Width="1.5" PointX="2.875" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.Product" Width="1.5" PointX="3.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.ProductCategory" Width="1.5" PointX="1.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.ShowedProduct" Width="1.5" PointX="4.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.User" Width="1.5" PointX="9.125" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.UserGroup" Width="1.5" PointX="10.375" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeDBModel.UserToProduct" Width="1.5" PointX="5.875" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="TradeDBModel.FK_Article_ToUser" ManuallyRouted="false" />
         <AssociationConnector Association="TradeDBModel.FK_ChoosedCategory_ToProductCategory" ManuallyRouted="false" />
         <AssociationConnector Association="TradeDBModel.FK_ChoosedCategory_ToUser" ManuallyRouted="false" />
@@ -20,8 +21,10 @@
         <AssociationConnector Association="TradeDBModel.FK_Order_ToUser" ManuallyRouted="false" />
         <AssociationConnector Association="TradeDBModel.FK_Product_ToProductCategory" ManuallyRouted="false" />
         <AssociationConnector Association="TradeDBModel.FK_ShowedProduct_ToProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_UserToProduct_ToProduct" ManuallyRouted="false" />
         <AssociationConnector Association="TradeDBModel.FK_ShowedProduct_ToUser" ManuallyRouted="false" />
         <AssociationConnector Association="TradeDBModel.FK_User_ToUserGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeDBModel.FK_UserToProduct_ToUser" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

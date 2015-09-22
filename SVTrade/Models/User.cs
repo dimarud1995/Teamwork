@@ -20,6 +20,7 @@ namespace SVTrade.Models
             this.ChoosedCategory = new HashSet<ChoosedCategory>();
             this.Order = new HashSet<Order>();
             this.ShowedProduct = new HashSet<ShowedProduct>();
+            this.UserToProduct = new HashSet<UserToProduct>();
         }
     
         public int userID { get; set; }
@@ -33,11 +34,13 @@ namespace SVTrade.Models
         public string phoneNumber { get; set; }
         public string email { get; set; }
         public bool merchantLicense { get; set; }
+        public bool tradeLicense { get; set; }
     
         public virtual ICollection<Article> Article { get; set; }
         public virtual ICollection<ChoosedCategory> ChoosedCategory { get; set; }
         public virtual ICollection<Order> Order { get; set; }
         public virtual ICollection<ShowedProduct> ShowedProduct { get; set; }
         public virtual UserGroup UserGroup { get; set; }
+        public virtual ICollection<UserToProduct> UserToProduct { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace SVTrade.Models
         {
             this.Order = new HashSet<Order>();
             this.ShowedProduct = new HashSet<ShowedProduct>();
+            this.UserToProduct = new HashSet<UserToProduct>();
         }
     
         public int productID { get; set; }
@@ -31,5 +32,6 @@ namespace SVTrade.Models
         public virtual ICollection<Order> Order { get; set; }
         public virtual ProductCategory ProductCategory { get; set; }
         public virtual ICollection<ShowedProduct> ShowedProduct { get; set; }
+        public virtual ICollection<UserToProduct> UserToProduct { get; set; }
     }
 }
