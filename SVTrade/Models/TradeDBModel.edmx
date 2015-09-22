@@ -46,6 +46,7 @@
           <Property Name="amount" Type="float" Nullable="false" />
           <Property Name="price" Type="float" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="userID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -85,14 +86,6 @@
           </Key>
           <Property Name="userGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="UserToProduct">
-          <Key>
-            <PropertyRef Name="userToProductID" />
-          </Key>
-          <Property Name="userToProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="userID" Type="int" Nullable="false" />
-          <Property Name="productID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Article_ToUser">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -166,6 +159,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_ToUser">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ShowedProduct_ToProduct">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ShowedProduct" Type="Self.ShowedProduct" Multiplicity="*" />
@@ -202,30 +207,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserToProduct_ToProduct">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="UserToProduct" Type="Self.UserToProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="productID" />
-            </Principal>
-            <Dependent Role="UserToProduct">
-              <PropertyRef Name="productID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserToProduct_ToUser">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="UserToProduct" Type="Self.UserToProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="UserToProduct">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="TradeDBModelStoreContainer">
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChoosedCategory" EntityType="Self.ChoosedCategory" Schema="dbo" store:Type="Tables" />
@@ -235,7 +216,6 @@
           <EntitySet Name="ShowedProduct" EntityType="Self.ShowedProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserToProduct" EntityType="Self.UserToProduct" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Article_ToUser" Association="Self.FK_Article_ToUser">
             <End Role="User" EntitySet="User" />
             <End Role="Article" EntitySet="Article" />
@@ -260,6 +240,10 @@
             <End Role="ProductCategory" EntitySet="ProductCategory" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_ToUser" Association="Self.FK_Product_ToUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
           <AssociationSet Name="FK_ShowedProduct_ToProduct" Association="Self.FK_ShowedProduct_ToProduct">
             <End Role="Product" EntitySet="Product" />
             <End Role="ShowedProduct" EntitySet="ShowedProduct" />
@@ -271,14 +255,6 @@
           <AssociationSet Name="FK_User_ToUserGroup" Association="Self.FK_User_ToUserGroup">
             <End Role="UserGroup" EntitySet="UserGroup" />
             <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserToProduct_ToProduct" Association="Self.FK_UserToProduct_ToProduct">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="UserToProduct" EntitySet="UserToProduct" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserToProduct_ToUser" Association="Self.FK_UserToProduct_ToUser">
-            <End Role="User" EntitySet="User" />
-            <End Role="UserToProduct" EntitySet="UserToProduct" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -332,10 +308,11 @@
           <Property Name="amount" Type="Double" Nullable="false" />
           <Property Name="price" Type="Double" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_ToProduct" FromRole="Product" ToRole="Order" />
           <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_ToProductCategory" FromRole="Product" ToRole="ProductCategory" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Product_ToUser" FromRole="Product" ToRole="User" />
           <NavigationProperty Name="ShowedProduct" Relationship="Self.FK_ShowedProduct_ToProduct" FromRole="Product" ToRole="ShowedProduct" />
-          <NavigationProperty Name="UserToProduct" Relationship="Self.FK_UserToProduct_ToProduct" FromRole="Product" ToRole="UserToProduct" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -375,9 +352,9 @@
           <NavigationProperty Name="Article" Relationship="Self.FK_Article_ToUser" FromRole="User" ToRole="Article" />
           <NavigationProperty Name="ChoosedCategory" Relationship="Self.FK_ChoosedCategory_ToUser" FromRole="User" ToRole="ChoosedCategory" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_ToUser" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_ToUser" FromRole="User" ToRole="Product" />
           <NavigationProperty Name="ShowedProduct" Relationship="Self.FK_ShowedProduct_ToUser" FromRole="User" ToRole="ShowedProduct" />
           <NavigationProperty Name="UserGroup" Relationship="Self.FK_User_ToUserGroup" FromRole="User" ToRole="UserGroup" />
-          <NavigationProperty Name="UserToProduct" Relationship="Self.FK_UserToProduct_ToUser" FromRole="User" ToRole="UserToProduct" />
         </EntityType>
         <EntityType Name="UserGroup">
           <Key>
@@ -386,16 +363,6 @@
           <Property Name="userGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_ToUserGroup" FromRole="UserGroup" ToRole="User" />
-        </EntityType>
-        <EntityType Name="UserToProduct">
-          <Key>
-            <PropertyRef Name="userToProductID" />
-          </Key>
-          <Property Name="userToProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userID" Type="Int32" Nullable="false" />
-          <Property Name="productID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_UserToProduct_ToProduct" FromRole="UserToProduct" ToRole="Product" />
-          <NavigationProperty Name="User" Relationship="Self.FK_UserToProduct_ToUser" FromRole="UserToProduct" ToRole="User" />
         </EntityType>
         <Association Name="FK_Article_ToUser">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -469,6 +436,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_ToUser">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ShowedProduct_ToProduct">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ShowedProduct" Type="Self.ShowedProduct" Multiplicity="*" />
@@ -477,18 +456,6 @@
               <PropertyRef Name="productID" />
             </Principal>
             <Dependent Role="ShowedProduct">
-              <PropertyRef Name="productID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserToProduct_ToProduct">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="UserToProduct" Type="Self.UserToProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="productID" />
-            </Principal>
-            <Dependent Role="UserToProduct">
               <PropertyRef Name="productID" />
             </Dependent>
           </ReferentialConstraint>
@@ -517,18 +484,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserToProduct_ToUser">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="UserToProduct" Type="Self.UserToProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="UserToProduct">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="TradeDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Article" EntityType="Self.Article" />
           <EntitySet Name="ChoosedCategory" EntityType="Self.ChoosedCategory" />
@@ -538,7 +493,6 @@
           <EntitySet Name="ShowedProduct" EntityType="Self.ShowedProduct" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="UserGroup" EntityType="Self.UserGroup" />
-          <EntitySet Name="UserToProduct" EntityType="Self.UserToProduct" />
           <AssociationSet Name="FK_Article_ToUser" Association="Self.FK_Article_ToUser">
             <End Role="User" EntitySet="User" />
             <End Role="Article" EntitySet="Article" />
@@ -563,13 +517,13 @@
             <End Role="ProductCategory" EntitySet="ProductCategory" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_ToUser" Association="Self.FK_Product_ToUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
           <AssociationSet Name="FK_ShowedProduct_ToProduct" Association="Self.FK_ShowedProduct_ToProduct">
             <End Role="Product" EntitySet="Product" />
             <End Role="ShowedProduct" EntitySet="ShowedProduct" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserToProduct_ToProduct" Association="Self.FK_UserToProduct_ToProduct">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="UserToProduct" EntitySet="UserToProduct" />
           </AssociationSet>
           <AssociationSet Name="FK_ShowedProduct_ToUser" Association="Self.FK_ShowedProduct_ToUser">
             <End Role="User" EntitySet="User" />
@@ -578,10 +532,6 @@
           <AssociationSet Name="FK_User_ToUserGroup" Association="Self.FK_User_ToUserGroup">
             <End Role="UserGroup" EntitySet="UserGroup" />
             <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserToProduct_ToUser" Association="Self.FK_UserToProduct_ToUser">
-            <End Role="User" EntitySet="User" />
-            <End Role="UserToProduct" EntitySet="UserToProduct" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -633,6 +583,7 @@
                 <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -676,15 +627,6 @@
               <MappingFragment StoreEntitySet="UserGroup">
                 <ScalarProperty Name="userGroupID" ColumnName="userGroupID" />
                 <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserToProduct">
-            <EntityTypeMapping TypeName="TradeDBModel.UserToProduct">
-              <MappingFragment StoreEntitySet="UserToProduct">
-                <ScalarProperty Name="userToProductID" ColumnName="userToProductID" />
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="productID" ColumnName="productID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
