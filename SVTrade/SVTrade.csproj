@@ -182,7 +182,15 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Concrete\Article.cs" />
+    <Compile Include="Concrete\ChoosedCategory.cs" />
     <Compile Include="Concrete\EFTradeRepository.cs" />
+    <Compile Include="Concrete\Order.cs" />
+    <Compile Include="Concrete\Product.cs" />
+    <Compile Include="Concrete\ProductCategory.cs" />
+    <Compile Include="Concrete\ShowedProduct.cs" />
+    <Compile Include="Concrete\User.cs" />
+    <Compile Include="Concrete\UserGroup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -231,9 +239,6 @@
       <DependentUpon>TradeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserGroup.cs">
-      <DependentUpon>TradeDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserToProduct.cs">
       <DependentUpon>TradeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

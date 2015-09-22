@@ -2,8 +2,8 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using Ninject;
+using SVTrade.Abstract;
 using SVTrade.Concrete;
-using SVTrade.Entities;
 
 namespace SVTrade.Infrastructure
 {

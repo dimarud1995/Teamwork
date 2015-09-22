@@ -33,6 +33,5 @@ namespace SVTrade.Models
         public virtual DbSet<ShowedProduct> ShowedProduct { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserGroup> UserGroup { get; set; }
-        public virtual DbSet<UserToProduct> UserToProduct { get; set; }
     }
 }

@@ -1,6 +1,5 @@
-﻿using System.Linq;
-using Ninject;
-using SVTrade.Entities;
+﻿using Ninject;
+using SVTrade.Abstract;
 using SVTrade.Models;
 
 namespace SVTrade.Concrete
@@ -8,12 +7,7 @@ namespace SVTrade.Concrete
     public partial class EFTradeRepository : IRepository
     {
         [Inject]
-        private TradeDBEntities Db { get; set; }
-
-        public IQueryable<User> Users
-        {
-            get { return Db.User; }
-
-        }
+        private TradeDBEntities _db  = new TradeDBEntities();
+        
     }
 }
