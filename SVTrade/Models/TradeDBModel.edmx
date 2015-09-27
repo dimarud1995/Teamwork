@@ -4,16 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TradeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TradeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Article">
           <Key>
             <PropertyRef Name="articleID" />
           </Key>
           <Property Name="articleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="userID" Type="int" Nullable="false" />
-          <Property Name="imageURL" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="description" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="imageURL" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="expirationDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ChoosedCategory">
@@ -30,7 +30,7 @@
           </Key>
           <Property Name="orderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="orderDate" Type="datetime" Nullable="false" />
-          <Property Name="finishDate" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="finishDate" Type="datetime" Nullable="false" />
           <Property Name="productID" Type="int" Nullable="false" />
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="amount" Type="float" Nullable="false" />
@@ -40,12 +40,12 @@
             <PropertyRef Name="productID" />
           </Key>
           <Property Name="productID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="productCategoryID" Type="int" Nullable="false" />
-          <Property Name="imageURL" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imageURL" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="amount" Type="float" Nullable="false" />
           <Property Name="price" Type="float" Nullable="false" />
-          <Property Name="description" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="userID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductCategory">
@@ -53,7 +53,7 @@
             <PropertyRef Name="productCategoryID" />
           </Key>
           <Property Name="productCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ShowedProduct">
           <Key>
@@ -68,15 +68,15 @@
             <PropertyRef Name="userID" />
           </Key>
           <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="userGroupID" Type="int" Nullable="false" />
-          <Property Name="companyName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="juridicalAddress" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="address" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="contactPerson" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="post" Type="varchar" MaxLength="70" Nullable="false" />
-          <Property Name="phoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="companyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="juridicalAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="contactPerson" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="post" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="merchantLicense" Type="bit" Nullable="false" />
           <Property Name="tradeLicense" Type="bit" Nullable="false" />
         </EntityType>
@@ -85,7 +85,7 @@
             <PropertyRef Name="userGroupID" />
           </Key>
           <Property Name="userGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Article_ToUser">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -257,8 +257,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TradeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -267,10 +266,10 @@
             <PropertyRef Name="articleID" />
           </Key>
           <Property Name="articleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="userID" Type="Int32" Nullable="false" />
-          <Property Name="imageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="expirationDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="User" Relationship="Self.FK_Article_ToUser" FromRole="Article" ToRole="User" />
         </EntityType>
@@ -290,7 +289,7 @@
           </Key>
           <Property Name="orderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="orderDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="finishDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="finishDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="productID" Type="Int32" Nullable="false" />
           <Property Name="userID" Type="Int32" Nullable="false" />
           <Property Name="amount" Type="Double" Nullable="false" />
@@ -302,12 +301,12 @@
             <PropertyRef Name="productID" />
           </Key>
           <Property Name="productID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="productCategoryID" Type="Int32" Nullable="false" />
-          <Property Name="imageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="amount" Type="Double" Nullable="false" />
           <Property Name="price" Type="Double" Nullable="false" />
-          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="userID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_ToProduct" FromRole="Product" ToRole="Order" />
           <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_ToProductCategory" FromRole="Product" ToRole="ProductCategory" />
@@ -319,7 +318,7 @@
             <PropertyRef Name="productCategoryID" />
           </Key>
           <Property Name="productCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ChoosedCategory" Relationship="Self.FK_ChoosedCategory_ToProductCategory" FromRole="ProductCategory" ToRole="ChoosedCategory" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Product_ToProductCategory" FromRole="ProductCategory" ToRole="Product" />
         </EntityType>
@@ -338,15 +337,15 @@
             <PropertyRef Name="userID" />
           </Key>
           <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Nullable="false" Unicode="true" />
           <Property Name="userGroupID" Type="Int32" Nullable="false" />
-          <Property Name="companyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="juridicalAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="contactPerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="post" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="phoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="companyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="juridicalAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contactPerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="post" Type="String" Nullable="false" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="phoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="merchantLicense" Type="Boolean" Nullable="false" />
           <Property Name="tradeLicense" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Article" Relationship="Self.FK_Article_ToUser" FromRole="User" ToRole="Article" />
@@ -361,7 +360,7 @@
             <PropertyRef Name="userGroupID" />
           </Key>
           <Property Name="userGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_ToUserGroup" FromRole="UserGroup" ToRole="User" />
         </EntityType>
         <Association Name="FK_Article_ToUser">

@@ -16,7 +16,7 @@ namespace SVTrade.Models
     {
         public int orderID { get; set; }
         public System.DateTime orderDate { get; set; }
-        public string finishDate { get; set; }
+        public System.DateTime finishDate { get; set; }
         public int productID { get; set; }
         public int userID { get; set; }
         public double amount { get; set; }

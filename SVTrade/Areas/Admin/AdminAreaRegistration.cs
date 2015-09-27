@@ -17,7 +17,7 @@ namespace SVTrade.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "UserGroupsList", id = UrlParameter.Optional }
             );
         }
     }
