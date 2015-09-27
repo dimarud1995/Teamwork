@@ -25,13 +25,13 @@ namespace SVTrade.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Article> Article { get; set; }
-        public virtual DbSet<ChoosedCategory> ChoosedCategory { get; set; }
-        public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
-        public virtual DbSet<ShowedProduct> ShowedProduct { get; set; }
-        public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<UserGroup> UserGroup { get; set; }
+        public virtual DbSet<Article> Articles { get; set; }
+        public virtual DbSet<ChoosedCategory> ChoosedCategories { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+        public virtual DbSet<ShowedProduct> ShowedProducts { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserGroup> UserGroups { get; set; }
     }
 }

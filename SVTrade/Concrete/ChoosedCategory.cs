@@ -8,18 +8,18 @@ namespace SVTrade.Concrete
     {
         public IQueryable<ChoosedCategory> ChoosedCategories
         {
-            get { return _db.ChoosedCategory; }
+            get { return _db.ChoosedCategories; }
         }
 
         public void SaveChoosedCategory(ChoosedCategory choosedCategory)
         {
             if (choosedCategory.chosenCategoryID == 0)
             {
-                _db.ChoosedCategory.Add(choosedCategory);
+                _db.ChoosedCategories.Add(choosedCategory);
             }
             else
             {
-                var dbEntry = _db.ChoosedCategory.Find(choosedCategory.chosenCategoryID);
+                var dbEntry = _db.ChoosedCategories.Find(choosedCategory.chosenCategoryID);
                 if (dbEntry != null)
                 {
                     dbEntry.productCategoryID = choosedCategory.productCategoryID;
@@ -31,10 +31,10 @@ namespace SVTrade.Concrete
 
         public ChoosedCategory DeleteChoosedCategory(int id)
         {
-            var dbEntry = _db.ChoosedCategory.Find(id);
+            var dbEntry = _db.ChoosedCategories.Find(id);
             if (dbEntry != null)
             {
-                _db.ChoosedCategory.Remove(dbEntry);
+                _db.ChoosedCategories.Remove(dbEntry);
                 _db.SaveChanges();
             }
             return dbEntry;

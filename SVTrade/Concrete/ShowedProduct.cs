@@ -11,18 +11,18 @@ namespace SVTrade.Concrete
     {
         public IQueryable<ShowedProduct> ShowedProducts
         {
-            get { return _db.ShowedProduct; }
+            get { return _db.ShowedProducts; }
         }
 
         public void SaveShowedProduct(ShowedProduct showedProduct)
         {
             if (showedProduct.showedProductID == 0)
             {
-                _db.ShowedProduct.Add(showedProduct);
+                _db.ShowedProducts.Add(showedProduct);
             }
             else
             {
-                var dbEntry = _db.ShowedProduct.Find(showedProduct.showedProductID);
+                var dbEntry = _db.ShowedProducts.Find(showedProduct.showedProductID);
                 if (dbEntry != null)
                 {
                     dbEntry.productID = showedProduct.productID;
@@ -34,10 +34,10 @@ namespace SVTrade.Concrete
 
         public ShowedProduct DeleteShowedProduct(int id)
         {
-            var dbEntry = _db.ShowedProduct.Find(id);
+            var dbEntry = _db.ShowedProducts.Find(id);
             if (dbEntry != null)
             {
-                _db.ShowedProduct.Remove(dbEntry);
+                _db.ShowedProducts.Remove(dbEntry);
                 _db.SaveChanges();
             }
             return dbEntry;

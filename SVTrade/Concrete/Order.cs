@@ -8,18 +8,18 @@ namespace SVTrade.Concrete
     {
         public IQueryable<Order> Orders
         {
-            get { return _db.Order; }
+            get { return _db.Orders; }
         }
 
         public void SaveOrder(Order order)
         {
             if (order.orderID == 0)
             {
-                _db.Order.Add(order);
+                _db.Orders.Add(order);
             }
             else
             {
-                var dbEntry = _db.Order.Find(order.orderID);
+                var dbEntry = _db.Orders.Find(order.orderID);
                 if (dbEntry != null)
                 {
                     dbEntry.orderDate = order.orderDate;
@@ -34,10 +34,10 @@ namespace SVTrade.Concrete
 
         public Order DeleteOrder(int id)
         {
-            var dbEntry = _db.Order.Find(id);
+            var dbEntry = _db.Orders.Find(id);
             if (dbEntry != null)
             {
-                _db.Order.Remove(dbEntry);
+                _db.Orders.Remove(dbEntry);
                 _db.SaveChanges();
             }
             return dbEntry;

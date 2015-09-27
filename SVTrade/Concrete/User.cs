@@ -9,18 +9,18 @@ namespace SVTrade.Concrete
     {
         public IQueryable<User> Users
         {
-            get { return _db.User; }
+            get { return _db.Users; }
         }
 
         public void SaveUser(User user)
         {
             if (user.userID == 0)
             {
-                _db.User.Add(user);
+                _db.Users.Add(user);
             }
             else
             {
-                var dbEntry = _db.User.Find(user.userID);
+                var dbEntry = _db.Users.Find(user.userID);
                 if (dbEntry != null)
                 {
                     dbEntry.password = user.password;
@@ -41,10 +41,10 @@ namespace SVTrade.Concrete
 
         public User DeleteUser(int id)
         {
-            var dbEntry = _db.User.Find(id);
+            var dbEntry = _db.Users.Find(id);
             if (dbEntry != null)
             {
-                _db.User.Remove(dbEntry);
+                _db.Users.Remove(dbEntry);
                 _db.SaveChanges();
             }
             return dbEntry;

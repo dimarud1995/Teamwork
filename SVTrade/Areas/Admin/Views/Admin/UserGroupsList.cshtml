@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SVTrade.Models.UserGroup>
+
+@{
+    ViewBag.Title = "UserGroupsList";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>UserGroupsList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.userGroupID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.userGroupID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.userGroupID })
+        </td>
+    </tr>
+}
+
+</table>

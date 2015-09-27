@@ -8,18 +8,18 @@ namespace SVTrade.Concrete
     {
         public IQueryable<Article> Articles
         {
-            get { return _db.Article; }
+            get { return _db.Articles; }
         }
 
         public void SaveArticle(Article article)
         {
             if (article.articleID == 0)
             {
-                _db.Article.Add(article);
+                _db.Articles.Add(article);
             }
             else
             {
-                var dbEntry = _db.Article.Find(article.articleID);
+                var dbEntry = _db.Articles.Find(article.articleID);
                 if (dbEntry != null)
                 {
                     dbEntry.title = article.title;
@@ -34,10 +34,10 @@ namespace SVTrade.Concrete
 
         public Article DeleteArticle(int id)
         {
-            var dbEntry = _db.Article.Find(id);
+            var dbEntry = _db.Articles.Find(id);
             if (dbEntry != null)
             {
-                _db.Article.Remove(dbEntry);
+                _db.Articles.Remove(dbEntry);
                 _db.SaveChanges();
             }
             return dbEntry;

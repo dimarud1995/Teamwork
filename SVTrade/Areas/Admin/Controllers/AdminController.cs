@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using SVTrade.Abstract;
 
 namespace SVTrade.Areas.Admin.Controllers
 {
@@ -6,9 +7,20 @@ namespace SVTrade.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/Admin/
-        public ActionResult Index()
+        private IRepository repository;
+        
+
+        
+
+        public AdminController(IRepository repo)
         {
-            return View();
+            repository = repo;
+        }
+        public AdminController() { }
+
+        public ViewResult UserGroupsList()
+        {
+            return View(repository.UserGroups);
         }
 	}
 }

@@ -11,18 +11,18 @@ namespace SVTrade.Concrete
     {
         public IQueryable<ProductCategory> ProductCategories
         {
-            get { return _db.ProductCategory; }
+            get { return _db.ProductCategories; }
         }
 
         public void SaveProductCategory(ProductCategory productCategory)
         {
             if (productCategory.productCategoryID == 0)
             {
-                _db.ProductCategory.Add(productCategory);
+                _db.ProductCategories.Add(productCategory);
             }
             else
             {
-                var dbEntry = _db.ProductCategory.Find(productCategory.productCategoryID);
+                var dbEntry = _db.ProductCategories.Find(productCategory.productCategoryID);
                 if (dbEntry != null)
                 {
                     dbEntry.name = productCategory.name;
@@ -34,10 +34,10 @@ namespace SVTrade.Concrete
 
         public ProductCategory DeleteProductCategory(int id)
         {
-            var dbEntry = _db.ProductCategory.Find(id);
+            var dbEntry = _db.ProductCategories.Find(id);
             if (dbEntry != null)
             {
-                _db.ProductCategory.Remove(dbEntry);
+                _db.ProductCategories.Remove(dbEntry);
                 _db.SaveChanges();
             }
             return dbEntry;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using SVTrade.Abstract;
 using SVTrade.Models;
 
@@ -11,18 +8,18 @@ namespace SVTrade.Concrete
     {
     public IQueryable<UserGroup> UserGroups
     {
-        get { return _db.UserGroup; }
+        get { return _db.UserGroups; }
     }
 
     public void SaveUserGroup(UserGroup userGroup)
     {
         if (userGroup.userGroupID == 0)
         {
-            _db.UserGroup.Add(userGroup);
+            _db.UserGroups.Add(userGroup);
         }
         else
         {
-            var dbEntry = _db.UserGroup.Find(userGroup.userGroupID);
+            var dbEntry = _db.UserGroups.Find(userGroup.userGroupID);
             if (dbEntry != null)
             {
                 dbEntry.name = userGroup.name;
@@ -33,10 +30,10 @@ namespace SVTrade.Concrete
 
     public UserGroup DeleteUserGroup(int id)
     {
-        var dbEntry = _db.UserGroup.Find(id);
+        var dbEntry = _db.UserGroups.Find(id);
         if (dbEntry != null)
         {
-            _db.UserGroup.Remove(dbEntry);
+            _db.UserGroups.Remove(dbEntry);
             _db.SaveChanges();
         }
         return dbEntry;
