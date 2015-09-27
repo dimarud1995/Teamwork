@@ -16,8 +16,7 @@ namespace SVTrade.Areas.Admin.Controllers
         {
             repository = repo;
         }
-        public AdminController() { }
-
+    
         public ViewResult UserGroupsList()
         {
             return View(repository.UserGroups);
