@@ -1,31 +1,54 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "СВ Трейд Холод";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<header class="">
+    <div class="blured"></div>
+    <div class="header-content">
+        <div class="container">
+            <div class="row">
+                <p class="big-text">СВ Трейд Холод </p>
+                <p class="">Пропонує вам тисячі тон готової продукції онлайн дозволяють заощадити ваш час та гроші!</p>
+                <ul class="list-inline">
+                    <li>Тільки свіжа продукція</li>
+                    <li>Тільки перевірена якість</li>
+                    <li>Всі економлять час та гроші</li>
+                </ul>
+            </div>
+            <div class="row smtop-pad">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="">
+                        <ul class="social list-inline">
+                            <li><a href="https://twitter.com/EnergoKyznya" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.facebook.com/energokuznya"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="http://vk.com/public95055356"><i class="fa fa fa-vk"></i></a>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCIYORbd53e8ylT6at3pxNVQ"><i class="fa fa-youtube-square"></i></a></li>
+                            <li class="row-end"><a href="#"><i class="fa fa-rss"></i></a></li>
+                        </ul>
+                        <div class="form-container">
+                            <p class="intro">Отримуйте останні новини від СВ Трейд Холод</p>
+                            <form class="signup-form navbar-form">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="example@email.com">
+                                </div>
+                            </form>
+                        </div><!--//subscription-form-->
+                    </div><!--//footer-col-inner-->
+                </div><!--//foooter-col-->
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="idf">
+                        @Html.ActionLink("Реєстрація", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "logs btn btn-ghost" })
+                    </div>
+                    <div class="idf">
+                        @Html.ActionLink("Увійти", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "logs btn btn-ghost" })
+                    </div><!--//subscription-form-->
+                </div><!--//footer-col-inner-->
+            </div><!--//foooter-col-->
+            <div class="clearfix"></div>
+        </div><!--//row-->
+    </div>
+</header>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
