@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SVTrade.Models.UserGroup>
+
+@{
+    ViewBag.Title = "Админ: Все должности";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Должности</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.userGroupID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.userGroupID
+            </td>
+            <td>
+                @Html.ActionLink(item.name, "EditUserGroup", new {item.userGroupID})
+            </td>
+            <td>
+                @using (Html.BeginForm("DeleteUserGroup", "Admin"))
+                {
+                    @Html.Hidden("userGroupID", item.userGroupID)
+                    <input type="submit" value="Удалить"/>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Добавить новую должность", "CreateUserGroup")
+</p>
