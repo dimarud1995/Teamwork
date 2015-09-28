@@ -55,9 +55,7 @@ namespace SVTrade.Areas.Admin.Controllers
         {
             var deleted = repository.DeleteUserGroup(id);
             if (deleted != null)
-            {
                 TempData["message"] = string.Format("Должность {0} была удалена!", deleted.name);
-            }
             return RedirectToAction("UserGroupsList");
         }
     }

@@ -5,10 +5,10 @@
       <PropertyRef Name="articleID" />
     </Key>
     <Property Name="articleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="userID" Type="Int32" Nullable="false" />
-    <Property Name="imageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="expirationDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="User" Relationship="Self.FK_Article_ToUser" FromRole="Article" ToRole="User" />
   </EntityType>
@@ -28,7 +28,7 @@
     </Key>
     <Property Name="orderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="orderDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="finishDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="finishDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="productID" Type="Int32" Nullable="false" />
     <Property Name="userID" Type="Int32" Nullable="false" />
     <Property Name="amount" Type="Double" Nullable="false" />
@@ -40,12 +40,12 @@
       <PropertyRef Name="productID" />
     </Key>
     <Property Name="productID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="productCategoryID" Type="Int32" Nullable="false" />
-    <Property Name="imageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="amount" Type="Double" Nullable="false" />
     <Property Name="price" Type="Double" Nullable="false" />
-    <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="userID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Order" Relationship="Self.FK_Order_ToProduct" FromRole="Product" ToRole="Order" />
     <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_ToProductCategory" FromRole="Product" ToRole="ProductCategory" />
@@ -57,7 +57,7 @@
       <PropertyRef Name="productCategoryID" />
     </Key>
     <Property Name="productCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="ChoosedCategory" Relationship="Self.FK_ChoosedCategory_ToProductCategory" FromRole="ProductCategory" ToRole="ChoosedCategory" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Product_ToProductCategory" FromRole="ProductCategory" ToRole="Product" />
   </EntityType>
@@ -76,15 +76,15 @@
       <PropertyRef Name="userID" />
     </Key>
     <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Nullable="false" Unicode="true" />
     <Property Name="userGroupID" Type="Int32" Nullable="false" />
-    <Property Name="companyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="juridicalAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="contactPerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="post" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="phoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="companyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="juridicalAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contactPerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="post" Type="String" Nullable="false" MaxLength="70" Unicode="true" FixedLength="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="merchantLicense" Type="Boolean" Nullable="false" />
     <Property Name="tradeLicense" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Article" Relationship="Self.FK_Article_ToUser" FromRole="User" ToRole="Article" />
@@ -99,7 +99,7 @@
       <PropertyRef Name="userGroupID" />
     </Key>
     <Property Name="userGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_User_ToUserGroup" FromRole="UserGroup" ToRole="User" />
   </EntityType>
   <Association Name="FK_Article_ToUser">
