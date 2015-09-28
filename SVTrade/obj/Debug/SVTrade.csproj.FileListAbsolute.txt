@@ -215,3 +215,6 @@ C:\Users\gostw\Documents\GitHub\Teamwork\SVTrade\bin\Microsoft.Owin.Security.Mic
 C:\Users\gostw\Documents\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
 C:\Users\gostw\Documents\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.dll
 C:\Users\gostw\Documents\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.pdb
+C:\Users\dimar\Documents\Visual Studio 2015\Projects\SVTrade\SVTrade\bin\Ninject.dll
+C:\Users\dimar\Documents\Visual Studio 2015\Projects\SVTrade\SVTrade\bin\System.Data.dll
+C:\Users\dimar\Documents\Visual Studio 2015\Projects\SVTrade\SVTrade\bin\Ninject.xml
