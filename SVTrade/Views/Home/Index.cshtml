@@ -3,49 +3,40 @@
 }
 
 <header class="">
-    <div class="blured" ></div>
-    <div class="header-content " >
-        <div class="container" >
+    <div class="blured"></div>
+    <div class="header-content">
+        <div class="container">
             <div class="row">
                 <p class="big-text">СВ Трейд Холод </p>
                 <p class="">Пропонує вам тисячі тон готової продукції онлайн дозволяють заощадити ваш час та гроші!</p>
-                <ul class="list-inline">
+                <ul class="list-inline text-good">
                     <li>Тільки свіжа продукція</li>
                     <li>Тільки перевірена якість</li>
                     <li>Всі економлять час та гроші</li>
                 </ul>
             </div>
             <div class="row smtop-pad">
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="">
-                        <ul class="social list-inline">
-                            <li><a href="https://twitter.com/EnergoKyznya" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://www.facebook.com/energokuznya"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="http://vk.com/public95055356"><i class="fa fa fa-vk"></i></a>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="https://www.youtube.com/channel/UCIYORbd53e8ylT6at3pxNVQ"><i class="fa fa-youtube-square"></i></a></li>
-                            <li class="row-end"><a href="#"><i class="fa fa-rss"></i></a></li>
-                        </ul>
-                        <div class="form-container">
-                            <p class="intro">Отримуйте останні новини від СВ Трейд Холод</p>
-                            <form class="signup-form navbar-form">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="example@email.com">
-                                </div>
-                            </form>
-                        </div><!--//subscription-form-->
-                    </div><!--//footer-col-inner-->
-                </div><!--//foooter-col-->
-                <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="btn discount-news">
+                            <div class="discount-title">Мясо свинине</div>
+                            <div class="discount-description">Лише до кінця неділі знижка на все мясо</div>
+                            <div class="discount-value">50%</div>
+                        </div>
+                        <div class="discount-news">
+                            <div class="discount-title">Мясо свинине</div>
+                            <div class="discount-description">Лише до кінця неділі знижка на все мясо</div>
+                            <div class="discount-value">50%</div>
+                        </div>
+                    </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
                     <div class="idf">
                         @Html.ActionLink("Реєстрація", "Register", "Registration/UserRegistration", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "logs btn btn-ghost" })
                     </div>
                     <div class="idf">
                         @Html.ActionLink("Увійти", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "logs btn btn-ghost" })
-                    </div><!--//subscription-form-->
-                </div><!--//footer-col-inner-->
-            </div><!--//foooter-col-->
+                    </div>
+                </div>
+            </div>
             <div class="clearfix"></div>
         </div><!--//row-->
     </div>
