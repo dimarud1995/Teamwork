@@ -39,6 +39,7 @@ namespace SVTrade.Concrete
             _db.SaveChanges();
         }
 
+
         public User DeleteUser(int id)
         {
             var dbEntry = _db.Users.Find(id);

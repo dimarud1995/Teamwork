@@ -184,6 +184,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Registration\Controllers\UserRegistrationController.cs" />
+    <Compile Include="Areas\Registration\RegistrationAreaRegistration.cs" />
     <Compile Include="Concrete\Article.cs" />
     <Compile Include="Concrete\ChoosedCategory.cs" />
     <Compile Include="Concrete\EFTradeRepository.cs" />
@@ -280,6 +282,9 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\UserGroupsList.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\EditUserGroup.cshtml" />
+    <Content Include="Areas\Registration\Views\web.config" />
+    <Content Include="Areas\Registration\Views\UserRegistration\Register.cshtml" />
+    <Content Include="Areas\Registration\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -343,6 +348,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Registration\Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
