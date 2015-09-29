@@ -962,3 +962,8 @@ a.disabled {
 .bg-blue {
     background: rgb(50, 69, 92);
 }
+.colorbg{
+    background: rgba(0,0,0,.6);
+    border: 0px solid black;
+    box-shadow:rgba(0,0,0,.6)  0px 0px 5px;
+}
