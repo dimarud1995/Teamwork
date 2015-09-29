@@ -95,7 +95,8 @@ aside {
 
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
-    color: #ff937c;
+    color: rgb(0,0,0);
+    text-shadow: #bdefff 0 0 2px;
 }
 
 .navbar-default .nav > li>a,
@@ -103,13 +104,14 @@ aside {
     text-transform: uppercase;
     font-size: 13px;
     font-weight: 700;
-    color: #eee;
+    color: rgb(255,255,255);
     
 }
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #ff937c;
+    color: #eb3812;
+    text-shadow: #fff 0 0 2px;
 }
 
 .navbar-default .nav > li.active>a,
@@ -131,24 +133,26 @@ aside {
 
     .navbar-default .navbar-header .navbar-brand:hover,
     .navbar-default .navbar-header .navbar-brand:focus {
-        color: #ff937c;
+        color: rgb(72, 72, 72);
+        text-shadow: #fff 0 0 2px;
     }
 
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
         color: rgb(255, 255, 255);
-        text-shadow: #153a46 0 0 2px;
+        text-shadow: #000 0 0 2px;
     }
 
     .navbar-default .nav > li>a:hover,
     .navbar-default .nav>li>a:focus:hover {
-        color: #ff937c;
+        color: rgb(72, 72, 72);
+        text-shadow: #fff 0 0 2px;
     }
-
     
     .navbar-right > li>a:hover,
     .navbar-right > li>a:focus:hover {
-    color: #5ab5f7 !important;
+        color: #7dc9ff !important;
+        text-shadow: #000 0 0 2px !important;
     }
 }
 
@@ -929,13 +933,9 @@ a.disabled {
 }
 
 .discount-news {
-    position: relative;
     float: left;
     margin: 10px;
-    border: 2px white solid;
-    padding: 0;
-    height: 100px;
-    max-width: 330px;
+    border: 1px white solid;
     opacity: 0.6;
     background: rgba(0, 0, 0, 0.5);
     -moz-transition: all 0.4s 0.05s ease;
@@ -960,7 +960,7 @@ a.disabled {
     float: left;
     color: #e0e0e0;
     max-width: 280px;
-	padding: 10px;
+	padding: 5px;
 	text-align: center;
 }
 
