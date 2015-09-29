@@ -184,6 +184,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Personal\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Personal\PersonalAreaRegistration.cs" />
+    <Compile Include="Areas\Registration\Controllers\UserRegistrationController.cs" />
+    <Compile Include="Areas\Registration\RegistrationAreaRegistration.cs" />
     <Compile Include="Concrete\Article.cs" />
     <Compile Include="Concrete\ChoosedCategory.cs" />
     <Compile Include="Concrete\EFTradeRepository.cs" />
@@ -360,6 +364,15 @@
     <Content Include="Content\scss\_rotated-flipped.scss" />
     <Content Include="Content\scss\_stacked.scss" />
     <Content Include="Content\scss\_variables.scss" />
+    <Content Include="Areas\Personal\Views\web.config" />
+    <Content Include="Areas\Personal\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Registration\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Registration\Views\UserRegistration\Register.cshtml" />
+    <Content Include="Areas\Registration\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -423,6 +436,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Personal\Models\" />
+    <Folder Include="Areas\Personal\Views\Shared\" />
+    <Folder Include="Areas\Registration\Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

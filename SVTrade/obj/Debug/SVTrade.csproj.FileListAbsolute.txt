@@ -64,7 +64,6 @@ c:\users\dimar\documents\visual studio 2015\Projects\SVTrade\SVTrade\bin\Microso
 c:\users\dimar\documents\visual studio 2015\Projects\SVTrade\SVTrade\bin\Microsoft.Owin.Security.Google.xml
 c:\users\dimar\documents\visual studio 2015\Projects\SVTrade\SVTrade\bin\Microsoft.Owin.Security.Twitter.xml
 c:\users\dimar\documents\visual studio 2015\Projects\SVTrade\SVTrade\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-c:\users\dimar\documents\visual studio 2015\Projects\SVTrade\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
 c:\users\dimar\documents\visual studio 2015\Projects\SVTrade\SVTrade\obj\Debug\SVTrade.dll
 c:\users\dimar\documents\visual studio 2015\Projects\SVTrade\SVTrade\obj\Debug\SVTrade.pdb
 D:\Projects\SVTrade\Teamwork\SVTrade\bin\roslyn\csc.exe
@@ -215,3 +214,7 @@ C:\Users\gostw\Documents\GitHub\Teamwork\SVTrade\bin\Microsoft.Owin.Security.Mic
 C:\Users\gostw\Documents\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
 C:\Users\gostw\Documents\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.dll
 C:\Users\gostw\Documents\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.pdb
+C:\Users\dimar\Documents\Visual Studio 2015\Projects\SVTrade\SVTrade\bin\Ninject.dll
+C:\Users\dimar\Documents\Visual Studio 2015\Projects\SVTrade\SVTrade\bin\System.Data.dll
+C:\Users\dimar\Documents\Visual Studio 2015\Projects\SVTrade\SVTrade\bin\Ninject.xml
+C:\Users\dimar\Documents\Visual Studio 2015\Projects\SVTrade\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
