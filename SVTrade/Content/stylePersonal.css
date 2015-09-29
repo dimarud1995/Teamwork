@@ -1,0 +1,33 @@
+﻿body {
+}
+
+div{
+    
+
+}
+.allpage{
+    margin-top:60px;
+    width:100%;
+    height:auto;
+}
+.leftmenu{
+    position:fixed;
+    left:0px;
+    top:60px;
+    border-right:solid 1px rgba(0,0,0,0.4);
+    height:100%;
+
+}
+.rightmenu{
+    position:relative;
+    left:20%;
+    
+   
+  
+    
+}
+.absolutecontainer{
+    position:absolute;
+    width:inherit;
+    height:100%;
+}

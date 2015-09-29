@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/animate.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/site.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/stylePersonal.css" type="text/css">
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -28,8 +29,8 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Як це працює", "About", "Home")</li>
-                    <li>@Html.ActionLink("Особистий кабінет", "Index", "Personal/Products")</li>
+                    <li>@Html.ActionLink("Як це працює", "About", "Home", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
+                    <li>@Html.ActionLink("Особистий кабінет", "Index", "Personal/Products", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
                     <li><a class="page-scroll" href="/Home/About#contact">Контакти</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right no-marg">

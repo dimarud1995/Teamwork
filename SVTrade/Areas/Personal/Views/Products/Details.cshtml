@@ -1,75 +1,85 @@
 ﻿@model SVTrade.Models.Product
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Деталі";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="allpage">
+    <div class="absolutecontainer">
+        <div class="col-lg-2 leftmenu">
+            <p>@Html.ActionLink("Додати товар", "Create")</p>
+            <p>@Html.ActionLink("Ваш склад", "Index")</p>
+            <p>@Html.ActionLink("Статистика", "Statistic")</p>
+        </div>
+        <div class="col-lg-9 rightmenu">
+            <h2>Деталі</h2>
 
-<h2>Details</h2>
+            <div>
+                <h4>Товар</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        Назва
+                    </dt>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+                    <dt>
+                        Картинка
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.imageURL)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.imageURL)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.imageURL)
-        </dd>
+                    <dt>
+                        Кількість
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.amount)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.amount)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.amount)
-        </dd>
+                    <dt>
+                        Ціна
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.price)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
+                    <dt>
+                        Опис
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.description)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
+                    <dt>
+                        Категорія
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductCategory.name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ProductCategory.name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductCategory.name)
-        </dd>
+                    <dt>
+                        Власник
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.User.password)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.User.companyName)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.password)
-        </dd>
-
-    </dl>
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Редагувати", "Edit", new { id = Model.productID }) |
+                @Html.ActionLink("Повернутись", "Index")
+            </p>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.productID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
