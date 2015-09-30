@@ -28,7 +28,7 @@ namespace SVTrade.Areas.Personal.Controllers
         {
             
             var product = repository.Products.Include(p => p.ProductCategory).Include(p => p.User);
-            return View(product.ToList());
+            return View(product);
         }
 
         // GET: Personal/Products/Details/5

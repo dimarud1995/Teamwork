@@ -1,81 +1,92 @@
 ﻿@model SVTrade.Models.Product
 
 @{
-    ViewBag.Title = "Delete";
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Видалення";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.imageURL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.imageURL)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.amount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.amount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductCategory.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProductCategory.name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.User.password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User.password)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+<div class="allpage">
+    <div class="absolutecontainer">
+        <div class="col-lg-2 leftmenu">
+            <p>@Html.ActionLink("Додати товар", "Create")</p>
+            <p>@Html.ActionLink("Ваш склад", "Index")</p>
+            <p>@Html.ActionLink("Статистика", "Statistic")</p>
         </div>
-    }
+        <div class="col-lg-9 rightmenu">
+            <h2>Видалення</h2>
+
+            <h3>Ви дійсно хочете видалити цей товар?</h3>
+            <div>
+                <h4>Товар</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        Назва
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.name)
+                    </dd>
+
+                    <dt>
+                        Картинка
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.imageURL)
+                    </dd>
+
+                    <dt>
+                        Кількість
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.amount)
+                    </dd>
+
+                    <dt>
+                        Ціна
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.price)
+                    </dd>
+
+                    <dt>
+                        Опис
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.description)
+                    </dd>
+
+                    <dt>
+                        Категорія
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ProductCategory.name)
+                    </dd>
+
+                    <dt>
+                        Власник
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.User.companyName)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Видалити" class="btn btn-default" /> |
+                        @Html.ActionLink("Повернутись", "Index")
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>
