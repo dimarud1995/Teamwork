@@ -143,8 +143,6 @@ aside {
     .navbar-default .nav > li>a:hover,
     .navbar-default .nav>li>a:focus:hover {
         color: #ff937c;
-<<<<<<< HEAD
-=======
     }
 
     .navbar-default.affix {
@@ -155,9 +153,22 @@ aside {
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 18px;
         color: #4c9ed9;
->>>>>>> 29ed5e59c2acaa72ba77c7c29b41c2654fc9b658
     }
 
+    .navbar-default.affix .navbar-header .navbar-brand:hover,
+    .navbar-default.affix .navbar-header .navbar-brand:focus {
+        color: #eb3812;
+    }
+
+    .navbar-default.affix .nav > li>a,
+    .navbar-default.affix .nav>li>a:focus {
+        color: #222;
+    }
+
+    .navbar-default.affix .nav > li>a:hover,
+    .navbar-default.affix .nav > li>a:focus:hover {
+        color: #eb3812;
+    }
     
     .navbar-right > li>a:hover,
     .navbar-right > li>a:focus:hover {
@@ -309,6 +320,10 @@ header .header-content .header-content-inner p {
     vertical-align:middle;
 }
 
+.tittle {
+    text-align: center;
+    vertical-align: middle;
+}
 
 .helper {
 	display:inline-block;
@@ -320,6 +335,15 @@ header .header-content .header-content-inner p {
 .counter {
     padding-top: 9%;
 	font-size: 1.5em;
+}
+
+.description {
+    color: #e0e0e0;
+	padding: 5px;
+	text-align: center;
+     -moz-transition: all 0.4s 0.05s ease;
+    -o-transition: all 1s 0.4s 0.05s ease;
+    -webkit-transition: all 0.4s 0.05s ease;
 }
 
 .service-box p {
