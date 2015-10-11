@@ -7,11 +7,13 @@
 
 <div class="allpage">
     <div class="absolutecontainer">
-        <div class="col-lg-2 leftmenu">
-            <p>@Html.ActionLink("Додати товар", "Create")</p>
-            <p>@Html.ActionLink("Ваш склад", "Index")</p>
-            <p>@Html.ActionLink("Статистика", "Statistic")</p>
-        </div>
+        <div class="col-lg-2 leftmenu ">
+            <ul class="nav nav-tab limenu">
+                <li>@Html.ActionLink("Додати товар", "Create", "Products")</li>
+                <li>@Html.ActionLink("Ваш склад", "Index", "Products")</li>
+                <li>@Html.ActionLink("Статистика", "Index", "Statistic")</li>
+                </ul>
+</div>
         <div class="col-lg-9 rightmenu">
             <h2>Список ваших товарів</h2>
             <table class="table">
@@ -55,9 +57,9 @@
                         </td>
 
                         <td>
-                            @Html.ActionLink("Редагувати", "Edit", new { id = item.productID }) |
-                            @Html.ActionLink("Деталі", "Details", new { id = item.productID }) |
-                            @Html.ActionLink("Видалити", "Delete", new { id = item.productID })
+                            @Html.ActionLink("Редагувати", "Edit", new { id = item.productID }, new { area = "" }) |
+                            @Html.ActionLink("Деталі", "Details", new { id = item.productID }, new { area = "" }) |
+                            @Html.ActionLink("Видалити", "Delete", new { id = item.productID }, new { area = "" })
                         </td>
                     </tr>
                 }

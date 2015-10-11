@@ -7,9 +7,9 @@
     <Property Name="articleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="userID" Type="Int32" Nullable="false" />
-    <Property Name="imageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="imageURL" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="expirationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="User" Relationship="Self.FK_Article_ToUser" FromRole="Article" ToRole="User" />
   </EntityType>
   <EntityType Name="ChoosedCategory">
@@ -32,24 +32,40 @@
     <Property Name="productID" Type="Int32" Nullable="false" />
     <Property Name="userID" Type="Int32" Nullable="false" />
     <Property Name="amount" Type="Double" Nullable="false" />
+    <Property Name="statusDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="statusID" Type="Int32" Nullable="false" />
+    <Property Name="completed" Type="Boolean" Nullable="false" />
+    <Property Name="canceled" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="OrderStatus" Relationship="Self.FK_Order_ToOrderStatus" FromRole="Order" ToRole="OrderStatus" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Order_ToProduct" FromRole="Order" ToRole="Product" />
     <NavigationProperty Name="User" Relationship="Self.FK_Order_ToUser" FromRole="Order" ToRole="User" />
+    <NavigationProperty Name="ReservedProduct" Relationship="Self.FK_ReservedProduct_ToOrder" FromRole="Order" ToRole="ReservedProduct" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="statusID" />
+    </Key>
+    <Property Name="statusID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_ToOrderStatus" FromRole="OrderStatus" ToRole="Order" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="productID" />
     </Key>
     <Property Name="productID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="productCategoryID" Type="Int32" Nullable="false" />
-    <Property Name="imageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="imageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="amount" Type="Double" Nullable="false" />
     <Property Name="price" Type="Double" Nullable="false" />
     <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="approved" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Order" Relationship="Self.FK_Order_ToProduct" FromRole="Product" ToRole="Order" />
     <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_ToProductCategory" FromRole="Product" ToRole="ProductCategory" />
     <NavigationProperty Name="User" Relationship="Self.FK_Product_ToUser" FromRole="Product" ToRole="User" />
+    <NavigationProperty Name="ReservedProduct" Relationship="Self.FK_ReservedProduct_ToProduct" FromRole="Product" ToRole="ReservedProduct" />
     <NavigationProperty Name="ShowedProduct" Relationship="Self.FK_ShowedProduct_ToProduct" FromRole="Product" ToRole="ShowedProduct" />
   </EntityType>
   <EntityType Name="ProductCategory">
@@ -60,6 +76,36 @@
     <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="ChoosedCategory" Relationship="Self.FK_ChoosedCategory_ToProductCategory" FromRole="ProductCategory" ToRole="ChoosedCategory" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Product_ToProductCategory" FromRole="ProductCategory" ToRole="Product" />
+    <NavigationProperty Name="ProductToBuy" Relationship="Self.FK_ProductToBuy_ToProductCategory" FromRole="ProductCategory" ToRole="ProductToBuy" />
+  </EntityType>
+  <EntityType Name="ProductToBuy">
+    <Key>
+      <PropertyRef Name="productToBuyID" />
+    </Key>
+    <Property Name="productToBuyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="productCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Double" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="approved" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ProductCategory" Relationship="Self.FK_ProductToBuy_ToProductCategory" FromRole="ProductToBuy" ToRole="ProductCategory" />
+    <NavigationProperty Name="User" Relationship="Self.FK_ProductToBuy_ToUser" FromRole="ProductToBuy" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ReservedProduct">
+    <Key>
+      <PropertyRef Name="reservID" />
+    </Key>
+    <Property Name="reservID" Type="Int32" Nullable="false" />
+    <Property Name="orderID" Type="Int32" Nullable="false" />
+    <Property Name="productID" Type="Int32" Nullable="false" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="amountOfProduct" Type="Double" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_ReservedProduct_ToOrder" FromRole="ReservedProduct" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_ReservedProduct_ToProduct" FromRole="ReservedProduct" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="Self.FK_ReservedProduct_ToUser" FromRole="ReservedProduct" ToRole="User" />
   </EntityType>
   <EntityType Name="ShowedProduct">
     <Key>
@@ -76,21 +122,25 @@
       <PropertyRef Name="userID" />
     </Key>
     <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Nullable="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="userGroupID" Type="Int32" Nullable="false" />
     <Property Name="companyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="juridicalAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="contactPerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="post" Type="String" Nullable="false" MaxLength="70" Unicode="true" FixedLength="false" />
+    <Property Name="post" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
     <Property Name="phoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="merchantLicense" Type="Boolean" Nullable="false" />
     <Property Name="tradeLicense" Type="Boolean" Nullable="false" />
+    <Property Name="approved" Type="Boolean" Nullable="false" />
+    <Property Name="passwordSalt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Article" Relationship="Self.FK_Article_ToUser" FromRole="User" ToRole="Article" />
     <NavigationProperty Name="ChoosedCategory" Relationship="Self.FK_ChoosedCategory_ToUser" FromRole="User" ToRole="ChoosedCategory" />
     <NavigationProperty Name="Order" Relationship="Self.FK_Order_ToUser" FromRole="User" ToRole="Order" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Product_ToUser" FromRole="User" ToRole="Product" />
+    <NavigationProperty Name="ProductToBuy" Relationship="Self.FK_ProductToBuy_ToUser" FromRole="User" ToRole="ProductToBuy" />
+    <NavigationProperty Name="ReservedProduct" Relationship="Self.FK_ReservedProduct_ToUser" FromRole="User" ToRole="ReservedProduct" />
     <NavigationProperty Name="ShowedProduct" Relationship="Self.FK_ShowedProduct_ToUser" FromRole="User" ToRole="ShowedProduct" />
     <NavigationProperty Name="UserGroup" Relationship="Self.FK_User_ToUserGroup" FromRole="User" ToRole="UserGroup" />
   </EntityType>
@@ -138,6 +188,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Order_ToOrderStatus">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="statusID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="statusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Order_ToProduct">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -159,6 +221,18 @@
       </Principal>
       <Dependent Role="Order">
         <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservedProduct_ToOrder">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="ReservedProduct" Type="Self.ReservedProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="orderID" />
+      </Principal>
+      <Dependent Role="ReservedProduct">
+        <PropertyRef Name="orderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -186,6 +260,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ReservedProduct_ToProduct">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ReservedProduct" Type="Self.ReservedProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="ReservedProduct">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ShowedProduct_ToProduct">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="ShowedProduct" Type="Self.ShowedProduct" Multiplicity="*" />
@@ -195,6 +281,42 @@
       </Principal>
       <Dependent Role="ShowedProduct">
         <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductToBuy_ToProductCategory">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="1" />
+    <End Role="ProductToBuy" Type="Self.ProductToBuy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="productCategoryID" />
+      </Principal>
+      <Dependent Role="ProductToBuy">
+        <PropertyRef Name="productCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductToBuy_ToUser">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ProductToBuy" Type="Self.ProductToBuy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="ProductToBuy">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservedProduct_ToUser">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ReservedProduct" Type="Self.ReservedProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="ReservedProduct">
+        <PropertyRef Name="userID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -226,8 +348,11 @@
     <EntitySet Name="Article" EntityType="Self.Article" />
     <EntitySet Name="ChoosedCategory" EntityType="Self.ChoosedCategory" />
     <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" />
     <EntitySet Name="Product" EntityType="Self.Product" />
     <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" />
+    <EntitySet Name="ProductToBuy" EntityType="Self.ProductToBuy" />
+    <EntitySet Name="ReservedProduct" EntityType="Self.ReservedProduct" />
     <EntitySet Name="ShowedProduct" EntityType="Self.ShowedProduct" />
     <EntitySet Name="User" EntityType="Self.User" />
     <EntitySet Name="UserGroup" EntityType="Self.UserGroup" />
@@ -243,6 +368,10 @@
       <End Role="User" EntitySet="User" />
       <End Role="ChoosedCategory" EntitySet="ChoosedCategory" />
     </AssociationSet>
+    <AssociationSet Name="FK_Order_ToOrderStatus" Association="Self.FK_Order_ToOrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
     <AssociationSet Name="FK_Order_ToProduct" Association="Self.FK_Order_ToProduct">
       <End Role="Product" EntitySet="Product" />
       <End Role="Order" EntitySet="Order" />
@@ -250,6 +379,10 @@
     <AssociationSet Name="FK_Order_ToUser" Association="Self.FK_Order_ToUser">
       <End Role="User" EntitySet="User" />
       <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservedProduct_ToOrder" Association="Self.FK_ReservedProduct_ToOrder">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="ReservedProduct" EntitySet="ReservedProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_Product_ToProductCategory" Association="Self.FK_Product_ToProductCategory">
       <End Role="ProductCategory" EntitySet="ProductCategory" />
@@ -259,9 +392,25 @@
       <End Role="User" EntitySet="User" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
+    <AssociationSet Name="FK_ReservedProduct_ToProduct" Association="Self.FK_ReservedProduct_ToProduct">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ReservedProduct" EntitySet="ReservedProduct" />
+    </AssociationSet>
     <AssociationSet Name="FK_ShowedProduct_ToProduct" Association="Self.FK_ShowedProduct_ToProduct">
       <End Role="Product" EntitySet="Product" />
       <End Role="ShowedProduct" EntitySet="ShowedProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductToBuy_ToProductCategory" Association="Self.FK_ProductToBuy_ToProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+      <End Role="ProductToBuy" EntitySet="ProductToBuy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductToBuy_ToUser" Association="Self.FK_ProductToBuy_ToUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="ProductToBuy" EntitySet="ProductToBuy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservedProduct_ToUser" Association="Self.FK_ReservedProduct_ToUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="ReservedProduct" EntitySet="ReservedProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_ShowedProduct_ToUser" Association="Self.FK_ShowedProduct_ToUser">
       <End Role="User" EntitySet="User" />

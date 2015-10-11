@@ -1,15 +1,23 @@
 ﻿@model SVTrade.Models.UserGroup
 
 @{
-    ViewBag.Title = "Админ: Изменить" + Model.name;
+    ViewBag.Title = "Админ: изменение" + Model.name;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Изменить + @Model.name</h2>
+<h2>Змінити @Model.name</h2>
 @using (Html.BeginForm("EditUserGroup", "Admin"))
 {
-    @Html.EditorForModel()
-    <input type="submit" value="Сохранить">
-    @Html.ActionLink("Отменить и вернуться к списку","UserGroupsList")
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.EditorForModel(new { htmlAttributes = new { @class = "form-control" } })
+            <div class="editor-label">
+                <input type="submit" value="Зберегти" class="btn btn-default"/>
+            </div>
+            <div class="editor-label">
+                @Html.ActionLink("Отменить и вернуться к списку", "UserGroupsList")</div>
+            </div>
+    </div>
+    
 }
 

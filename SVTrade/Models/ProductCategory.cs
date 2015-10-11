@@ -18,6 +18,7 @@ namespace SVTrade.Models
         {
             this.ChoosedCategory = new HashSet<ChoosedCategory>();
             this.Product = new HashSet<Product>();
+            this.ProductToBuy = new HashSet<ProductToBuy>();
         }
     
         public int productCategoryID { get; set; }
@@ -25,5 +26,6 @@ namespace SVTrade.Models
     
         public virtual ICollection<ChoosedCategory> ChoosedCategory { get; set; }
         public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<ProductToBuy> ProductToBuy { get; set; }
     }
 }

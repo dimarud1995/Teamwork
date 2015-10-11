@@ -57,6 +57,30 @@ namespace SVTrade.Abstract
         ChoosedCategory DeleteChoosedCategory(int id);
 
         #endregion
+
+        #region ReservedProduct
+
+        IQueryable<ReservedProduct> ReservedProducts { get; }
+        void SaveReservedProduct(ReservedProduct reservedProduct);
+        ReservedProduct DeleteReservedProduct(int id);
+
+        #endregion
+
+        #region ProductToBuy
+
+        IQueryable<ProductToBuy> ProductsToBuy { get; }
+        void SaveProductToBuy(ProductToBuy productToBuy);
+        ProductToBuy DeleteProductToBuy(int id);
+
+        #endregion
+
+        #region OrderStatus
+
+        IQueryable<OrderStatus> OrderStatuses { get; }
+        void SaveOrderStatus(OrderStatus orderStatus);
+        OrderStatus DeleteOrderStatus(int id);
+
+        #endregion
         
     }
 }

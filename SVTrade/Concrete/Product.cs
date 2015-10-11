@@ -22,13 +22,14 @@ namespace SVTrade.Concrete
                 var dbEntry = _db.Products.Find(product.productID);
                 if (dbEntry != null)
                 {
-                    dbEntry.name = product.name;
+                    dbEntry.title = product.title;
                     dbEntry.productCategoryID = product.productCategoryID;
                     dbEntry.imageURL = product.imageURL;
                     dbEntry.amount = product.amount;
                     dbEntry.price = product.price;
                     dbEntry.description = product.description;
                     dbEntry.userID = product.userID;
+                    dbEntry.approved = product.approved;
                 }
             }
             _db.SaveChanges();

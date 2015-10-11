@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Web.Mvc;
-
 namespace SVTrade.Models
 {
     using System;
@@ -21,7 +19,6 @@ namespace SVTrade.Models
             this.User = new HashSet<User>();
         }
     
-        [HiddenInput(DisplayValue = false)]
         public int userGroupID { get; set; }
         public string name { get; set; }
     

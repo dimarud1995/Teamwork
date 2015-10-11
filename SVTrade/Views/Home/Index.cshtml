@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "СВ Трейд Холод";
+    Layout = "~/Views/Shared/_LayoutMainPage.cshtml";
 }
 
 <header class="">
@@ -16,24 +17,47 @@
                 </ul>
             </div>
             <div class="row smtop-pad">
-                <div class="col-md-8 col-sm-12 col-xs-12">
-                        <div class="btn discount-news">
-                            <div class="discount-title">Мясо свинине</div>
-                            <div class="discount-description">Лише до кінця неділі знижка на все мясо</div>
-                            <div class="discount-value">50%</div>
-                        </div>
-                        <div class="discount-news">
-                            <div class="discount-title">Мясо свинине</div>
-                            <div class="discount-description">Лише до кінця неділі знижка на все мясо</div>
-                            <div class="discount-value">50%</div>
-                        </div>
-                    </div>
                 <div class="col-md-4 col-sm-12 col-xs-12">
-                    <div class="idf">
-                        @Html.ActionLink("Реєстрація", "Register", "Registration/UserRegistration", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "logs btn btn-ghost" })
+                    <div class="discount-news">
+                        <div class="discount-title">Мясо свининне</div>
+                        <div class="discount-description">Лише до кінця неділі знижка на все мясо</div>
+                        <div class="discount-value">50%</div>
                     </div>
-                    <div class="idf">
-                        @Html.ActionLink("Увійти", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "logs btn btn-ghost" })
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <p>Вітаємо, @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "") </p>
+                                <div class="idf">
+                                    @Html.ActionLink("Особистий кабінет", "Index", "Personal/Products", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "logs btn btn-ghost" })
+                                </div>
+                                    <div class="idf">
+                                        @Html.ActionLink("Товари", "Simple", "BrowseProducts/Simple", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "logs btn btn-ghost" })
+                                    </div>
+                            }
+                        }
+                        else
+                        {
+                            <p>Приєднуйтесь до нас!</p>
+                            <div class="idf">
+                                @Html.ActionLink("Реєстрація", "Register", "UserRegistration", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "logs btn btn-ghost" })
+                            </div>
+                                <div class="idf">
+                                    @Html.ActionLink("Увійти", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "logs btn btn-ghost" })
+                                </div>
+                        }
+                    }
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="discount-news">
+                        <div class="discount-title">Мясо свининне</div>
+                        <div class="discount-description">Лише до кінця неділі знижка на все мясо</div>
+                        <div class="discount-value">50%</div>
                     </div>
                 </div>
             </div>

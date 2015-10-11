@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="~/Content/css/site.css" type="text/css">
     <link rel="stylesheet" href="~/Content/stylePersonal.css" type="text/css">
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <nav id="mainNav" class="navbar navbar-fixed-top navbar-default ">
@@ -29,26 +28,37 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Як це працює", "About", "Home", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
-                    <li>@Html.ActionLink("Особистий кабінет", "Index", "Personal/Products", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
-                    <li><a class="page-scroll" href="/Home/About#contact">Контакти</a></li>
+                    @Html.Partial("_AccessPartial")
                 </ul>
-                <ul class="nav navbar-nav navbar-right no-marg">
-                    @Html.Partial("_LoginPartial")
+                <ul class="nav navbar-nav navbar-right">
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <li>@Html.ActionLink("Привіт " + (Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest"), "Index", "Home", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                                <li> <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a> </li>
+                            }
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Привіт " + (Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest"), "About", "Home", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                            <li> @Html.ActionLink("Login", "Login", "Account") </li>
+                        }
+                    }
                 </ul>
             </div>
         </div>
     </nav>
-
     @RenderBody()
-
-    <script src="~/Scripts/jquery.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery.easing.min.js"></script>
-    <script src="~/Scripts/jquery.fittext.js"></script>
-    <script src="~/Scripts/wow.min.js"></script>
-    <script src="~/Scripts/creative.js"></script>
-    <script src="~/Scripts/back-to-top.js" type="text/javascript"></script>
+    <section class="panel-footer navbar-fixed-bottom">
+        <div class="bottom-bar">
+            <div class="container">
+                <small class="copyright">Copyright @@ 2015 <a href="#">Lara1n Group</a></small>
+            </div><!--//container-->
+        </div><!--//bottom-bar-->
+    </section><!--//footer-->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

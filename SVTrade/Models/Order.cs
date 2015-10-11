@@ -14,14 +14,25 @@ namespace SVTrade.Models
     
     public partial class Order
     {
+        public Order()
+        {
+            this.ReservedProduct = new HashSet<ReservedProduct>();
+        }
+    
         public int orderID { get; set; }
         public System.DateTime orderDate { get; set; }
         public System.DateTime finishDate { get; set; }
         public int productID { get; set; }
         public int userID { get; set; }
         public double amount { get; set; }
+        public System.DateTime statusDate { get; set; }
+        public int statusID { get; set; }
+        public bool completed { get; set; }
+        public bool canceled { get; set; }
     
+        public virtual OrderStatus OrderStatus { get; set; }
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }
+        public virtual ICollection<ReservedProduct> ReservedProduct { get; set; }
     }
 }

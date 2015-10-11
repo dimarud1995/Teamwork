@@ -34,6 +34,8 @@ namespace SVTrade.Concrete
                     dbEntry.email = user.email;
                     dbEntry.merchantLicense = user.merchantLicense;
                     dbEntry.tradeLicense = user.tradeLicense;
+                    dbEntry.approved = user.approved;
+                    dbEntry.passwordSalt = user.passwordSalt;
                 }
             }
             _db.SaveChanges();

@@ -20,6 +20,8 @@ namespace SVTrade.Models
             this.ChoosedCategory = new HashSet<ChoosedCategory>();
             this.Order = new HashSet<Order>();
             this.Product = new HashSet<Product>();
+            this.ProductToBuy = new HashSet<ProductToBuy>();
+            this.ReservedProduct = new HashSet<ReservedProduct>();
             this.ShowedProduct = new HashSet<ShowedProduct>();
         }
     
@@ -35,11 +37,15 @@ namespace SVTrade.Models
         public string email { get; set; }
         public bool merchantLicense { get; set; }
         public bool tradeLicense { get; set; }
+        public bool approved { get; set; }
+        public string passwordSalt { get; set; }
     
         public virtual ICollection<Article> Article { get; set; }
         public virtual ICollection<ChoosedCategory> ChoosedCategory { get; set; }
         public virtual ICollection<Order> Order { get; set; }
         public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<ProductToBuy> ProductToBuy { get; set; }
+        public virtual ICollection<ReservedProduct> ReservedProduct { get; set; }
         public virtual ICollection<ShowedProduct> ShowedProduct { get; set; }
         public virtual UserGroup UserGroup { get; set; }
     }

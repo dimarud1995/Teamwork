@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+
 namespace SVTrade.Models
 {
     using System;
@@ -15,11 +17,12 @@ namespace SVTrade.Models
     public partial class Article
     {
         public int articleID { get; set; }
+        [DisplayName("Заголовок")]
         public string title { get; set; }
         public int userID { get; set; }
         public string imageURL { get; set; }
         public string description { get; set; }
-        public System.DateTime expirationDate { get; set; }
+        public System.DateTime date { get; set; }
     
         public virtual User User { get; set; }
     }

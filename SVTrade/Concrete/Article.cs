@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SVTrade.Abstract;
 using SVTrade.Models;
 
@@ -26,7 +27,7 @@ namespace SVTrade.Concrete
                     dbEntry.userID = article.userID;
                     dbEntry.imageURL = article.imageURL;
                     dbEntry.description = article.description;
-                    dbEntry.expirationDate = article.expirationDate;
+                    dbEntry.date = article.date;
                 }
             }
             _db.SaveChanges();

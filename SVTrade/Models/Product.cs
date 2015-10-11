@@ -17,21 +17,24 @@ namespace SVTrade.Models
         public Product()
         {
             this.Order = new HashSet<Order>();
+            this.ReservedProduct = new HashSet<ReservedProduct>();
             this.ShowedProduct = new HashSet<ShowedProduct>();
         }
     
         public int productID { get; set; }
-        public string name { get; set; }
+        public string title { get; set; }
         public int productCategoryID { get; set; }
         public string imageURL { get; set; }
         public double amount { get; set; }
         public double price { get; set; }
         public string description { get; set; }
         public int userID { get; set; }
+        public bool approved { get; set; }
     
         public virtual ICollection<Order> Order { get; set; }
         public virtual ProductCategory ProductCategory { get; set; }
         public virtual User User { get; set; }
+        public virtual ICollection<ReservedProduct> ReservedProduct { get; set; }
         public virtual ICollection<ShowedProduct> ShowedProduct { get; set; }
     }
 }

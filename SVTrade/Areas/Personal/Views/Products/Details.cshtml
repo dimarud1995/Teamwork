@@ -7,9 +7,11 @@
 <div class="allpage">
     <div class="absolutecontainer">
         <div class="col-lg-2 leftmenu">
-            <p>@Html.ActionLink("Додати товар", "Create")</p>
-            <p>@Html.ActionLink("Ваш склад", "Index")</p>
-            <p>@Html.ActionLink("Статистика", "Statistic")</p>
+          <ul class="nav nav-tab limenu">
+                <li>@Html.ActionLink("Додати товар", "Create", "Products")</li>
+                <li>@Html.ActionLink("Ваш склад", "Index", "Products")</li>
+                <li>@Html.ActionLink("Статистика", "Index", "Statistic")</li>
+                </ul>
         </div>
         <div class="col-lg-9 rightmenu">
             <h2>Деталі</h2>

@@ -1,43 +1,44 @@
 ﻿@model IEnumerable<SVTrade.Models.UserGroup>
 
 @{
-    ViewBag.Title = "Админ: Все должности";
+    ViewBag.Title = "Админ: Группы пользователей ";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Должности</h2>
+<h2>Группы пользователей</h2>
+
+<p>
+    <a href="/Admin/Admin/CreateUserGroup" class="btn btn-default">Добавить новогую группу</a>
+</p>
+
+<h3 class="pad25 text-center">Существующие группы</h3>
 
 
-<table class="table">
+<table class="table table-bordered table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.userGroupID)
+            Название
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th></th>
+        <th> Управление </th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
+
             <td>
-                @item.userGroupID
-            </td>
-            <td>
-                @Html.ActionLink(item.name, "EditUserGroup", new {item.userGroupID})
+                @Html.DisplayFor(model => item.name)
             </td>
             <td>
                 @using (Html.BeginForm("DeleteUserGroup", "Admin"))
                 {
                     @Html.Hidden("userGroupID", item.userGroupID)
-                    <input type="submit" value="Удалить"/>
+                    <input type="submit" value="Удалить" class="btn btn-danger marg5" />
                 }
+
+                @Html.ActionLink("Изменить", "EditUserGroup", "Admin", new { item.userGroupID }, new { @class = "btn btn-info marg5" })
+
             </td>
         </tr>
     }
 </table>
-<p>
-    @Html.ActionLink("Добавить новую должность", "CreateUserGroup")
-</p>

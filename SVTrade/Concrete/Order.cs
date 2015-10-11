@@ -27,6 +27,10 @@ namespace SVTrade.Concrete
                     dbEntry.productID = order.productID;
                     dbEntry.userID = order.userID;
                     dbEntry.amount = order.amount;
+                    dbEntry.statusDate = order.statusDate;
+                    dbEntry.statusID = order.statusID;
+                    dbEntry.canceled = order.canceled;
+                    dbEntry.completed = order.completed;
                 }
             }
             _db.SaveChanges();

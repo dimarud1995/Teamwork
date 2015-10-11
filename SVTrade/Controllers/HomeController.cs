@@ -8,23 +8,53 @@ namespace SVTrade.Controllers
 {
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public ActionResult Index()
+        {
+            return View();
+        }
+
+
+        [Authorize] // This is for Authorize user
+        public ActionResult MyProfile()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AdminIndex()
+        {
+            return View();
+        }
+
+
+
+        [Authorize(Roles = "User")]
+        public ActionResult UserIndex()
+        {
+            return View();
+        }
+
+
+
+        [Authorize(Roles = "Manager")]
+        public ActionResult ManagerIndex()
+        {
+            return View();
+        }
+
+
+
+        [Authorize(Roles = "ConfirmedUser")]
+        public ActionResult ConfirmedUserIndex()
         {
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
