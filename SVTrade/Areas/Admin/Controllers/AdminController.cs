@@ -711,5 +711,25 @@ namespace SVTrade.Areas.Admin.Controllers
 
         #endregion
 
+        public ViewResult ManagerStatisticList()
+        {
+            return View();
+        }
+
+        public ViewResult SaleStatisticList()
+        {
+            return View();
+        }
+
+        public ViewResult ShoppingStatisticList()
+        {
+            return View();
+        }
+
+        public ViewResult VirtualStorageList()
+        {
+            return View();
+        }
     }
+
 }

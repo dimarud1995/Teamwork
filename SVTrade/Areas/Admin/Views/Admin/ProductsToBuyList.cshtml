@@ -56,10 +56,12 @@
                 {
                     @Html.Hidden("productToBuyID", item.productToBuyID)
                     <div class="btn-group" role="group">
-                        <input type="submit" value="Видалити" class="btn btn-danger marg5" />
+                        <input type="submit" value="Відхилити" class="btn btn-danger marg5" />
                     </div>
                 }
                 @Html.ActionLink("Змінити", "EditProductToBuy", "Admin", new { item.productToBuyID }, new { @class = "btn btn-info marg5" })
+                <input type="submit" value="Підтвердити" class="btn disabled"/>
+                <input type="submit" value="На наступний етап" class="btn disabled" />
             </td>
         </tr>
     }
