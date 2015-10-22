@@ -1,0 +1,68 @@
+﻿@model SVTrade.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Деталі</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.orderDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.orderDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.finishDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.finishDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.amount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.amount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.statusDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.statusDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OrderStatus.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OrderStatus.name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Product.title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Product.title)
+            </dd>
+
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Редагувати", "Edit", new { id = Model.orderID }) |
+        @Html.ActionLink("Повернутись", "Index", new { id = Model.userID })
+    </p>
+</div>

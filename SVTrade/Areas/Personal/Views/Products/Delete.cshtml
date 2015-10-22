@@ -1,0 +1,67 @@
+﻿@model SVTrade.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Видалення</h2>
+
+<h3>Ви впевнені, шо хочете видалити цей товар?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+          Назва
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+          Кількість
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
+        <dt>
+           Ціна
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+          Опис
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+
+        <dt>
+          Категорія
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCategory.name)
+        </dd>
+
+ 
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Видалити" class="btn btn-default get" /> 
+            @Html.ActionLink("Повернутись", "Index", new { id = Model.userID }, new { @class="btn btn-default get"})
+        </div>
+    }
+</div>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SVTrade.Models.ProductToBuy>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Передзамовлення</h2>
+
+<p>
+    @Html.ActionLink("Додати", "Create",new {area="Personal" }, new { @class = "btn btn-default get" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Назва
+        </th>
+        <th>
+           Кількість
+        </th>
+        <th>
+           Ціна
+        </th>
+        <th>
+          Підтвердження
+        </th>
+        <th>
+          Категорія
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.approved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductCategory.name)
+        </td>
+      
+        <td>
+            @Html.ActionLink("Редагувати", "Edit", new { id=item.productToBuyID })
+            @Html.ActionLink("Видалити", "Delete", new { id=item.productToBuyID })
+        </td>
+    </tr>
+}
+
+</table>

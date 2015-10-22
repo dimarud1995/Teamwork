@@ -1,0 +1,88 @@
+﻿@model SVTrade.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Назва компанії
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.companyName)
+        </dd>
+
+        <dt>
+           Юридична адреса
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.juridicalAddress)
+        </dd>
+
+        <dt>
+           Адреса
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+           Контактна персона
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactPerson)
+        </dd>
+
+      
+
+        <dt>
+           Тел.
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneNumber)
+        </dd>
+
+        <dt>
+            Електронна пошта
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            Ліцензія на торгівлю
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tradeLicense)
+        </dd>
+
+        <dt>
+           Підтверджено
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.approved)
+        </dd>
+
+   
+
+    </dl>
+</div>
+<p>
+   
+ 
+</p>

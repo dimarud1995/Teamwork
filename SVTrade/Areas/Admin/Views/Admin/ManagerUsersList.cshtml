@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SVTrade.Models.User>
+
+@{
+    ViewBag.Title = "Адмін: непідтверджені користувачі";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Непідтверджені користувачі</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.email)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.userGroupID)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.companyName)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.juridicalAddress)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.address)
+        </td>
+
+        <td>
+            @Html.DisplayNameFor(model => model.post)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.contactPerson)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.merchantLicense)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.tradeLicense)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.approved)
+        </td>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.email)</td>
+            <td>@Html.DisplayFor(model => item.UserGroup.name)</td>
+            <td>@Html.DisplayFor(model => item.companyName)</td>
+            <td>@Html.DisplayFor(model => item.juridicalAddress)</td>
+            <td>@Html.DisplayFor(model => item.address)</td>
+            <td>@Html.DisplayFor(model => item.post)</td>
+            <td>@Html.DisplayFor(model => item.phoneNumber)</td>
+            <td>@Html.DisplayFor(model => item.contactPerson)</td>
+            <td>@Html.DisplayFor(model => item.merchantLicense)</td>
+            <td>@Html.DisplayFor(model => item.tradeLicense)</td>
+            <td>@Html.DisplayFor(model => item.approved)</td>
+            <td>
+                @using (Html.BeginForm("DeleteUser", "Admin"))
+                {
+                    @Html.Hidden("userID", item.userID)
+                    <div class="btn-group" role="group">
+                        <input type="submit" value="Видалити" class="btn btn-default" />
+                    </div>
+                }
+                @Html.ActionLink("Змінити", "EditManagerUser", "Admin", new {item.userID}, new {@class = "btn btn-default"})
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+

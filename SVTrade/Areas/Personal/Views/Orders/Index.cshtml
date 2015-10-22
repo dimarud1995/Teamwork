@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SVTrade.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <h2>Замовлення</h2>
+
+    <p>
+        @Html.ActionLink("Зробити замовлення", "Mapping","Mapping",new { area="MappingProducts"}, new { })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.orderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.finishDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.statusDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.completed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.canceled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStatus.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.title)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.orderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.finishDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.statusDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.completed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.canceled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatus.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.title)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.orderID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.orderID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.orderID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

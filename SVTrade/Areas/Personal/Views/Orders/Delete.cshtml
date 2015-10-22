@@ -1,0 +1,75 @@
+﻿@model SVTrade.Models.Order
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Видадення</h2>
+
+    <h3>Ви впевнені, що хочете видалити заовлення?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.orderDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.orderDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.finishDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.finishDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.amount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.amount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.statusDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.statusDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OrderStatus.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OrderStatus.name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Product.title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Product.title)
+            </dd>
+
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Повернутись", "Index", new { id = Model.userID })
+            </div>
+        }
+    </div>
+</div>

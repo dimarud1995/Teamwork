@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SVTrade.Models.Order>
+
+@{
+    ViewBag.Title = "Адмін: всі замовлення";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Замовлення</h2>
+
+<div class="row">
+    <div class="col-lg-9">
+        <p class="text-info">Тут ви зможете керувати існуючими завмовленнями або створювати нові.</p>
+    </div>
+</div>
+
+<p class="">
+    <a href="/Admin/Admin/CreateOrder" class="btn btn-default">Додати замовлення</a>
+</p>
+
+<h3 class="pad25 text-center">Список замовлень</h3>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.orderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.finishDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statusDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statusID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.completed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.canceled)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.orderDate)</td>
+            <td>@Html.DisplayFor(model => item.finishDate)</td>
+            <td>@Html.DisplayFor(model => item.Product.title)</td>
+            <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
+            <td>@Html.DisplayFor(model => item.amount)</td>
+            <td>@Html.DisplayFor(model => item.statusDate)</td>
+            <td>@Html.DisplayFor(model => item.statusID)</td>
+            <td>@Html.DisplayFor(model => item.completed)</td>
+            <td>@Html.DisplayFor(model => item.canceled)</td>
+
+            <td>
+                @using (Html.BeginForm("DeleteOrder", "Admin"))
+                {
+                    @Html.Hidden("orderID", item.orderID)
+                    <div class="btn-group" role="group">
+                        <input type="submit" value="Видалити" class="btn btn-danger marg5" />
+                    </div>
+                }
+                @Html.ActionLink("Змінити", "EditOrder", "Admin", new { item.orderID }, new { @class = "btn btn-info marg5" })
+            </td>
+        </tr>
+    }
+</table>
+

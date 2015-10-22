@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SVTrade.Models.ProductToBuy>
+
+@{
+    ViewBag.Title = "Адмін: всі передзамовлення";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Передзамовлення</h2>
+
+<p>
+    <a href="/Admin/Admin/CreateProductToBuy" class="btn btn-default">Додати нове передзамовлення</a>
+</p>
+
+<h3 class="pad25 text-center">Передзамовлення користувачів</h3>
+
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productCategoryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.approved)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.title)</td>
+            <td>@Html.DisplayFor(model => item.ProductCategory.name)</td>
+            <td>@Html.DisplayFor(model => item.amount)</td>
+            <td>@Html.DisplayFor(model => item.price)</td>
+            <td>@Html.DisplayFor(model => item.description)</td>
+            <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
+            <td>@Html.DisplayFor(model => item.approved)</td>
+
+            <td>
+                @using (Html.BeginForm("DeleteProductToBuy", "Admin"))
+                {
+                    @Html.Hidden("productToBuyID", item.productToBuyID)
+                    <div class="btn-group" role="group">
+                        <input type="submit" value="Видалити" class="btn btn-danger marg5" />
+                    </div>
+                }
+                @Html.ActionLink("Змінити", "EditProductToBuy", "Admin", new { item.productToBuyID }, new { @class = "btn btn-info marg5" })
+            </td>
+        </tr>
+    }
+</table>
+
+
+

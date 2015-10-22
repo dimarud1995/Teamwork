@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SVTrade.Models.ReservedProduct>
+
+@{
+    ViewBag.Title = "Адмін: товари в резерві";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Товари</h2>
+
+<p>
+    <a href="/Admin/Admin/CreateReservedProduct" class="btn btn-default">Створити новий резерв</a>
+</p>
+<p><span class="text-danger">Увага!</span> Всі товари резервуються автоматично після оформлення заявки користувачами на сайті.Створення їх вручну не маючи необхідну інформацію може негативно позначитись на роботі системи!</p>
+
+<h3 class="pad25 text-center">Зарезервовані товари</h3>
+
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.orderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amountOfProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.orderID)</td>
+            <td>@Html.DisplayFor(model => item.Product.title)</td>
+            <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
+            <td>@Html.DisplayFor(model => item.amountOfProduct)</td>
+            <td>@Html.DisplayFor(model => item.date)</td>
+
+            <td>
+                @using (Html.BeginForm("DeleteReservedProduct", "Admin"))
+                {
+                    @Html.Hidden("reservID", item.reservID)
+                    <div class="btn-group" role="group">
+                        <input type="submit" value="Видалити" class="btn btn-danger marg5" />
+                    </div>
+                }
+                @Html.ActionLink("Змінити", "EditReservedProduct", "Admin", new { item.reservID }, new { @class = "btn btn-info marg5" })
+            </td>
+        </tr>
+    }
+</table>
+
+

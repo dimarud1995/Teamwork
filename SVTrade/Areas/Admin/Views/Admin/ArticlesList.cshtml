@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SVTrade.Models.Article>
+
+@{
+    ViewBag.Title = "Адмін: всі новини";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Новости</h2>
+
+<p>
+    <a href="/Admin/Admin/CreateArticle" class="btn btn-default">Додати новину</a>
+</p>
+
+<h3 class="pad25 text-center">Всі новини</h3>
+
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imageURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userID)
+        </th>
+        <th class="col-md-1">
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.title)</td>
+            <td>@Html.DisplayFor(model => item.imageURL)</td>
+            <td>@Html.DisplayFor(model => item.description)</td>
+            <td>@Html.DisplayFor(model => item.date)</td>
+            <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
+            <td>
+                @using (Html.BeginForm("DeleteArticle", "Admin"))
+                {
+                    @Html.Hidden("articleID", item.articleID)
+
+                    <input type="submit" value="Видалити" class="btn btn-danger marg5" />
+
+                }
+                @Html.ActionLink("Змінити", "EditArticle", "Admin", new { item.articleID }, new { @class = "btn btn-info marg5" })
+            </td>
+        </tr>
+    }
+</table>
+
+
+

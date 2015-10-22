@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SVTrade.Models.UserGroup>
+
+@{
+    ViewBag.Title = "Адмін: групи користувачів ";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Групи користувачів</h2>
+
+<p>
+    <a href="/Admin/Admin/CreateUserGroup" class="btn btn-default">Додати нову групу</a>
+</p>
+
+<h3 class="pad25 text-center">Існуючі групи</h3>
+
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(model => item.name)
+            </td>
+            <td>
+                @using (Html.BeginForm("DeleteUserGroup", "Admin"))
+                {
+                    @Html.Hidden("userGroupID", item.userGroupID)
+                    <input type="submit" value="Видалити" class="btn btn-danger marg5" />
+                }
+
+                @Html.ActionLink("Змінити", "EditUserGroup", "Admin", new { item.userGroupID }, new { @class = "btn btn-info marg5" })
+
+            </td>
+        </tr>
+    }
+</table>

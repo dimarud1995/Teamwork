@@ -1,0 +1,22 @@
+﻿@{
+    if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <ul class="nav navbar-nav navbar-left">
+                <li>@Html.ActionLink("Як це працює", "About", "Home", new { area = "" }, new { @class = "navbar-brand page-scroll  " })</li>
+                <li>@Html.ActionLink("Особистий кабінет", "Index", "Personal/Products", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
+                <li>@Html.ActionLink("Адміністратор", "ArticlesList", "Admin/Admin", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
+                <li>@Html.ActionLink("Товари", "Mapping", "MappingProducts/Mapping", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
+                <li><a class="page-scroll" href="/Home/About#contact">Контакти</a></li>
+            </ul>
+
+        }
+    }
+    else
+    {
+       
+
+    }
+}

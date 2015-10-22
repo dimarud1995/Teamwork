@@ -1,0 +1,122 @@
+﻿@model SVTrade.Models.User
+
+@{
+    ViewBag.Title = "Адмін: змінити " + @Model.contactPerson;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Змінити @Model.contactPerson</h2>
+@using (Html.BeginForm("EditUser", "Admin"))
+{
+    <div class="form-group">
+        <div class="col-md-10">
+
+            
+            <div class="editor-field">
+                @Html.EditorFor(x => x.userID, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.email, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            
+            <div class="editor-field">
+                @Html.EditorFor(x => x.password, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.UserGroup)
+            </div>
+
+            <div class="dropdown">
+                @Html.DropDownListFor(m => m.userGroupID,
+                    (IEnumerable<SelectListItem>) ViewData["AllGroup"], "choose", new {@class = "form-control"})
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.companyName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.companyName, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.juridicalAddress)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.juridicalAddress, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.address)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.address, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.contactPerson)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.contactPerson, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.post)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.post, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.phoneNumber)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.phoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.merchantLicense)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.merchantLicense, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.tradeLicense)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.tradeLicense, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.approved)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.approved, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.passwordSalt)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.passwordSalt, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+
+
+            <div class="editor-label">
+                <input type="submit" value="Зберегти" class="btn btn-default"/>
+            </div>
+            <div class="editor-label">
+                @Html.ActionLink("Відмінити і повернутись до списку", "UsersList")</div>
+
+        </div>
+    </div>
+
+}
