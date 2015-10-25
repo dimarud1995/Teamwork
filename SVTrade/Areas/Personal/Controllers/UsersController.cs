@@ -25,13 +25,18 @@ namespace SVTrade.Areas.Personal.Controllers
         public ActionResult Index()
         {
             int tID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
-            var user = r.Users.Include(u => u.UserGroup).Where(p=>p.userID== tID);
-            return View(user.ToList());
+            var user = r.Users.FirstOrDefault(p => p.userID == tID);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
         }
 
         // GET: Personal/Users/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
+            int id = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

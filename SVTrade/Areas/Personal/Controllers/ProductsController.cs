@@ -73,10 +73,15 @@ namespace SVTrade.Areas.Personal.Controllers
             System.IO.Directory.CreateDirectory(ProjPart);
             String PartAdress = System.IO.Path.Combine("~/Areas/Personal/Pictures", product.userID.ToString(), product.productCategoryID.ToString(), product.productID.ToString(), System.IO.Path.GetFileName(photo.FileName));
             PartAdress = PartAdress.Trim(' ');
-            product.imageURL = PartAdress;
+            
             if (photo.FileName!="")
             {
+                product.imageURL = PartAdress;
                 photo.SaveAs(LocalFullAdress);
+            }
+            else
+            {
+                product.imageURL = "Добавте картинку";
             }
            
             if (ModelState.IsValid)
@@ -118,17 +123,24 @@ namespace SVTrade.Areas.Personal.Controllers
             product.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
             product.approved = false;
             HttpPostedFileBase photo = Request.Files["photo"];
-            String ProjPart = System.IO.Path.Combine(Server.MapPath("~/Areas/Personal/Pictures"), product.userID.ToString(), product.productCategoryID.ToString(), product.title.ToString());
-            String PartAdres = System.IO.Path.Combine(ProjPart, System.IO.Path.GetFileName(photo.FileName));
+            String LocalAdress = "~/Areas/Personal/Pictures";
+            String ProjPart = System.IO.Path.Combine(Server.MapPath(LocalAdress), product.userID.ToString(), product.productCategoryID.ToString(), product.productID.ToString());
+            String LocalFullAdress = System.IO.Path.Combine(ProjPart, System.IO.Path.GetFileName(photo.FileName));
             System.IO.Directory.CreateDirectory(ProjPart);
-            if (photo.FileName!="")
+            String PartAdress = System.IO.Path.Combine("~/Areas/Personal/Pictures", product.userID.ToString(), product.productCategoryID.ToString(), product.productID.ToString(), System.IO.Path.GetFileName(photo.FileName));
+            PartAdress = PartAdress.Trim(' ');
+
+            if (photo.FileName != "")
             {
-                photo.SaveAs(PartAdres);
+                product.imageURL = PartAdress;
+                photo.SaveAs(LocalFullAdress);
+            }
+            else
+            {
+                product.imageURL = r.Products.FirstOrDefault(p => p.productID == product.productID).imageURL;
             }
            
-            Console.Write(PartAdres);
-
-            product.imageURL = ProjPart;
+            
             if (ModelState.IsValid)
             {
                 r.SaveProduct(product);

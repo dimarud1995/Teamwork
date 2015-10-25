@@ -1,15 +1,58 @@
-﻿@model IEnumerable<SVTrade.Models.User>
+﻿@model SVTrade.Models.User
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+<div class="tab-container">
+    <div class="tab-details">
+        <ul class="nav nav-tabs new" id="myTab">
+            <li class="active">
+                <a href="~/Personal/Users/Index">Профіль</a>
+            </li>
+            <li>
+                <a href="~/Personal/Orders/Index">Замовлення</a>
+            </li>
+            <li>
+                <a href="~/Personal/ProductToBuys/Index">Передзамовлення</a>
+            </li>
+            <li >
+                <a href="~/Personal/Products/Index">Ваші товари</a>
+            </li>
+            <li>
+                <a href="#">Статистика продаж</a>
+            </li>
+            <li>
+                <a href="#">Побажання</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab-content" id="myTabCont">
+        <div class="tab-pane active" id="annonces">
+            <ul class="nav nav-pills" id="ulMyTab">
+                <li class="active">
+                    <a href="~/Personal/Users/Edit/ @Html.DisplayFor(model => model.userID) " rel="nofollow">
+                        Редагувати профіль
+                    </a>
+                </li>
+               
+            </ul>
+        </div>
+        <div class="tab-pane active" id="received">
+            <div class="messages-container clearfix">
+                <ol class="unstyled received-thread">
+                    
+                </ol>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 <table class="table">
     <tr>
         <th>
@@ -54,52 +97,55 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.password)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.companyName)
+           @Html.DisplayFor(model => model.companyName) 
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.juridicalAddress)
+            @Html.DisplayFor(model => model.juridicalAddress)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.address)
+            @Html.DisplayFor(model => model.address)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.contactPerson)
+            @Html.DisplayFor(model => model.contactPerson)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.post)
+            @Html.DisplayFor(model => model.post)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.phoneNumber)
+            @Html.DisplayFor(model => model.phoneNumber)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.email)
+            @Html.DisplayFor(model => model.email)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.merchantLicense)
+            @Html.DisplayFor(model => model.merchantLicense)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.tradeLicense)
+            @Html.DisplayFor(model => model.tradeLicense)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.approved)
+            @Html.DisplayFor(model => model.approved)
+            
         </td>
+       
         <td>
-            @Html.DisplayFor(modelItem => item.passwordSalt)
+            
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserGroup.name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.userID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.userID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.userID })
-        </td>
+
     </tr>
 }
 

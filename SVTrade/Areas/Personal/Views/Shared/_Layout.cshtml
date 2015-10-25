@@ -16,7 +16,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav id="mainNav" class="navbar navbar-fixed-top navbar-default " style="background-color: #111">
+    <nav id="mainNav" class="navbar navbar-fixed-top navbar-default" style="background-color: #111">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -65,101 +65,10 @@
         </div>
     </nav>
  
-    <div class=" maincont allpage">
-        <div class="leftmenu">
-
-            @Html.Partial("RightMenu");
-        </div>
-        <div class="rightmenu">
-            <div class="right2">
-                @RenderBody()
-            </div>
-      
-        </div>
-      
+    <div class="container maincont">
+   @RenderBody();
     </div>
-    <footer>
-        <section class="footer">
-            <div id="contact" class="footer-content">
-                <div class="container">
-                    <div class="row has-divider">
-                        <div class="footer-col connect col-md-6 col-sm-12 col-xs-12">
-                            <div class="footer-col-inner">
-                                <ul class="social list-inline">
-                                    <li><a href="https://twitter.com/EnergoKyznya" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="https://www.facebook.com/energokuznya"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="http://vk.com/public95055356"><i class="fa fa fa-vk"></i></a>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="https://www.youtube.com/channel/UCIYORbd53e8ylT6at3pxNVQ"><i class="fa fa-youtube-square"></i></a></li>
-                                    <li class="row-end"><a href="#"><i class="fa fa-rss"></i></a></li>
-                                </ul>
-                                <div class="form-container">
-                                    <p class="intro">Залишайтесь в курсі останніх новин від Енерго Кузні</p>
-                                    <form class="signup-form navbar-form">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="example@email.com">
-                                        </div>
-                                        <button type="submit" class="btn btn-ghost">Підписатись</button>
-                                    </form>
-                                </div><!--//subscription-form-->
-                            </div><!--//footer-col-inner-->
-                        </div><!--//foooter-col-->
-                        <div class="footer-col connect col-md-6 col-sm-12 col-xs-12">
-                            <div class="footer-col-inner">
-                                <ul class="social list-inline">
-                                    <li><a href="https://twitter.com/EnergoKyznya" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="https://www.facebook.com/energokuznya"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="http://vk.com/public95055356"><i class="fa fa fa-vk"></i></a>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="https://www.youtube.com/channel/UCIYORbd53e8ylT6at3pxNVQ"><i class="fa fa-youtube-square"></i></a></li>
-                                    <li class="row-end"><a href="#"><i class="fa fa-rss"></i></a></li>
-                                </ul>
-                                <div class="form-container">
-                                    <p class="intro">Залишайтесь в курсі останніх новин від Unknown Data</p>
-                                    <form class="signup-form navbar-form">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="example@email.com">
-                                        </div>
-                                        <button type="submit" class="btn btn-ghost">Підписатись</button>
-                                    </form>
-                                </div><!--//subscription-form-->
-                            </div><!--//footer-col-inner-->
-                        </div><!--//foooter-col-->
-                        <div class="clearfix"></div>
-                    </div><!--//row-->
-                    <div class="row has-divider">
-                        <div class="footer-col contact col-md-6 col-sm-12 col-xs-12">
-                            <div class="footer-col-inner left-map">
-                                <h3 class="title">Unknown Data</h3>
-                                <p class="adr clearfix">
-                                    <i class="fa fa-map-marker pull-left"></i>
-                                    <span class="adr-group pull-left">
-                                        <span class="street-address">Unknown Data</span><br>
-                                        <span class="region">Unknown Data</span><br>
-                                        <span class="postal-code">Unknown Data.</span><br>
-                                        <span class="country-name">Unknown Data</span>
-                                    </span>
-                                </p>
-                                <p class="tel"><i class="fa fa-phone"></i>Unknown Data</p>
-                                <p class="tel"><i class="fa fa-phone"></i>Unknown Data</p>
-                                <p class="tel"><i class="fa fa-phone"></i>Unknown Data</p>
-                                <p class="email"><i class="fa fa-envelope-o"></i><a href="#">Unknown Data</a></p>
-                                <a href="https://twitter.com/Unknown Data" class="twitter-follow-button" data-show-count="false">Follow Unknown Data</a>
-                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                            </div><!--//footer-col-inner-->
-                        </div><!--//contact-->
-                        <div class="footer-col contact col-md-6 col-sm-12 col-xs-12">
-                            <div class="footer-col-inner">
-                                <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20301.506874771214!2d30.238645972244267!3d50.50275762939976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472b33c3adf5b61b%3A0x408c1787c24ceafe!2z0LLRg9C7LiDQm9GW0YHQvtCy0LAsIDE5LCDQhtGA0L_RltC90YwsINCa0LjRl9Cy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsINCj0LrRgNCw0LjQvdCw!5e0!3m2!1sru!2s!4v1438209192495" width="585" height="265" frameborder="1" style="border:1"></iframe>
-                            </div><!--//footer-col-inner-->
-                        </div><!--//contact-->
-                    </div>
-                </div><!--//container-->
-            </div><!--//footer-content-->
-        </section><!--//footer-->
-    </footer>
+   
     <script src="~/Scripts/jquery.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.easing.min.js"></script>

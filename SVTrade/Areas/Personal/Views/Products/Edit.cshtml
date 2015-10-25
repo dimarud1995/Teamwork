@@ -5,73 +5,132 @@
     Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Редагувати</h2>
+<div class="tab-container">
+    <div class="tab-details">
+        <ul class="nav nav-tabs new" id="myTab">
+            <li>
+                <a href="~/Personal/Users/Index">Профіль</a>
+            </li>
+            <li>
+                <a href="~/Personal/Orders/Index">Замовлення</a>
+            </li>
+            <li>
+                <a href="~/Personal/ProductToBuys/Index">Передзамовлення</a>
+            </li>
+            <li class="active">
+                <a href="~/Personal/Products/Index">Ваші товари</a>
+            </li>
+            <li>
+                <a href="#">Статистика продаж</a>
+            </li>
+            <li>
+                <a href="#">Побажання</a>
+            </li>
+        </ul>
+    </div>
 
-<form action="~/Personal/Products/Edit" method="post" enctype="multipart/form-data">
-
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.productID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.title, "Назва", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
-            </div>
+    <div class="tab-content" id="myTabCont">
+        <div class="tab-pane active" id="annonces">
+            <ul class="nav nav-pills" id="ulMyTab">
+                <li>
+                    <a href="~/Personal/Products/Index" rel="nofollow">
+                        Список товарів
+                    </a>
+                </li>
+                <li>
+                    <a href="~/Personal/Products/Create" rel="nofollow">
+                        Додати товар
+                    </a>
+                </li>
+                <li>
+                    <a href="#" rel="nofollow">
+                        Історія 
+                    </a>
+                </li>
+            </ul>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.productCategoryID, "Категорія", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("productCategoryID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.productCategoryID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.imageURL, "Картинка", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" name="photo" id="photo" class=" btn-link" />
-                @Html.ValidationMessageFor(model => model.imageURL, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.amount, "Кількість", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.price, "Ціна", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.description, "Опис", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Зберегти" class="btn btn-default get" /> 
-                @Html.ActionLink("Повернутись", "Index", new { id = Model.userID }, new { @class = "btn btn-default get" })
+        <div class="tab-pane active" id="received">
+            <div class="messages-container clearfix">
+                <ol class="unstyled received-thread">
+                   На цій сторінці Ви можете редагувати додані Вами товари.
+                </ol>
             </div>
         </div>
     </div>
+
+
+</div>
+<div>
+
+    <form action="~/Personal/Products/Edit" method="post" enctype="multipart/form-data">
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal formClass" >
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.productID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.title, "Назва", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.productCategoryID, "Категорія", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("productCategoryID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.productCategoryID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.imageURL, "Картинка", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="photo" id="photo" class=" btn-link" />
+                    @Html.ValidationMessageFor(model => model.imageURL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.amount, "Кількість(кг)", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.price, "Ціна(грн/кг)", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.description, "Опис", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Зберегти" class="butstyle" />
+                    @Html.ActionLink("Повернутись", "Index", new { id = Model.userID }, new { @class = "butstyle" })
+                    @Html.ActionLink("Видалити", "Delete", new { id = Model.productID }, new { @class = "butstyleDel" })
+                 </div>
+            </div>
+        </div>
     </form>
 
-    
+
+
+
+</div>

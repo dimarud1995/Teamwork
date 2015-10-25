@@ -1,8 +1,13 @@
 ﻿body {
+    margin:0px;
+    padding:0px;
+    background-color: #F4F4F4;
+    font-family:Arial,Tahoma;
 }
 
 div{
    overflow:auto;
+   
   
 }
 li{
@@ -48,19 +53,107 @@ li{
     height:100%;
 }
  .maincont{
-        position:relative;
-       min-height:1080px;
-         border-left:solid 1px rgba(0,0,0,0.4);
-         border-right:solid 1px rgba(0,0,0,0.4);
+     margin-top:50px;
+  background-color:white;
+  min-height:500px;
+  width:75%;
+  min-width:770px;
+  box-shadow: 0 0 5px #999;
     }
- footer{
-     border-top:solid 1px rgba(0,0,0,0.4);
-     background:#111;
-     color:#999;
+ #myTab{
+     margin-bottom:2%;
+      margin-top:2%;
+      box-shadow:inset 0 0 10px #DDDDDD;
+      border-radius:5px;
+     font: 0.9em arial;
+       
  }
- nav{
-        
+ .myTable{
+     
+ 
+     
+      
+    
  }
- li{
+ .myTable1{
+   
+      box-shadow: 0 0 1px #999;
+      border-radius:5px;
+ }
+ #myTabCont{
+      margin-bottom:2%;
+         
+ }
+ #ulMyTab{
+      margin-bottom:2%; 
+      font: 0.8em arial;  
+      font-weight:bold; 
+ }
+ .formClass{
+     width:100%;
+ }
+ .formClass > div{
+     width:60%;
+     position:relative;
+     left:20%;
+ }
+ .butstyle{
+     margin:1%;
      color:white;
+     font:1em Arial;
+     border-radius:3px;
+     background-color:#008A00;
+     box-shadow:1px 1px 0px #4A950B;
+     padding:7px;
+     float:none;
+     margin-bottom:20px;
+     border:none;
+
+
+     
+ }
+  .butstyleDel{
+     margin:1%;
+     color:white;
+     font:1em Arial;
+     border-radius:3px;
+     background-color:#CC0000;
+     box-shadow:1px 1px 0px #8F0000;
+     padding:7px;
+     float:none;
+     margin-bottom:20px;
+     border:none;
+
+
+     
+ }
+
+ .butstyle:hover{
+      margin:1%;
+      color:white;
+      text-decoration:none;
+     font:1em Arial;
+     border-radius:3px;
+     background-color:#005300;
+     box-shadow:1px 1px 0px #4A950B;
+     padding:7px;
+     float:none;
+ }
+ .butstyleDel:hover{
+      margin:1%;
+      color:white;
+      text-decoration:none;
+     font:1em Arial;
+     border-radius:3px;
+     background-color:#8F0000;
+     box-shadow:1px 1px 0px #8F0000;
+     padding:7px;
+     float:none;
+ }
+ .cont{
+     border:dotted 1px rgba(0,0,0,0);
+     margin:2px;
+     padding:10px;
+     width:inherit;
+     overflow:hidden;
  }

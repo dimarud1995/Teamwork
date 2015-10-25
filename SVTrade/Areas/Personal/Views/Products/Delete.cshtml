@@ -5,63 +5,122 @@
     Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Видалення</h2>
+<div class="tab-container">
+    <div class="tab-details">
+        <ul class="nav nav-tabs new" id="myTab">
+            <li>
+                <a href="~/Personal/Users/Index">Профіль</a>
+            </li>
+            <li>
+                <a href="~/Personal/Orders/Index">Замовлення</a>
+            </li>
+            <li>
+                <a href="~/Personal/ProductToBuys/Index">Передзамовлення</a>
+            </li>
+            <li class="active">
+                <a href="~/Personal/Products/Index">Ваші товари</a>
+            </li>
+            <li>
+                <a href="#">Статистика продаж</a>
+            </li>
+            <li>
+                <a href="#">Побажання</a>
+            </li>
+        </ul>
+    </div>
 
-<h3>Ви впевнені, шо хочете видалити цей товар?</h3>
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-          Назва
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.title)
-        </dd>
-
-        <dt>
-          Кількість
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.amount)
-        </dd>
-
-        <dt>
-           Ціна
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
-
-        <dt>
-          Опис
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
-
-
-        <dt>
-          Категорія
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProductCategory.name)
-        </dd>
-
- 
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Видалити" class="btn btn-default get" /> 
-            @Html.ActionLink("Повернутись", "Index", new { id = Model.userID }, new { @class="btn btn-default get"})
+    <div class="tab-content" id="myTabCont">
+        <div class="tab-pane active" id="annonces">
+            <ul class="nav nav-pills" id="ulMyTab">
+                <li>
+                    <a href="~/Personal/Products/Index" rel="nofollow">
+                        Список товарів
+                    </a>
+                </li>
+                <li>
+                    <a href="~/Personal/Products/Create" rel="nofollow">
+                        Додати товар
+                    </a>
+                </li>
+                <li>
+                    <a href="#" rel="nofollow">
+                        Історія 
+                    </a>
+                </li>
+            </ul>
         </div>
-    }
+        <div class="tab-pane active" id="received">
+            <div class="messages-container clearfix">
+                <ol class="unstyled received-thread">
+                   
+                </ol>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div>
+
+    <h2>Видалення</h2>
+
+    <h3>Ви впевнені, шо хочете видалити цей товар?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Назва
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.title)
+            </dd>
+
+            <dt>
+                Кількість
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.amount)
+            </dd>
+
+            <dt>
+                Ціна
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+
+            <dt>
+                Опис
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.description)
+            </dd>
+
+
+            <dt>
+                Категорія
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductCategory.name)
+            </dd>
+
+
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Видалити" class="butstyleDel" />
+                @Html.ActionLink("Повернутись", "Index", new { id = Model.userID }, new { @class = "butstyle" })
+            </div>
+        }
+    </div>
 </div>
