@@ -65,10 +65,11 @@
                 {
                     @Html.Hidden("userID", item.userID)
                     <div class="btn-group" role="group">
-                        <input type="submit" value="Видалити" class="btn btn-default" />
+                        <input type="submit" value="Відхилити" class="btn btn-default" />
                     </div>
                 }
                 @Html.ActionLink("Змінити", "EditManagerUser", "Admin", new {item.userID}, new {@class = "btn btn-default"})
+                <input type="submit" value="Підтвердити" class="btn disabled" />
             </td>
         </tr>
     }

@@ -56,10 +56,13 @@
                     {
                         @Html.Hidden("productID", item.productID)
                         <div class="btn-group" role="group">
-                            <input type="submit" value="Видалити" class="btn btn-default" />
+                            <input type="submit" value="Відхилити" class="btn btn-default" />
                         </div>
                     }
                     @Html.ActionLink("Змінити", "EditManagerProduct", "Admin", new { item.productID }, new { @class = "btn btn-default" })
+                    <input type="submit" value="Підтвердити" class="btn disabled"/>
+                    <input type="submit" value="СМС розсилка" class="btn disabled"/>
+                    <input type="submit" value="Склад" class="btn disabled" />
                 </td>
             </tr>
         }
