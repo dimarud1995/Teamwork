@@ -206,6 +206,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\SMSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -217,6 +218,7 @@
     <Compile Include="Models\ChoosedCategory.cs">
       <DependentUpon>TradeDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConfigService.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -242,6 +244,8 @@
     <Compile Include="Models\ShowedProduct.cs">
       <DependentUpon>TradeDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SMS.cs" />
+    <Compile Include="Models\SmsService.cs" />
     <Compile Include="Models\TradeDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -267,6 +271,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\TradeDB.mdf" />
@@ -274,14 +283,19 @@
       <DependentUpon>TradeDB.mdf</DependentUpon>
     </Content>
     <Content Include="Areas\MappingProducts\Content\css\animate.css" />
+    <Content Include="Areas\MappingProducts\Content\css\blablacar.css" />
     <Content Include="Areas\MappingProducts\Content\css\bootstrap.min.css" />
     <Content Include="Areas\MappingProducts\Content\css\font-awesome.min.css" />
     <Content Include="Areas\MappingProducts\Content\css\main.css" />
+    <Content Include="Areas\MappingProducts\Content\css\main1.css" />
     <Content Include="Areas\MappingProducts\Content\css\prettyPhoto.css" />
     <Content Include="Areas\MappingProducts\Content\css\price-range.css" />
     <Content Include="Areas\MappingProducts\Content\css\responsive.css" />
     <Content Include="Areas\MappingProducts\Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\MappingProducts\Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\MappingProducts\Content\fonts\FontAwesome.otf" />
     <Content Include="Areas\MappingProducts\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\MappingProducts\Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\MappingProducts\Content\images\404\404.png" />
     <Content Include="Areas\MappingProducts\Content\images\home\bg_border.png" />
     <Content Include="Areas\MappingProducts\Content\images\home\meat1.jpg" />
@@ -292,6 +306,8 @@
     <Content Include="Areas\MappingProducts\Content\images\product-details\new.jpg" />
     <Content Include="Areas\MappingProducts\Content\images\product-details\rating.png" />
     <Content Include="Areas\MappingProducts\Content\images\product-details\share.png" />
+    <Content Include="Areas\MappingProducts\Content\images\shop\forex.jpg" />
+    <Content Include="Areas\MappingProducts\Content\images\shop\information-inset.png" />
     <Content Include="Areas\MappingProducts\Scripts\js\bootstrap.min.js" />
     <Content Include="Areas\MappingProducts\Scripts\js\contact.js" />
     <Content Include="Areas\MappingProducts\Scripts\js\gmaps.js" />
@@ -301,6 +317,40 @@
     <Content Include="Areas\MappingProducts\Scripts\js\jquery.scrollUp.min.js" />
     <Content Include="Areas\MappingProducts\Scripts\js\main.js" />
     <Content Include="Areas\MappingProducts\Scripts\js\price-range.js" />
+    <Content Include="Areas\MappingProducts\Views\Mapping\CartIndex.cshtml" />
+    <Content Include="Areas\MappingProducts\Views\Mapping\CreatePreOrder.cshtml" />
+    <Content Include="Areas\MappingProducts\Views\Mapping\Mapping.cshtml" />
+    <Content Include="Areas\MappingProducts\Views\Mapping\MappingCategory.cshtml" />
+    <Content Include="Areas\MappingProducts\Views\Mapping\Summary.cshtml" />
+    <Content Include="Areas\MappingProducts\Views\Shared\AddPreOrder.cshtml" />
+    <Content Include="Areas\MappingProducts\Views\Shared\MappingProduct.cshtml" />
+    <Content Include="Areas\MappingProducts\Views\Shared\Summary.cshtml" />
+    <Content Include="Areas\MappingProducts\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\MappingProducts\Views\web.config" />
+    <Content Include="Areas\MappingProducts\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Personal\Image\ans.png" />
+    <Content Include="Areas\Personal\Image\goup.png" />
+    <Content Include="Areas\Personal\Pictures\13\2\0\New Text Document.txt" />
+    <Content Include="Areas\Personal\Pictures\13\2\0\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\13\2\tttt\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\13\3\Сало свиняче\New Text Document.txt" />
+    <Content Include="Areas\Personal\Pictures\13\3\Сало свиняче\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\22\2\0\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\22\2\14\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\22\2\eee\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\22\4\0\New Text Document.txt" />
+    <Content Include="Areas\Personal\Pictures\22\4\ду\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\22\5\0\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\22\6\0\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\23\2\0\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\23\2\14\Screen.PNG" />
+    <Content Include="Areas\Personal\Pictures\23\2\14\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\23\3\0\Screen.PNG" />
+    <Content Include="Areas\Personal\Pictures\23\3\16\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\23\3\inysbds\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\23\4\14\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\23\5\14\Screen.PNG" />
+    <Content Include="Areas\Personal\Pictures\23\5\14\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\3\1\Supermodel-Obsession-victorias-secret-2360336-800-520.jpg" />
     <Content Include="Areas\Personal\Pictures\3\2\0\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\3\2\123\Supermodel-Obsession-victorias-secret-2360336-800-520.jpg" />
@@ -320,8 +370,47 @@
     <Content Include="Areas\Personal\Pictures\3\3\everфтв умук\Supermodel-Obsession-victorias-secret-2360336-800-520.jpg" />
     <Content Include="Areas\Personal\Pictures\3\3\last\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\3\everфтв умук\Supermodel-Obsession-victorias-secret-2360336-800-520.jpg" />
+    <Content Include="Areas\Personal\Pictures\7\2\0\meat3.jpg" />
+    <Content Include="Areas\Personal\Pictures\7\2\0\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\7\3\0\dog.jpg" />
+    <Content Include="Areas\Personal\Pictures\7\3\0\meat1.jpg" />
+    <Content Include="Areas\Personal\Pictures\7\3\0\meat2.jpg" />
+    <Content Include="Areas\Personal\Pictures\7\4\Сало свиняче\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\7\5\0\forex.jpg" />
+    <Content Include="Areas\Personal\Pictures\7\6\Теля ціле\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\Supermodel-Obsession-victorias-secret-2360336-800-520.jpg" />
+    <Content Include="Areas\Personal\Scripts\PersonalScript.js" />
     <Content Include="Areas\Personal\Style\css.css" />
+    <Content Include="Areas\Personal\Style\stylePersonal.css" />
+    <Content Include="Areas\Personal\Views\Orders\Create.cshtml" />
+    <Content Include="Areas\Personal\Views\Orders\Delete.cshtml" />
+    <Content Include="Areas\Personal\Views\Orders\Details.cshtml" />
+    <Content Include="Areas\Personal\Views\Orders\Edit.cshtml" />
+    <Content Include="Areas\Personal\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Personal\Views\ProductToBuys\Create.cshtml" />
+    <Content Include="Areas\Personal\Views\ProductToBuys\Delete.cshtml" />
+    <Content Include="Areas\Personal\Views\ProductToBuys\Details.cshtml" />
+    <Content Include="Areas\Personal\Views\ProductToBuys\Edit.cshtml" />
+    <Content Include="Areas\Personal\Views\ProductToBuys\Index.cshtml" />
+    <Content Include="Areas\Personal\Views\Shared\GoUp.cshtml" />
+    <Content Include="Areas\Personal\Views\Shared\HowItWork.cshtml" />
+    <Content Include="Areas\Personal\Views\Shared\RightMenu.cshtml" />
+    <Content Include="Areas\Personal\Views\Shared\SortProduct.cshtml" />
+    <Content Include="Areas\Personal\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Personal\Views\Statistic\Index.cshtml" />
+    <Content Include="Areas\Personal\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Personal\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Personal\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Personal\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Personal\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Personal\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -1138,7 +1227,6 @@
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\stylelogreg.css" />
-    <Content Include="Areas\Personal\Style\stylePersonal.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -1212,15 +1300,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TradeDBModel.edmx</DependentUpon>
       <LastGenOutput>TradeDBModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Personal\Views\Products\Create.cshtml" />
-    <Content Include="Areas\Personal\Views\Products\Delete.cshtml" />
-    <Content Include="Areas\Personal\Views\Products\Details.cshtml" />
-    <Content Include="Areas\Personal\Views\Products\Edit.cshtml" />
-    <Content Include="Areas\Personal\Views\Products\Index.cshtml" />
-    <Content Include="Areas\Personal\Views\Statistic\Index.cshtml" />
-    <Content Include="Areas\Personal\Views\web.config">
-      <SubType>Designer</SubType>
     </Content>
     <Content Include="Areas\Admin\Views\Admin\ArticlesList.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ChoosedCategoriesList.cshtml" />
@@ -1428,35 +1507,19 @@
     <Content Include="Content\plugins\datatables\extensions\TableTools\Readme.md" />
     <Content Include="Content\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Content\plugins\input-mask\phone-codes\phone-codes.json" />
-    <Content Include="Areas\MappingProducts\Content\fonts\fontawesome-webfont.woff" />
-    <Content Include="Areas\MappingProducts\Content\fonts\FontAwesome.otf" />
-    <Content Include="Areas\MappingProducts\Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Areas\MappingProducts\Views\Mapping\CartIndex.cshtml" />
-    <Content Include="Areas\MappingProducts\Views\Mapping\Mapping.cshtml" />
-    <Content Include="Areas\MappingProducts\Views\Mapping\MappingCategory.cshtml" />
-    <Content Include="Areas\MappingProducts\Views\Mapping\Summary.cshtml" />
-    <Content Include="Areas\MappingProducts\Views\Shared\MappingProduct.cshtml" />
-    <Content Include="Areas\MappingProducts\Views\Shared\Summary.cshtml" />
-    <Content Include="Areas\MappingProducts\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\MappingProducts\Views\web.config" />
-    <Content Include="Areas\MappingProducts\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Personal\Views\ProductToBuys\Create.cshtml" />
-    <Content Include="Areas\Personal\Views\ProductToBuys\Delete.cshtml" />
-    <Content Include="Areas\Personal\Views\ProductToBuys\Details.cshtml" />
-    <Content Include="Areas\Personal\Views\ProductToBuys\Edit.cshtml" />
-    <Content Include="Areas\Personal\Views\ProductToBuys\Index.cshtml" />
-    <Content Include="Areas\Personal\Views\Orders\Create.cshtml" />
-    <Content Include="Areas\Personal\Views\Orders\Delete.cshtml" />
-    <Content Include="Areas\Personal\Views\Orders\Details.cshtml" />
-    <Content Include="Areas\Personal\Views\Orders\Edit.cshtml" />
-    <Content Include="Areas\Personal\Views\Orders\Index.cshtml" />
-    <Content Include="Areas\Personal\Views\Users\Create.cshtml" />
-    <Content Include="Areas\Personal\Views\Users\Delete.cshtml" />
-    <Content Include="Areas\Personal\Views\Users\Details.cshtml" />
-    <Content Include="Areas\Personal\Views\Users\Edit.cshtml" />
-    <Content Include="Areas\Personal\Views\Users\Index.cshtml" />
-    <Content Include="Areas\Personal\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Personal\Views\Shared\RightMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManagerStatisticList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\SaleStatisticList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ShoppingStatisticList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\VirtualStorageList.cshtml" />
+    <Content Include="Views\SMS\SendSMS.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\SendSMS.cshtml" />
+    <Content Include="Areas\MappingProducts\Content\fonts\bbc-icons-e8bd59ab2ecd0308151b2eb332f5e846.woff" />
+    <Content Include="Areas\MappingProducts\Content\fonts\blabla-icons.woff" />
+    <Content Include="Areas\Personal\Pictures\13\2\0\IT managing.mpp" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1512,8 +1575,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\MappingProducts\Content\images\shop\" />
     <Folder Include="Areas\Personal\Models\" />
+    <Folder Include="Areas\Personal\Pictures\19\2\0\" />
+    <Folder Include="Areas\Personal\Pictures\22\2\11\" />
+    <Folder Include="Areas\Personal\Pictures\23\3\14\" />
+    <Folder Include="Areas\Personal\Pictures\23\5\q\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

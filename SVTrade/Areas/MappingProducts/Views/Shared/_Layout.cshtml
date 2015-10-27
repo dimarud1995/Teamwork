@@ -30,9 +30,9 @@
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-fixed-top header-backgound">
                                     <li><a href="@Url.Action("Index", "Home", new { area = "" })"><i class="fa fa-user"></i>Домашня Сторінка</a> </li>
-                                    <li><a href="@Url.Action("Index/" + System.Web.HttpContext.Current.User.Identity.Name, "Personal/Products", new { area = "" })"><i class="fa fa-star"></i>Продукція</a></li>
                                     <li><a href="@Url.Action("Index/" + System.Web.HttpContext.Current.User.Identity.Name, "Personal/ProductToBuys", new { area = "" })"><i class="fa fa-star"></i>Передзамовлення</a></li>
-                                    <li><a href="@Url.Action("Index/" + System.Web.HttpContext.Current.User.Identity.Name, "Personal/Orders", new { area = "" })"><i class="fa fa-star"></i>Замовлення</a></li>                                    
+                                    <li><a href="@Url.Action("Index/"+System.Web.HttpContext.Current.User.Identity.Name, "Personal/Orders", new { area = "" })"><i class="fa fa-star"></i>Замовлення</a></li>
+                                    <li><a href="@Url.Action("Index/"+System.Web.HttpContext.Current.User.Identity.Name, "Personal/Products", new { area = "" })"><i class="fa fa-star"></i>Продукція</a></li>
                                     @*<li><a href=""><i class="fa fa-unlock"></i> Logout</a></li>*@
                                 </ul>
                             </div>

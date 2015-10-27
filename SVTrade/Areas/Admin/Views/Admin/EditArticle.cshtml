@@ -25,15 +25,7 @@
                     </div>
                 </div>
 
-                <div class="editor-label">
-                    @Html.LabelFor(x => x.userID)
-                </div>
-
-                <div class="dropdown">
-                    @Html.DropDownListFor(m => m.userID,
-                        (IEnumerable<SelectListItem>) ViewData["AllUsers"], "choose", new {@class = "form-control"})
-                </div>
-
+                
                 <div class="editor-label">
                     @Html.LabelFor(x => x.imageURL)
                 </div>

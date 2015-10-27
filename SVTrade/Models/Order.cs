@@ -27,12 +27,10 @@ namespace SVTrade.Models
         public int orderID { get; set; }
 
         [DisplayName("Дата початку")]
-        [Required(ErrorMessage = "Поле не може бути пустим")]
         [DataType(DataType.DateTime)]
         public System.DateTime orderDate { get; set; }
 
         [DisplayName("Дата кінця")]
-        [Required(ErrorMessage = "Поле не може бути пустим")]
         [DataType(DataType.DateTime)]
         public System.DateTime finishDate { get; set; }
 
@@ -49,7 +47,6 @@ namespace SVTrade.Models
         public double amount { get; set; }
 
         [DisplayName("Дата останньої зміни статусу")]
-        [Required(ErrorMessage = "Поле не може бути пустим")]
         [DataType(DataType.DateTime)]
         public System.DateTime statusDate { get; set; }
 

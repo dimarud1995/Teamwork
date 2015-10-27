@@ -22,23 +22,22 @@ namespace SVTrade.Areas.MappingProducts.Controllers
         #region Products
         public ViewResult Mapping(int? currentCutegory, string returnUrl)
         {
-            List<int> ShowCategory = new List<int>(repository.ChoosedCategories.Where(a =>
-            a.userID == CurrentUserId).Select(a => a.productCategoryID));
+          /*  List<int> ShowCategory = new List<int>(repository.ChoosedCategories.Where(a =>
+            a.userID == CurrentUserId).Select(a => a.productCategoryID));*/
 
-            List<int> ShowProduct = new List<int>(repository.ShowedProducts.Where(a =>
-            a.userID == CurrentUserId).Select(a => a.productID));
+           /* List<int> ShowProduct = new List<int>(repository.ShowedProducts.Where(a =>
+            a.userID == CurrentUserId).Select(a => a.productID));*/
 
             ///int k = ShowProduct[ShowProduct.BinarySearch(4)];
 
             /////IEnumerable<SVTrade.Models.Product> prd = from Product in repository.Products select Product;
 
-            IEnumerable<SVTrade.Models.Product> ProductForUser = repository.Products.Where(a =>
-            a.productID == 0);
+            IEnumerable<SVTrade.Models.Product> ProductForUser = from Product in repository.Products  select Product;
 
-            foreach (var i in ShowProduct)
+          /*  foreach (var i in ShowProduct)
             {
                 ProductForUser = ProductForUser.Concat(from Product in repository.Products where Product.productID == i select Product);
-            }
+            }*/
             AllProd = repository.Products.Where(a =>
             a.productID == 0);
 
@@ -54,6 +53,8 @@ namespace SVTrade.Areas.MappingProducts.Controllers
             SelectList bCateg = new SelectList(repository.ProductCategories, "productCategoryID", "name");
             ViewData["Name"] = repository.ProductCategories.OrderBy(p => p.productCategoryID);
             ViewData["Product"] = ProductForUser;
+          ///  ViewData["ProductCategory"] = repository.ProductCategories.GroupBy(a => a.productCategoryID);
+           /// ViewData["ProductTo"] = new IEnumerable<SVTrade.Models.ProductToBuy>(repository.ProductsToBuy.);
             return View(new CartIndexViewModel
             {
                 Cart = GetCart(),
@@ -133,22 +134,28 @@ namespace SVTrade.Areas.MappingProducts.Controllers
         public RedirectToRouteResult AddToOrder(string returnUrl)
         {
 
-            var NewOrder = Cart.lineCollection;
-            SVTrade.Models.Order SetOrder = new SVTrade.Models.Order();
-            foreach (var a in NewOrder)
-            {
-                SetOrder.amount = a.Quantity;
-                SetOrder.productID = a.Product.productID;
-                SetOrder.userID = MappingController.CurrentUserId;
-                SetOrder.orderDate = DateTime.Today;
-                SetOrder.finishDate = DateTime.Today.AddMonths(1);
-                SetOrder.statusDate = DateTime.Today;
-                SetOrder.canceled = false;
-                SetOrder.completed = false; 
-                SetOrder.statusID = 1 ;
-                repository.SaveOrder(SetOrder);
+                TradeDBEntities _db = new TradeDBEntities();
+                var NewOrder = Cart.lineCollection;
+                SVTrade.Models.Order SetOrder = new SVTrade.Models.Order();
+            
+                foreach (var a in NewOrder)
+                {
+                    SetOrder.amount = a.Product.amount;
+                    SetOrder.productID = a.Product.productID;
+                    SetOrder.userID = MappingController.CurrentUserId;
+                    SetOrder.orderDate = DateTime.Today;
+                    SetOrder.finishDate = DateTime.Today.AddMonths(1);
+                    SetOrder.statusDate = DateTime.Today;
+                    SetOrder.canceled = false;
+                    SetOrder.completed = false;
+                    SetOrder.statusID = 1;
+                    _db.Orders.Add(SetOrder);
+                    _db.SaveChanges();
+                
+                }
 
-            }
+            
+            
             Cart.lineCollection.Clear();
             return RedirectToAction("Mapping", new { returnUrl });
         }
@@ -163,7 +170,26 @@ namespace SVTrade.Areas.MappingProducts.Controllers
             }
             return RedirectToAction("Mapping", new { returnUrl });
         }
+        public RedirectToRouteResult AddItem(SVTrade.Models.Product product, int? pluser, string returnUrl)
+        {
+            CartLine line = Cart.lineCollection
+              .Where(p => p.Product.productID == product.productID)
+              .FirstOrDefault();
 
+            if (line == null)
+            {
+               
+            }
+            else
+                if (pluser > 0)
+            {
+
+                line.Product.amount = Convert.ToInt16(pluser);
+
+            }
+            return RedirectToAction("Mapping", new { returnUrl });
+
+        }
         private Cart GetCart()
         {
             Cart cart = (Cart)Session["Cart"];
@@ -174,11 +200,33 @@ namespace SVTrade.Areas.MappingProducts.Controllers
             }
             return cart;
         }
-
+        
         public PartialViewResult Summary(Cart cart)
         {
             return PartialView(cart);
         }
         #endregion
-    }
+
+        #region PreOrder
+
+        public PartialViewResult CreatePreOrder()
+        {
+
+            ViewData["AllCategories"] = from item in repository.ProductCategories.AsEnumerable()
+                                        select new SelectListItem { Text = item.name, Value = item.productCategoryID.ToString() };
+            
+                return PartialView();
+         
+        }
+        public ActionResult AddPreOrder( ProductToBuy preOrder)
+        {
+            preOrder.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            preOrder.approved = false;
+            preOrder.description = "";
+            repository.SaveProductToBuy(preOrder);
+            return RedirectToAction("CreatePreOrder");
+        }
+
+            #endregion
+        }
 }

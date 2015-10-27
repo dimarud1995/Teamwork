@@ -2,75 +2,61 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container maincont">
+    <h2>Деталі</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Назва
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.title)
+            </dd>
+            <dt>
+                Картинка
+            </dt>
+            <dd>
 
-<h2>Деталі</h2>
+                <img src="@Url.Content(ViewBag.URL1)" alt="Картинка" width="200" />
+            </dd>
+            <dt>
+                Кількість(кг)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.amount)
+            </dd>
+            <dt>
+                Ціна(грн/кг)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+            <dt>
+                Опис
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.description)
+            </dd>
+            <dt>
+                Підтвердження
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.approved)
+            </dd>
+            <dt>
+                Категорія
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ProductCategory.name)
+            </dd>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Назва
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.title)
-        </dd>
-
-        <dt>
-            Картинка
-        </dt>
-
-        <dd>
-         
-           <img src="@Url.Content(ViewBag.URL1)" alt="Картинка" width="200"/>
-        </dd>
-
-        <dt>
-           Кількість(кг)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.amount)
-        </dd>
-
-        <dt>
-           Ціна(грн/кг)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
-
-        <dt>
-           Опис
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
-
-        <dt>
-           Підтвердження
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.approved)
-        </dd>
-
-        <dt>
-          Категорія
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProductCategory.name)
-        </dd>
-
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Редагувати", "Edit", new { id = Model.productID }, new { @class = "btn btn-default get" }) 
-    @Html.ActionLink("Повернутись", "Index", new { id = Model.userID }, new { @class = "btn btn-default get" })
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Редагувати", "Edit", new { id = Model.productID }, new { @class = "btn btn-default get" })
+        @Html.ActionLink("Повернутись", "Index", new { id = Model.userID }, new { @class = "btn btn-default get" })
+    </p>
+    </div>

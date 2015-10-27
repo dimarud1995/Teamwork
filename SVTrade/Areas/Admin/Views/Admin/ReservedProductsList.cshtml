@@ -5,59 +5,57 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Товари</h2>
+<div class="showback">
+    <div class="alert alert-info">Все товары резервируются автоматически после подтверждения заказа и перевода его к статусу "Подтвержден".</div>
+    <div class="danger alert-danger"><b>Внимание!</b> Создание резервов вручуню не обладая достаточной информацией может негативно отразится на работе системы.</div>
+</div>
 
-<p>
-    <a href="/Admin/Admin/CreateReservedProduct" class="btn btn-default">Створити новий резерв</a>
-</p>
-<p><span class="text-danger">Увага!</span> Всі товари резервуються автоматично після оформлення заявки користувачами на сайті.Створення їх вручну не маючи необхідну інформацію може негативно позначитись на роботі системи!</p>
+<div class="content-panel">
 
-<h3 class="pad25 text-center">Зарезервовані товари</h3>
-
-
-<table class="table table-bordered table-striped">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.orderID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.productID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.userID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.amountOfProduct)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date)
-        </th>
-
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <table class="table table-hover table-advance table-hover">
+        <h4><i class="fa fa-angle-right"></i> Зарезервированные товары</h4>
         <tr>
-            <td>@Html.DisplayFor(model => item.orderID)</td>
-            <td>@Html.DisplayFor(model => item.Product.title)</td>
-            <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
-            <td>@Html.DisplayFor(model => item.amountOfProduct)</td>
-            <td>@Html.DisplayFor(model => item.date)</td>
+            <th>
+                @Html.DisplayNameFor(model => model.orderID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.amountOfProduct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
 
-            <td>
-                @using (Html.BeginForm("DeleteReservedProduct", "Admin"))
-                {
-                    @Html.Hidden("reservID", item.reservID)
-                    <div class="btn-group" role="group">
-                        <input type="submit" value="Видалити" class="btn btn-danger marg5" />
-                    </div>
-                }
-                @Html.ActionLink("Змінити", "EditReservedProduct", "Admin", new { item.reservID }, new { @class = "btn btn-info marg5" })
-            </td>
+
+            <th></th>
         </tr>
-    }
-</table>
 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.orderID)</td>
+                <td>@Html.DisplayFor(model => item.Product.title)</td>
+                <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
+                <td>@Html.DisplayFor(model => item.amountOfProduct)</td>
+                <td>@Html.DisplayFor(model => item.date)</td>
+
+                <td>
+                    @using (Html.BeginForm("DeleteReservedProduct", "Admin"))
+                {
+                        @Html.Hidden("reservID", item.reservID)
+                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                        <a href="@Url.Action("EditReservedProduct", "Admin" , new { item.reservID } )" class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
 

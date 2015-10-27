@@ -5,16 +5,12 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Групи користувачів</h2>
-
 <p>
     <a href="/Admin/Admin/CreateUserGroup" class="btn btn-default">Додати нову групу</a>
 </p>
 
-<h3 class="pad25 text-center">Існуючі групи</h3>
-
-
-<table class="table table-bordered table-striped">
+<table class="table table-hover table-advance table-hover">
+    <h4><i class="fa fa-angle-right"></i> Группы пользователей</h4>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.name)

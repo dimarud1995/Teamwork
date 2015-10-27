@@ -40,7 +40,10 @@
     background-color: transparent;
 }
 
-
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+    color: white;
+}
  
  .navbar-right > li>a:hover,
     .navbar-right > li>a {

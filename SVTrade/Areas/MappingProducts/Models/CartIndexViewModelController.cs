@@ -10,6 +10,7 @@ namespace SVTrade.Areas.MappingProducts.Models
     public class CartIndexViewModel
     {
         public Cart Cart { get; set; }
+        public CartLine CartLine { get; set; }
         public string ReturnUrl { get; set; }
     }
 }

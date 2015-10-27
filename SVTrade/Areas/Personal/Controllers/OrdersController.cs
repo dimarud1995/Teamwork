@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SVTrade.Models;
 using SVTrade.Abstract;
+using System.IO;
 
 namespace SVTrade.Areas.Personal.Controllers
 {
@@ -15,16 +16,16 @@ namespace SVTrade.Areas.Personal.Controllers
     {
         private TradeDBEntities db = new TradeDBEntities();
         private IRepository r;
+
         public OrdersController(IRepository repo)
         {
             r = repo;
         }
-
         // GET: Personal/Orders
         public ActionResult Index()
         {
-            int tID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
-            var order = r.Orders.Include(o => o.OrderStatus).Include(o => o.Product).Include(o => o.User).Where(p=>p.userID== tID);
+            int tid= Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            var order = r.Orders.Include(o => o.OrderStatus).Include(o => o.Product).Include(o => o.User).Where(p=>p.userID==tid);
             return View(order.ToList());
         }
 
@@ -59,7 +60,6 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "orderID,orderDate,finishDate,productID,userID,amount,statusDate,statusID,completed,canceled")] Order order)
         {
-            order.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
             if (ModelState.IsValid)
             {
                 r.SaveOrder(order);
@@ -75,6 +75,7 @@ namespace SVTrade.Areas.Personal.Controllers
         // GET: Personal/Orders/Edit/5
         public ActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -97,14 +98,16 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "orderID,orderDate,finishDate,productID,userID,amount,statusDate,statusID,completed,canceled")] Order order)
         {
-            order.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
-            order.statusID = 1;
-            order.canceled = false;
-            order.completed = false;
+            Order tempOrder = r.Orders.FirstOrDefault(p=>p.orderID==order.orderID);
+            tempOrder.orderDate = order.orderDate;
+            tempOrder.finishDate = order.finishDate;
+            tempOrder.productID = order.productID;
+            tempOrder.amount = order.amount;
+            tempOrder.orderDate = System.DateTime.Today;
+            tempOrder.productID = order.productID;
             if (ModelState.IsValid)
             {
-                db.Entry(order).State = EntityState.Modified;
-                db.SaveChanges();
+                r.SaveOrder(tempOrder);
                 return RedirectToAction("Index");
             }
             ViewBag.statusID = new SelectList(r.OrderStatuses, "statusID", "name", order.statusID);
@@ -133,9 +136,7 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-
             r.DeleteOrder(id);
-            
             return RedirectToAction("Index");
         }
 

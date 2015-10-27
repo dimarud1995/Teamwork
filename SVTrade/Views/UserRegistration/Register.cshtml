@@ -1,5 +1,5 @@
 ﻿@model SVTrade.Models.Register
-@{Layout = "~/Views/Shared/_Layout2.cshtml";
+@{Layout = "~/Views/Shared/_Layout.cshtml";
 ViewBag.Title = "Реєстрація";}
 
 <!DOCTYPE html>
@@ -8,9 +8,6 @@ ViewBag.Title = "Реєстрація";}
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-
-
 </head>
 <body>
 
@@ -21,7 +18,7 @@ ViewBag.Title = "Реєстрація";}
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="container" style="padding-top:40px">
+        <div class="container container-body">
 
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
@@ -74,7 +71,7 @@ ViewBag.Title = "Реєстрація";}
 
                        
                         <br />
-                        <div class="row">
+                        <div class="row mb-x2">
                             <div class="col-xs-12 col-md-6">
                                 <input type="submit" value="Зареєструватися" class="btn btn-success btn-block btn-lg" tabindex="7">
                             </div>

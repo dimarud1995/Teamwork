@@ -4,59 +4,58 @@
     ViewBag.Title = "Адмін: всі новини";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Новости</h2>
-
-<p>
-    <a href="/Admin/Admin/CreateArticle" class="btn btn-default">Додати новину</a>
-</p>
-
-<h3 class="pad25 text-center">Всі новини</h3>
+<div class="content-panel">
 
 
-<table class="table table-bordered table-striped">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.imageURL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.userID)
-        </th>
-        <th class="col-md-1">
+    <p>
+        <a href="/Admin/Admin/CreateArticle" class="btn btn-default">Добавить новость</a>
+    </p>
 
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <table class="table table-hover table-advance table-hover">
+        <h4><i class="fa fa-angle-right"></i> Все новости</h4>
         <tr>
-            <td>@Html.DisplayFor(model => item.title)</td>
-            <td>@Html.DisplayFor(model => item.imageURL)</td>
-            <td>@Html.DisplayFor(model => item.description)</td>
-            <td>@Html.DisplayFor(model => item.date)</td>
-            <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
-            <td>
-                @using (Html.BeginForm("DeleteArticle", "Admin"))
-                {
-                    @Html.Hidden("articleID", item.articleID)
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imageURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userID)
+            </th>
+            <th class="col-md-1">
 
-                    <input type="submit" value="Видалити" class="btn btn-danger marg5" />
-
-                }
-                @Html.ActionLink("Змінити", "EditArticle", "Admin", new { item.articleID }, new { @class = "btn btn-info marg5" })
-            </td>
+            </th>
         </tr>
-    }
-</table>
 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.title)</td>
+                <td>@Html.DisplayFor(model => item.imageURL)</td>
+                <td>@Html.DisplayFor(model => item.description)</td>
+                <td>@Html.DisplayFor(model => item.date)</td>
+                <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
+                <td>
+                    @using (Html.BeginForm("DeleteArticle", "Admin"))
+                    {
+                        @Html.Hidden("articleID", item.articleID)
+                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                        <a href="@Url.Action("EditArticle", "Admin" , new { item.articleID } )" class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-envelope-o"></i></a>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
 
+</div>
 

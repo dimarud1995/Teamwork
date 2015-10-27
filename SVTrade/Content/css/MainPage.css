@@ -89,14 +89,12 @@ aside {
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif, 'Open Sans','Helvetica Neue',Arial;
     font-weight: 600;
-    color: rgb(255, 255, 255);
-    text-shadow: #153a46 0 0 2px;
+    color: rgb(0, 0, 0);
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
     color: rgb(0,0,0);
-    text-shadow: #bdefff 0 0 2px;
 }
 
 .navbar-default .nav > li>a,
@@ -110,13 +108,12 @@ aside {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #eb3812;
-    text-shadow: #fff 0 0 2px;
+    color: rgb(0, 0, 0);
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #397dad!important;
+    color: #4a6781!important;
     background-color: transparent;
 }
 
@@ -125,34 +122,41 @@ aside {
     background-color: transparent;
 }
 
+nav .container {
+    background-color: rgba(255, 255, 255,  0.2);
+    border-left: 1px solid rgba(188, 188, 188, 0.5);
+    border-right: 1px solid rgba(188, 188, 188, 0.5);
+}
+
 @media(min-width:768px) {
     .navbar-default {
-        border-color: rgba(255,255,255,.4);
-        background-color: rgba( 51, 51, 51, 0.1 );
+        border-color: rgba(221, 221, 221, 0.5);
+        background-color: rgba(244, 244, 244, 0.5);
     }
 
     .navbar-default .navbar-header .navbar-brand:hover,
     .navbar-default .navbar-header .navbar-brand:focus {
-        color: rgb(72, 72, 72);
-        text-shadow: #fff 0 0 2px;
+        color: steelblue;
     }
 
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
-        color: rgb(255, 255, 255);
-        text-shadow: #000 0 0 2px;
+        color: black;
+        border-left: 1px solid rgba(255, 255, 255, 0);
+        border-right: 1px solid rgba(255, 255, 255, 0);
     }
 
     .navbar-default .nav > li>a:hover,
     .navbar-default .nav>li>a:focus:hover {
-        color: rgb(72, 72, 72);
-        text-shadow: #fff 0 0 2px;
+        color: steelblue;
+        background-color: rgba(244, 244, 244, 0.7);
+        border-left: 1px solid rgba(221, 221, 221, 0.7);
+        border-right: 1px solid rgba(221, 221, 221, 0.7);
     }
     
     .navbar-right > li>a:hover,
     .navbar-right > li>a:focus:hover {
-        color: #7dc9ff !important;
-        text-shadow: #000 0 0 2px !important;
+        color: steelblue;
     }
 }
 
@@ -226,18 +230,26 @@ header .header-content .header-content-inner p {
 
 
 
-.btn {
+.ghost .btn {
     border: 0;
     border-radius: 300px;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
 }
 
-.btn-xl {
+.ghost .btn-xl {
     padding: 15px 30px;
 }
 
-a.btn-ghost,
+.btn-main {
+    color: brown !important;
+}
+
+.btn-main:hover {
+    color: darksalmon !important;
+}
+
+.ghost a.btn-ghost,
 .btn-ghost {
   background: none;
   border: 1px solid #fff !important;
@@ -245,18 +257,18 @@ a.btn-ghost,
   padding: 10px;
   vertical-align: middle;
 }
-a.btn-ghost:hover,
+.ghost a.btn-ghost:hover,
 .btn-ghost:hover {
   background: #4a6781;
   border: 1px solid #4a6781;
   color: #fff;
 }
-a.btn-ghost .fa,
+.ghost a.btn-ghost .fa,
 .btn-ghost .fa {
   margin-right: 10px;
   font-size: 22px;
 }
-a.btn-ghost .text,
+.ghost a.btn-ghost .text,
 .btn-ghost .text {
   position: relative;
   top: -2px;
@@ -284,50 +296,8 @@ img::-moz-selection {
     background: 0 0;
 }
 
-body {
-    webkit-tap-highlight-color: #222;
-}
-
-.modal-content {
-    padding: 0;
-    margin: 0;
-}
-
-#video-intro {
-    width: 900px;
-    height: 590px;
-    border-radius: 8px;
-}
-
-.modal-content {
-    background-color: rgba(0,0,0,.35);
-}
-
 .big-text {
     font-size: 2.5em;
-}
-
-
-@media screen and (max-width: 650px) {
-	.map-frame {
-		width: 98%;
-	}
-    
-    .modal-dialog {
-        width: 98% !important;
-        overflow: hidden;
-    }
-    
-    .video-intro {
-        width: 250px; !important;
-        height: auto;
-    }
-}
-
-@media screen and (max-width: 1280px) {
-    .map-frame {
-        width: 85%;
-    }
 }
 
 .navbar-default .navbar-toggle .icon-bar {

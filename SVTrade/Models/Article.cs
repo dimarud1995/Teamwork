@@ -29,7 +29,7 @@ namespace SVTrade.Models
         [Required(ErrorMessage = "Оберіть користувача")]
         public int userID { get; set; }
 
-        [DisplayName("Картинка(посилання)")]
+        [DisplayName("Картинка")]
         [Required(ErrorMessage = "Поле не може бути пустим")]
         public string imageURL { get; set; }
 

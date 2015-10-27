@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="windows-1251">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
@@ -17,306 +17,320 @@
     <!-- jvectormap -->
     <link rel="stylesheet" href="/Content/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/Content/dist/css/AdminLTE.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/Content/dist/css/skins/_all-skins.min.css">
+    <!--external css-->
+    <link href="/Content/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
 
+    <!-- Custom styles for this template -->
+    <link href="/Content/assets/css/style.css" rel="stylesheet">
+    <link href="/Content/assets/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
 
-<!-- Main Header -->
-<header class="main-header">
 
-    <!-- Logo -->
-    <a href="#" class="logo">
-        <span class="logo-mini"><b>П</b>У</span>
-        <span class="logo-lg"><b>Панель</b> Управления</span>
-    </a>
-
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-        </a>
-        <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-                <!-- Notifications Menu -->
-                <li class="dropdown notifications-menu">
-                    <!-- Menu toggle button -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning">2</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">У вас 2 новых уведомления</li>
-                        <li>
-                            <!-- Inner Menu: contains the notifications -->
-                            <ul class="menu">
-                                <li>
-                                    <!-- start notification -->
-                                    <a href="#">
-                                        <i class="fa fa-users text-aqua"></i> 5 новых пользователей зарегестрированно сегодня
-                                    </a>
-                                </li>
-                                <!-- end notification -->
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">Показать все</a></li>
-                    </ul>
-                </li>
-                <!-- User Account Menu -->
-                <li class="dropdown user user-menu">
-                    <!-- Menu Toggle Button -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user"></i>
-
-                        <span class="hidden-xs">@HttpContext.Current.User.Identity.Name </span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <!-- The user image in the menu -->
-                        <li class="user-header">
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                            <p>
-                                Username - Role
-                                <small>Member since User.Date</small>
-                            </p>
-                        </li>
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Профиль</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Выйти</a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <!-- Control Sidebar Toggle Button -->
-                <li>
-                    <a href="/Home/Index"> Назад </a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <i class="fa fa-user inverse"></i>
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
-            <div class="pull-left info">
-                <p>@HttpContext.Current.User.Identity.Name </p>
+            <!--logo start-->
+            <a href="index.html" class="logo"><b>Панель управления</b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- settings start -->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                            <i class="fa fa-tasks"></i>
+                            <span class="badge bg-theme"></span>
+                        </a>
+                        <ul class="dropdown-menu extended tasks-bar">
+                            <div class="notify-arrow notify-arrow-green"></div>
+                            <li>
+                                <p class="green">You have 4 pending tasks</p>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <div class="task-info">
+                                        <div class="desc">DashGum Admin Panel</div>
+                                        <div class="percent">40%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Database Update</div>
+                                        <div class="percent">60%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Product Development</div>
+                                        <div class="percent">80%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Payments Sent</div>
+                                        <div class="percent">70%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                            <span class="sr-only">70% Complete (Important)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="external">
+                                <a href="#">Все задания</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- settings end -->
+                    <!-- inbox dropdown start-->
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge bg-theme">5</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-green"></div>
+                            <li>
+                                <p class="green">У вас 5 новых сообщений</p>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-zac.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Zac Snider</span>
+                                        <span class="time">Только что</span>
+                                    </span>
+                                    <span class="message">
+                                        Хай, как дела?
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-divya.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Divya Manian</span>
+                                        <span class="time">40 мин.</span>
+                                    </span>
+                                    <span class="message">
+                                        Привет, нужна твоя помощь.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-danro.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Dan Rogers</span>
+                                        <span class="time">2 часа.</span>
+                                    </span>
+                                    <span class="message">
+                                        Нравится твоя новая админка.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-sherman.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Dj Sherman</span>
+                                        <span class="time">4 часа.</span>
+                                    </span>
+                                    <span class="message">
+                                        Ответь как можно скорее.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">Все уведомления</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- inbox dropdown end -->
+                </ul>
+                <!--  notification end -->
             </div>
-        </div>
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Поиск...">
-                <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/Home/Index">Выйти</a></li>
+                </ul>
             </div>
-        </form>
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu">
-            <li class="header">Навигация</li>
-            <li class="active treeview">
-                <a href="#">
-                    <i class="fa fa-users"></i> <span>Пользователи</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/Admin/Admin/UserGroupsList"><i class="fa fa-circle-o"></i> Группы пользователей</a></li>
-                    <li><a href="/Admin/Admin/UsersList"><i class="fa fa-circle-o"></i> Пользователи</a></li>
-                    <li><a href="/Admin/Admin/ManagerUsersList"><i class="fa fa-circle-o"></i> Новые пользователи</a></li>
-                    <li><a href="/Admin/Admin/ChoosedCategoriesList"><i class="fa fa-circle-o"></i> Списки интересов</a></li>
+        </header>
+        <!--header end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+
+                    <p class="centered"><a href="profile.html"><img src="/Content/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                    <h5 class="centered">Username</h5>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-desktop"></i>
+                            <span>Панель менеджера</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Admin/Admin/ManagerUsersList">Новые пользователи</a></li>
+                            <li><a href="/Admin/Admin/ManagerProductsList">Новые товары</a></li>
+                            <li><a href="/Admin/Admin/OrdersList">Заказы</a></li>
+                            <li><a href="/Admin/Admin/ReservedProductsList">Предзаказы</a></li>
+                            <li><a href="/Admin/Admin/ArticlesList">Новости</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>Заказы</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Admin/Admin/OrdersList">Новые заказы</a></li>
+                            <li><a href="/Admin/Admin/OrdersList">Все заказы</a></li>
+                            <li><a href="/Admin/Admin/ProductsToBuyList">Предзаказы</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span>Товары</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Admin/Admin/ProductsList">Все товары</a></li>
+                            <li><a href="/Admin/Admin/ManagerProductsList">Новые товары</a></li>
+                            <li><a href="/Admin/Admin/VirtualStorageList">Склад</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span>Пользователи</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Admin/Admin/UsersList">Все пользователи</a></li>
+                            <li><a href="/Admin/Admin/ManagerUsersList">Новые пользователи</a></li>
+                        </ul>
+                    </li>
+                                        <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span>Статистика</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Admin/Admin/SaleStatisticList">Статистика продажів</a></li>
+                            <li><a href="/Admin/Admin/ShoppingStatisticList">Статистика покупок</a></li>
+                            <li><a href="/Admin/Admin/ManagerStatisticList">Статистика менеджерів</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-tasks"></i>
+                            <span>Администрирование</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Admin/Admin/ShowedProductsList">Предложить товар</a></li>
+                            <li><a href="/Admin/Admin/OrderStatusesList">Состояния заказов</a></li>
+                            <li><a href="/Admin/Admin/ReservedProductsList">Продукты в резерве</a></li>
+                            <li><a href="/Admin/Admin/ChoosedCategoriesList">Списки интересов</a></li>
+                            <li><a href="/Admin/Admin/UserGroupsList">Группы пользователей</a></li>
+                            <li><a href="/Admin/Admin/ProductCategoriesList">Категории товаров</a></li>
+                            <li><a href="/Admin/Admin/ArticlesList">Новости</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li class="active treeview">
-                <a href="#">
-                    <i class="fa fa-tags"></i> <span>Товары</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/Admin/Admin/ProductCategoriesList"><i class="fa fa-circle-o"></i> Категории товаров</a></li>
-                    <li><a href="/Admin/Admin/ProductsList"><i class="fa fa-circle-o"></i> Товары</a></li>
-                    <li><a href="/Admin/Admin/ManagerProductsList"><i class="fa fa-circle-o"></i> Новые продукты</a></li>
-                    <li><a href="/Admin/Admin/VirtualStorageList"><i class="fa fa-circle-o"></i> Склад</a></li>
-
-                </ul>
-            </li>
-            <li class="active treeview">
-                <a href="#">
-                    <i class="fa fa-th"></i> <span>Управление</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/Admin/Admin/OrdersList"><i class="fa fa-circle-o"></i> Заказы</a></li>
-                    <li><a href="/Admin/Admin/ArticlesList"><i class="fa fa-circle-o"></i> Новости</a></li>
-                    <li><a href="/Admin/Admin/OrdersList"><i class="fa fa-circle-o"></i> Заказы</a></li>
-                    <li><a href="/Admin/Admin/ShowedProductsList"><i class="fa fa-circle-o"></i> Предложить товар</a></li>
-                    <li><a href="/Admin/Admin/OrderStatusesList"><i class="fa fa-circle-o"></i> Состояния заказов</a></li>
-                    <li><a href="/Admin/Admin/ProductsToBuyList"><i class="fa fa-circle-o"></i> Предзаказы</a></li>
-                    <li><a href="/Admin/Admin/ReservedProductsList"><i class="fa fa-circle-o"></i> Продукты в резерве</a></li>
-                </ul>
-            </li>
-            <li class="active treeview">
-                <a href="#">
-                    <i class="fa fa-th"></i> <span>Статистика</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/Admin/Admin/SaleStatisticList"><i class="fa fa-circle-o"></i> Статистика продажів</a></li>
-                    <li><a href="/Admin/Admin/ShoppingStatisticList"><i class="fa fa-circle-o"></i> Статистика покупок</a></li>
-                    <li><a href="/Admin/Admin/ManagerStatisticList"><i class="fa fa-circle-o"></i> Статистика менеджерів</a></li>
-                </ul>
-            </li>
-        </ul>
-        <!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
-</aside>
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Main content -->
-    <section class="content">
-
-        @if (TempData["message"] != null)
-        {
-            <div>@TempData["message"]</div>
-        }
-        @RenderBody()
-    </section>
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<!-- Main Footer -->
-<footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-        Teamwork
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2015 <a href="#">СВ Трейд Холод</a>.</strong> Все права защищены.
-</footer>
-
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-        <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <!-- Home tab content -->
-        <div class="tab-pane active" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
-            <ul class="control-sidebar-menu">
-                <li>
-                    <a href="javascript::;">
-                        <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                            <p>Will be 23 on April 24th</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- /.control-sidebar-menu -->
-
-            <h3 class="control-sidebar-heading">Настройки внешнего вида</h3>
-            <ul class="control-sidebar-menu">
-                <li>
-                    <a href="javascript::;">
-                        <h4 class="control-sidebar-subheading">
-                            Выполненых заказов
-                            <span class="label label-danger pull-right">70%</span>
-                        </h4>
-
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- /.control-sidebar-menu -->
-
-        </div>
-        <!-- /.tab-pane -->
-        <!-- Stats tab content -->
-        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-        <!-- /.tab-pane -->
-        <!-- Settings tab content -->
-        <div class="tab-pane" id="control-sidebar-settings-tab">
-            <form method="post">
-                <h3 class="control-sidebar-heading">Главные настройки</h3>
-
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Поставьте галочку
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
-
-                    <p>
-                        Немного описания к этому пункту
-                    </p>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row mt">
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+                        @if (TempData["message"] != null)
+                        {
+                            <div>@TempData["message"]</div>
+                        }
+                        @RenderBody()
+                    </div>
+                    <div class="col-md-1">
+                    </div>
                 </div>
-                <!-- /.form-group -->
-            </form>
-        </div>
-        <!-- /.tab-pane -->
-    </div>
-</aside>
-<!-- /.control-sidebar -->
-<!-- Add the sidebar's background. This div must be placed
-immediately after the control sidebar -->
-<div class="control-sidebar-bg"></div>
-</div>
+            </section><! --/wrapper -->
+        </section><!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer navbar-fixed-bottom">
+            <div class="text-center">
+                2015 @@ Lara1n
+                <a href="#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
+
+    <!-- jQuery 2.1.4 -->
+    <script src="/Content/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="/Content/bootstrap/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script class="include" type="text/javascript" src="/Content/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/Content/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/Content/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--common script for all pages-->
+    <script src="/Content/assets/js/common-scripts.js"></script>
+
 </body>
-
-<!-- jQuery 2.1.4 -->
-<script src="/Content/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-<!-- Bootstrap 3.3.5 -->
-<script src="/Content/bootstrap/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="/Content/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/Content/dist/js/app.min.js"></script>
-<!-- Sparkline -->
-<script src="/Content/plugins/sparkline/jquery.sparkline.min.js"></script>
-<!-- jvectormap -->
-<script src="/Content/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/Content/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- SlimScroll 1.3.0 -->
-<script src="/Content/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- ChartJS 1.0.1 -->
-<script src="/Content/plugins/chartjs/Chart.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/Content/dist/js/pages/dashboard2.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/Content/dist/js/demo.js"></script>
-
-
-
 </html>

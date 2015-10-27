@@ -1,80 +1,92 @@
 ﻿@model IEnumerable<SVTrade.Models.User>
 
 @{
-    ViewBag.Title = "Адмін: непідтверджені користувачі";
+    ViewBag.Title = "Админ: все пользователи";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Непідтверджені користувачі</h2>
+<div class="content-panel">
 
-<table class="table table-bordered">
-    <tr>
-        <td>
-            @Html.DisplayNameFor(model => model.email)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.userGroupID)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.companyName)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.juridicalAddress)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.address)
-        </td>
-
-        <td>
-            @Html.DisplayNameFor(model => model.post)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.phoneNumber)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.contactPerson)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.merchantLicense)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.tradeLicense)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.approved)
-        </td>
-        <td></td>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <table class="table table-hover table-advance table-hover">
+        <h4><i class="fa fa-angle-right"></i> Все пользователи</h4>
         <tr>
-            <td>@Html.DisplayFor(model => item.email)</td>
-            <td>@Html.DisplayFor(model => item.UserGroup.name)</td>
-            <td>@Html.DisplayFor(model => item.companyName)</td>
-            <td>@Html.DisplayFor(model => item.juridicalAddress)</td>
-            <td>@Html.DisplayFor(model => item.address)</td>
-            <td>@Html.DisplayFor(model => item.post)</td>
-            <td>@Html.DisplayFor(model => item.phoneNumber)</td>
-            <td>@Html.DisplayFor(model => item.contactPerson)</td>
-            <td>@Html.DisplayFor(model => item.merchantLicense)</td>
-            <td>@Html.DisplayFor(model => item.tradeLicense)</td>
-            <td>@Html.DisplayFor(model => item.approved)</td>
-            <td>
-                @using (Html.BeginForm("DeleteUser", "Admin"))
-                {
-                    @Html.Hidden("userID", item.userID)
-                    <div class="btn-group" role="group">
-                        <input type="submit" value="Відхилити" class="btn btn-default" />
-                    </div>
-                }
-                @Html.ActionLink("Змінити", "EditManagerUser", "Admin", new {item.userID}, new {@class = "btn btn-default"})
-                <input type="submit" value="Підтвердити" class="btn disabled" />
-            </td>
+            <th>
+                <i class="fa fa-bullhorn"></i>
+                Компания
+            </th>
+
+            <th>
+                Контакты
+            </th>
+
+            <th>
+                Адресса
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.userGroupID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.merchantLicense)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tradeLicense)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.approved)
+            </th>
+
+            <th><i class="fa fa-edit"></i></th>
         </tr>
-    }
-</table>
 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div>
+                        @Html.DisplayFor(model => item.post)
+                        <strong>@Html.DisplayFor(model => item.companyName)</strong>
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => item.contactPerson)
+                    </div>
+                </td>
+                <td>
+                    <ul class="list-unstyled">
+                        <li>@Html.DisplayFor(model => item.email)</li>
+                        <li>@Html.DisplayFor(model => item.phoneNumber)</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="list-unstyled">
+                        <li>@Html.DisplayFor(model => item.juridicalAddress)</li>
+                        <li>@Html.DisplayFor(model => item.address)</li>
+                    </ul>
+                </td>
+                <td>@Html.DisplayFor(model => item.UserGroup.name)</td>
+                <td>@Html.DisplayFor(model => item.merchantLicense)</td>
+                <td>@Html.DisplayFor(model => item.tradeLicense)</td>
+                <td>@Html.DisplayFor(model => item.approved)</td>
+                <td>
+                    @using (Html.BeginForm("DeleteUser", "Admin"))
+                    {
+                        @Html.Hidden("userID", item.userID)
+                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                        <a href="@Url.Action("EditUser", "Admin" , new { item.userID } )" class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-envelope-o"></i></a>
+                    }
+                    @using (Html.BeginForm("UserApproved", "Admin"))
+                    {
+                        @Html.Hidden("userID", item.userID)
+                        <div class="btn-group" role="group">
+                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-arrow-circle-right"></i>Підтвердити</button>
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
 
-
-
+</div>

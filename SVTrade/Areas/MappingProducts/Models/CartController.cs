@@ -30,13 +30,10 @@ namespace SVTrade.Areas.MappingProducts.Models
                 if(pluser > 0 )
                         {
 
-                         line.Quantity = line.Quantity + pluser;
+                         line.Quantity = pluser;
                 
                         }
-                         else
-                                {
-                                    line.Quantity += quantity;
-                                }
+                         
         }
 
         public void RemoveLine(SVTrade.Models.Product product)

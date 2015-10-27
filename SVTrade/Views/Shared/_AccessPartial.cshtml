@@ -1,22 +1,47 @@
 ﻿@{
     if (Request.IsAuthenticated)
     {
+        int currentUserGroup = 1;
+        string groupName = "Користувачі";
+        try
+        {
+            foreach (var a in (IEnumerable<SVTrade.Models.User>)ViewData["CurrentUser"])
+            {
+                currentUserGroup = a.userGroupID;
+            }
+            foreach (var a in (IEnumerable<SVTrade.Models.UserGroup>)ViewData["CurrentUserGroup"])
+            {
+                groupName = a.name;
+            }
+            using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                if (groupName == "Директор" || groupName == "Менеджер")
+                {
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>@Html.ActionLink("Особистий кабінет", "Index/ " + System.Web.HttpContext.Current.User.Identity.Name, "Personal/Products", new { area = "" }, new { @class = "" })</li>
+                        <li>@Html.ActionLink("Товари", "Mapping", "MappingProducts/Mapping", new { area = "" }, new { @class = "" })</li>
+                        <li>@Html.ActionLink("Адміністратор", "ArticlesList", "Admin/Admin", new { area = "" }, new { @class = "btn-main" })</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>@Html.ActionLink("Особистий кабінет", "Index/ " + System.Web.HttpContext.Current.User.Identity.Name, "Personal/Products", new { area = "" }, new { @class = "" })</li>
+                    </ul>
+                }
+            }
+        }
+        catch { }
+    }
+    else
+    {
         using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
         {
             @Html.AntiForgeryToken()
             <ul class="nav navbar-nav navbar-left">
-                <li>@Html.ActionLink("Як це працює", "About", "Home", new { area = "" }, new { @class = "navbar-brand page-scroll  " })</li>
-                <li>@Html.ActionLink("Особистий кабінет", "Index", "Personal/Products", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
-                <li>@Html.ActionLink("Адміністратор", "ArticlesList", "Admin/Admin", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
-                <li>@Html.ActionLink("Товари", "Mapping", "MappingProducts/Mapping", new { area = "" }, new { @class = "navbar-brand page-scroll" })</li>
-                <li><a class="page-scroll" href="/Home/About#contact">Контакти</a></li>
+                <li>@Html.ActionLink("Товари", "Mapping", "MappingProducts/Mapping", new { area = "" }, new { @class = "" })</li>
             </ul>
-
         }
-    }
-    else
-    {
-       
-
     }
 }

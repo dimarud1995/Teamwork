@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Web.Mvc;
 using SVTrade.Abstract;
@@ -11,7 +12,8 @@ namespace SVTrade.Areas.Admin.Controllers
         //
         // GET: /Admin/Admin/
         private IRepository repository;
- 
+        static public int CurrentUserId = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+
         public AdminController(IRepository repo)
         {
             repository = repo;
@@ -129,6 +131,7 @@ namespace SVTrade.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult EditArticle(Article article)
         {
+            article.userID = CurrentUserId;
             if (ModelState.IsValid)
             {
                 article.date = DateTime.Now;
@@ -313,6 +316,7 @@ namespace SVTrade.Areas.Admin.Controllers
                 return View(order);
             }
         }
+
         [Authorize(Roles = "Менеджер, Директор")]
         public ViewResult CreateOrder()
         {
@@ -336,6 +340,59 @@ namespace SVTrade.Areas.Admin.Controllers
             return RedirectToAction("OrdersList");
         }
 
+        
+        [HttpPost]
+        public ActionResult EditStatusInOrder(int orderID)
+        {
+            var order = repository.Orders.FirstOrDefault(c => c.orderID == orderID);
+            var lastStatus = repository.OrderStatuses.ToList().Last();
+            if (order.canceled)
+            {
+                TempData["message"] = string.Format("Статус відхилено!");
+            }else
+            if (order.statusID < lastStatus.statusID )
+            {
+                order.statusID += 1;
+                if (ModelState.IsValid)
+                {
+                    repository.SaveOrder(order);
+
+                    return RedirectToAction("OrdersList");
+                }
+            }
+            else if (!order.completed )
+            {
+                order.completed = true;
+                if (ModelState.IsValid)
+                {
+                    repository.SaveOrder(order);
+
+                    return RedirectToAction("OrdersList");
+                }
+            }else
+            {
+                TempData["message"] = string.Format("Статус підтверджено!");
+            }
+            return RedirectToAction("OrdersList");
+        }
+
+        [HttpPost]
+        public ActionResult OrderApproved(int orderID)
+        {
+            var order = repository.Orders.FirstOrDefault(c => c.orderID == orderID);
+            order.completed = true;
+            if (ModelState.IsValid)
+            {
+                repository.SaveOrder(order);
+                TempData["message"] = string.Format("Підтверджено!");
+
+                return RedirectToAction("OrdersList");
+            }
+            else
+            {
+                return View(order);
+            }
+        }
 
         #endregion
         //+ D
@@ -492,6 +549,23 @@ namespace SVTrade.Areas.Admin.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult UserApproved(int userID)
+        {
+            var user = repository.Users.FirstOrDefault(c => c.userID == userID);
+            user.approved = true;
+            if (ModelState.IsValid)
+            {
+                repository.SaveUser(user);
+                TempData["message"] = string.Format("Підтверджено!");
+
+                return RedirectToAction("ManagerUsersList");
+            }
+            else
+            {
+                return View(user);
+            }
+        }
 
         #endregion //manager 
         //+ D
@@ -603,6 +677,24 @@ namespace SVTrade.Areas.Admin.Controllers
         }
 
 
+        [HttpPost]
+        public ActionResult ProductToBuyApproved(int productToBuyID)
+        {
+            var productToBuy = repository.ProductsToBuy.FirstOrDefault(c => c.productToBuyID == productToBuyID);
+            productToBuy.approved = true;
+            if (ModelState.IsValid)
+            {
+                repository.SaveProductToBuy(productToBuy);
+                TempData["message"] = string.Format("Підтверджено!");
+
+                return RedirectToAction("ProductsToBuyList");
+            }
+            else
+            {
+                return View(productToBuy);
+            }
+        }
+
         #endregion
         //+ D,M
         #region ReservedProduct
@@ -707,6 +799,23 @@ namespace SVTrade.Areas.Admin.Controllers
                 return View(product);
             }
         }
+        [HttpPost]
+        public ActionResult ProductApproved(int productID)
+        {
+            var product = repository.Products.FirstOrDefault(c => c.productID == productID);
+            product.approved = true;
+            if (ModelState.IsValid)
+            {
+                repository.SaveProduct(product);
+                TempData["message"] = string.Format("Підтверджено!");
+
+                return RedirectToAction("ManagerProductsList");
+            }
+            else
+            {
+                return View(product);
+            }
+        }
 
 
         #endregion
@@ -729,6 +838,46 @@ namespace SVTrade.Areas.Admin.Controllers
         public ViewResult VirtualStorageList()
         {
             return View();
+        }
+
+
+        public PartialViewResult SendSMS()
+        {
+            return PartialView();
+        }
+
+
+        [HttpPost]
+        public PartialViewResult SendSMS(SMS sms)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    bool isSuccess = false;
+                    string errMsg = null;
+                    SmsService _smsService = new SmsService();
+                    string response = _smsService.Send(sms);
+
+                    string code = _smsService.GetResponseMessage(response, out isSuccess, out errMsg);
+
+                    if (!isSuccess)
+                    {
+                        ModelState.AddModelError("", errMsg);
+                        ViewBag.Message = "Error";
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Message was successfully sent.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
+            return PartialView(sms);
         }
     }
 

@@ -1,381 +1,273 @@
 ﻿@model SVTrade.Areas.MappingProducts.Models.CartIndexViewModel
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
-
-   
-    <link href="~/Areas/MappingProducts/Content/css/animate.css" rel="stylesheet">
-    <link href="~/Areas/MappingProducts/Content/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/Areas/MappingProducts/Content/css/font-awesome.min.css" rel="stylesheet">
-    <link href="~/Areas/MappingProducts/Content/css/main.css" rel="stylesheet">
-    <link href="~/Areas/MappingProducts/Content/css/prettyPhoto.css" rel="stylesheet">
-    <link href="~/Areas/MappingProducts/Content/css/price-range.css" rel="stylesheet">
-    <link href="~/Areas/MappingProducts/Content/css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-
-</head><!--/head-->
-<body>
-    <header id="header">
-        <!--header-->
+@{
+    ViewBag.Title = "GetPeople";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "tableBody"
+    };
 
 
-        <div class="header-middle">
-            <!--header-middle-->
-            <div class="container">
-              @* <div class="col-sm-3">
-        <div class="logo pull-left">
-            <a href="">SVTrade Тут Буде ЛОГО</a>
-        </div>
+}
+@{
+    ViewBag.Title = "ConfirmedUserIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    </div>*@  <div class="row">
-                   
-                    <div class="col-sm-9">
-                        <div class="shop-menu pull-right">
-                            <ul class="nav navbar-fixed-top header-backgound">
-                                <li><a href="@Url.Action("Index", "Home", new { area = "" })"><i class="fa fa-user"></i>Домашня Сторінка</a> </li>
-                                <li><a href="@Url.Action("Index", "Personal/ProductToBuys", new { area = "" })"><i class="fa fa-star"></i>Передзамовлення</a></li>
-                                <li><a class="btn btn-default add-to-cart" data-toggle="modal" data-target="#myModal"><i class="fa fa-shopping-cart"> @{Html.RenderAction("Summary", "Mapping");} </i>Корзина</a></li>
-                                @*<li><a href=""><i class="fa fa-unlock"></i> Logout</a></li>*@
-                            </ul>
-                        </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 col-md-offset-2 col-lg-offset-2 col-xs-offset-2 col-sm-offset-2 mainPage">
+
+
+                <div class="row findBlock">
+                    <div class=" col-lg-6" style="padding-bottom:17px;">
+                        @Html.Label("Пошук по назві", new { @style = "text-align:center" })
+
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.TextBox("nameOfProduct", null, new { @placeholder = "Пошук", @class = "form-control  valid",@style="max-width:60%;float:left;"})
+                            <button type="submit" class=" btn btn-warning"><i class="fa fa-search"></i></button>
+
+                        }
+
+                    </div>
+                    <div class="col-lg-4"></div>
+                    <div class="col-md-1" style="margin-top:16px;">
+                        
+                    <a class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-shopping-cart"> @{Html.RenderAction("Summary", "Mapping");} </i>Корзина</a>
                     </div>
                 </div>
-            </div>
-        </div><!--/header-middle-->
 
-    </header><!--/header-->
+                <!--/header-bottom-->
 
-    <section id="slider">
-        <!--slider-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#slider-carousel" data-slide-to="1"></li>
-                            <li data-target="#slider-carousel" data-slide-to="2"></li>
-                            <li data-target="#slider-carousel" data-slide-to="3"></li>
-                        </ol>
 
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-sm-6">
-                                    <h1><span>SV</span>-Trade</h1>
-                                    <h2>Free E-Commerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                   @*<button type="button" class="btn btn-default get">Get it now</button>*@ 
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/Areas/MappingProducts/Content/images/home/meat1.jpg" class="girl img-responsive imageSize img-circle" alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>SV</span>-Trade</h1>
-                                    <h2>100% Responsive Design</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                   @*<button type="button" class="btn btn-default get">Get it now</button>*@ 
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/Areas/MappingProducts/Content/images/home/meat2.jpg" class="girl img-responsive imageSize img-circle" alt="" />
-                                </div>
-                            </div>
+                <section>
 
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>SV</span>-Trade</h1>
-                                    <h2>Free Ecommerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    @*<button type="button" class="btn btn-default get">Get it now</button>*@ 
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/Areas/MappingProducts/Content/images/home/meat3.jpg" class="girl img-responsive imageSize img-circle" alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>SV</span>-Trade</h1>
-                                    <h2>Free Ecommerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    @*<button type="button" class="btn btn-default get">Get it now</button>*@ 
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="~/Areas/MappingProducts/Content/images/home/meat3.jpg" class="girl img-responsive imageSize img-circle" alt="" />
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section><!--/slider-->
-    <div class="header-bottom">
-        <!--header-bottom-->
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-1 col-lg-1 col-sm-1">
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-sm-3">
-                        @Html.Label("Пошук по назві",new  {@style= "text-align:center" })
-                    </div>
-                </div>
                     <div class="row">
-
-                        <div class="col-md-3 col-lg-3 col-sm-3">
-
-                            @using (Html.BeginForm())
-                            {
-                                @Html.TextBox("nameOfProduct", null, new { @placeholder = "Пошук", @class = "form-control  valid", @style = "width:60%;heigth:20%;float:left;padding-top:1%" })
-                                <button type="submit" class=" btn btn-default get" style="width:40%;max-height:20%;float:left;"><i class="fa fa-search"> Пошук</i></button>
-
-                            }
-                        </div>
-                        <div class="col-md-9 col-lg-9 col-sm-9">
-
-                        </div>
-
-
-
-                    </div>
-                </div>
-            </div><!--/header-bottom-->
-
-
-            <section>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="left-sidebar">
-                                <h2>Категорії</h2>
-                                <div class="panel-group category-products" id="accordian">
-                                    <!--category-productsr-->
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title ">
-                                                @*@Html.ActionLink(p.name, "MappingCategory", "Mapping", new { productCategoryID=p.productCategoryID }, new { @class=""})*@
-                                                @Html.RouteLink("Всі", new
+                        <div class="col-sm-3 col-lg-3 col-md-3 col-xs-3 main-column form-container">
+                            <h2>Категорії</h2>
+                            <div class="panel-group" id="accordian">
+                                <!--category-productsr-->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title ">
+                                            @*@Html.ActionLink(p.name, "MappingCategory", "Mapping", new { productCategoryID=p.productCategoryID }, new { @class=""})*@
+                                            @Html.RouteLink("Всі", new
                                    {
                                        controller = "Mapping",
                                        action = "Mapping"
 
                                    })
-                                            </h4>
-                                        </div>
+                                        </h4>
                                     </div>
+                                </div>
 
-                                    @{
-                                        foreach (var p in (IEnumerable<SVTrade.Models.ProductCategory>)ViewData["Name"])
-                                        {
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title ">
-                                                        @*@Html.ActionLink(p.name, "MappingCategory", "Mapping", new { productCategoryID=p.productCategoryID }, new { @class=""})*@
-                                                        @Html.RouteLink(p.name, new
-                                                   {
-                                                       controller = "Mapping",
-                                                       action = "Mapping",
-                                                       currentCutegory = p.productCategoryID
+                                @{
+                                    foreach (var p in (IEnumerable<SVTrade.Models.ProductCategory>)ViewData["Name"])
+                                    {
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title ">
+                                                    @*@Html.ActionLink(p.name, "MappingCategory", "Mapping", new { productCategoryID=p.productCategoryID }, new { @class=""})*@
+                                                    @Html.RouteLink(p.name, new
+                                           {
+                                               controller = "Mapping",
+                                               action = "Mapping",
+                                               currentCutegory = p.productCategoryID
 
-                                                   })
-                                                        <a data-toggle="collapse" data-parent="#accordian" href="#@p.name">
-                                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                                        </a>
-                                                    </h4>
-                                                </div>
+                                           })
+                                                    @*<a data-toggle="collapse" data-parent="#accordian" href="#@p.name">
+        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+    </a>*@
+                                                </h4>
                                             </div>
-                                            <div id="@p.name" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <ul>
-                                                        <li><a href="#">Підкатегорія @p.name </a></li>
-                                                        <li><a href="#">Підкатегорія @p.name  </a></li>
-                                                        <li><a href="#">Підкатегорія @p.name </a></li>
-                                                        <li><a href="#">Підкатегорія @p.name </a></li>
-                                                        <li><a href="#">Підкатегорія @p.name  </a></li>
-                                                    </ul>
-                                                </div>
+                                        </div>
+                                       @*<div id="@p.name" class="panel-collapse collapse">
+        <div class="panel-body">
+            <ul>
+                <li><a href="#">Підкатегорія @p.name </a></li>
+                <li><a href="#">Підкатегорія @p.name  </a></li>
+                <li><a href="#">Підкатегорія @p.name </a></li>
+                <li><a href="#">Підкатегорія @p.name </a></li>
+                <li><a href="#">Підкатегорія @p.name  </a></li>
+            </ul>
+        </div>
+    </div>*@
+                                    }
+
+
+                                }
+
+
+
+                            </div><!--/category-products-->
+
+
+
+                            <div class="price-range">
+                                <!--price-range-->
+                                <h2>Ціна</h2>
+                                <div class="well text-center">
+
+
+                                    @using (Html.BeginForm())
+                                    {
+                                        <div class="row">
+
+                                            <div class="col-sm-5 col-lg-5 col-md-5">
+                                                @Html.TextBox("firstP", null, new { @class = "form-control  valid" })
                                             </div>
-                                        }
+                                            <div class="col-sm-2 col-lg-2 col-md-2">
+                                                @Html.Label("-", new { @class = "" })
+                                            </div>
+                                            <div class="col-sm-5 col-lg-5 col-md-5">
+                                                @Html.TextBox("secondP", null, new { @class = "form-control  valid" })
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-push-3 col-lg-push-3 col-md-push-3">
+                                                <button type="submit" class=" btn btn-warning get" style="margin-top:10%"><i class="fa fa-search"> Пошук</i></button>
+                                            </div>
+
+                                        </div>
+
 
 
                                     }
 
 
-
-                                </div><!--/category-products-->
-
-
-
-                                <div class="price-range">
-                                    <!--price-range-->
-                                    <h2>Ціна</h2>
-                                    <div class="well text-center">
-
-
-                                        @using (Html.BeginForm())
-                                        {
-                                            <div class="row">
-
-                                                <div class="col-sm-5 col-lg-5 col-md-5">
-                                                    @Html.TextBox("firstP", null, new {  @class = "form-control  valid" })
-                                                </div>
-                                                <div class="col-sm-2 col-lg-2 col-md-2">
-                                                    @Html.Label("-", new { @class = "" })
-                                                </div>
-                                                <div class="col-sm-5 col-lg-5 col-md-5">
-                                                    @Html.TextBox("secondP", null, new {  @class = "form-control  valid" })
-                                                </div>
-                                                </div>
-                                                  
-                                                <div class="row">
-                                                    <div class="col-sm-push-3 col-lg-push-3 col-md-push-3">
-                                                        <button type="submit" class=" btn btn-default get" style="margin-top:10%"><i class="fa fa-search"> Пошук</i></button>
-                                                    </div>
-
-                                                </div>
-
-
-
-                                        }
-
-
-                                        @*<input type="text" class="span2" value="" data-slider-min="1" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
+                                    @*<input type="text" class="span2" value="" data-slider-min="1" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
                                         <b class="pull-left">1 - 1000грн.</b>*@
-                                    </div>
-                                </div><!--/price-range-->
+                                </div>
+                            </div><!--/price-range-->
 
 
 
-                            </div>
                         </div>
 
-                        <div class="col-sm-9 col-lg-9 col-md-9 padding-right">
-                            <div class="features_items">
-                                <!--features_items-->
-                                <h2 class="title text-center">Пропозиції</h2>
+
+
+
+                        <!--features_items-->
+                        @* <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
+                                    <div class="row">
+                                       @{Html.RenderPartial("AddPreOrder", (IEnumerable<SVTrade.Models.ProductToBuy>)ViewData["ProductTo"]);}
+                                    </div>
+                            </div>*@
+                        <h2 class="title text-center">Поточні пропозиції</h2>
+                        @{ 
+                            var a = (IEnumerable<SVTrade.Models.Product>)ViewData["Product"];
+                        }
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                            <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
+                                @{Html.RenderAction("CreatePreOrder", "Mapping");}
+                                </div>
+                                <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12 insideBlock">
+                                    <span>Доступно: @a.Count() пропозицій</span>
+                                </div>
                                 @{
                                     foreach (var p in (IEnumerable<SVTrade.Models.Product>)ViewData["Product"])
                                     {
                                         Html.RenderPartial("MappingProduct", p);
                                     }
                                 }
-
-                            </div><!--features_items-->
-
-
-                        </div>
+                            </div>
                     </div>
-            </section>
 
-            <!-- Modal -->
-            <div class="modal  fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel"><i class="fa fa-shopping-cart"></i> Кошик</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="table-responsive cart_info">
-                                <table class="table table-condensed" width="90%" align="center">
-                                    <thead>
-                                        <tr class="cart_menu">
-                                            <td class="image">Товар</td>
-                                            <td class="description"></td>
-                                            <td class="price">Ціна грн/кг</td>
-                                            <td class="quantity">Кількість</td>
-                                            <td class="total">Cума</td>
-                                            <td></td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @{
+                    <!--features_items-->
 
-                                            foreach (var p in Model.Cart.Lines)
-                                            {
-                                                <tr>
-                                                    <td class="cart_product">
-                                                        <a href=""><img src="@p.Product.imageURL" alt=""></a>
-                                                    </td>
-                                                    <td class="cart_description">
-                                                        <h4>@p.Product.title</h4>
-                                                        <p>Артикул: @p.Product.productID</p>
-                                                    </td>
-                                                    <td class="cart_price">
-                                                        <p>@p.Product.price </p>
-                                                    </td>
-                                                    <td class="cart_quantity">
-                                                        <div class="cart_quantity_button">
-                                                            @*<a class="cart_quantity_up" href=""> + </a>*@
-                                                            <input class="cart_quantity_input" type="text" name="quantity" value="@p.Quantity" autocomplete="off" size="2">
-                                                            @*<a class="cart_quantity_down" href=""> - </a>*@
-                                                        </div>
-                                                    </td>
-                                                    <td class="cart_total">
-                                                        <p class="cart_total_price">@(p.Quantity * p.Product.price)</p>
-                                                    </td>
-                                                    <td class="cart_delete">
-                                                        @using (Html.BeginForm("RemoveFromCart", "Mapping"))
-                                                        {
-                                                            @Html.Hidden("ProductId", p.Product.productID)
-                                                            @Html.HiddenFor(x => x.ReturnUrl)
-                                                            <button class="actionButtons cart_quantity_delete" type="submit"><i class="fa fa-times"></i></button>
-                                                        }
-                                                    </td>
-                                                </tr>
+
+
+
+
+                </section>
+
+                <!-- Modal -->
+                <!-- Modal -->
+                <div class="modal  fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color:rgba(191, 191, 191, 0.41)">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-shopping-cart"></i> Кошик</h4>
+                            </div>
+                            <div class="modal-body" style="background-color:rgba(212, 199, 199, 0.19)">
+                                <div class="table-responsive cart_info">
+                                    <table class="table table-condensed" width="90%" align="center">
+                                        <thead>
+                                            <tr class="cart_menu">
+                                                <td class="image">Товар</td>
+                                                <td class="description"></td>
+
+                                                <td class="quantity"><div style="margin-left:236px">Кількість</div></td>
+
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+
+                                                foreach (var p in Model.Cart.Lines)
+                                                {
+                                                    <tr>
+                                                        <td class="cart_product">
+                                                            <a href=""><img src="@Url.Content(Html.DisplayFor(modelItem => p.Product.imageURL).ToString())" alt="" width=" 66px" height="66px"></a>
+                                                        </td>
+                                                        <td class="cart_description">
+                                                            <h4>@p.Product.title</h4>
+                                                            <p>Артикул: @p.Product.productID</p>
+                                                        </td>
+
+                                                        <td class="cart_quantity">
+                                                            <div class="cart_quantity_button">
+                                                                @*<a class="cart_quantity_up" href=""> + </a>*@
+                                                                @using (Ajax.BeginForm("AddItem", ajaxOpts))
+                                                                {
+                                                                    @Html.Hidden("ProductId", p.Product.productID)
+                                                                    @Html.HiddenFor(x => x.ReturnUrl)
+                                                                    <div id="plus" style="margin-left:200px"> @Html.TextBox("pluser", null, new { @id = "tableBody", @class = "cart_quantity_input", @type = "text", @name = "quantityUser", @value = "@p.Quantity", @autocomplete = "off", @size = "2" }) <input value="Змінити" class="btn-warning" type="submit" id="ChangeQ"></div>
+
+                                                                }
+                                                                @*<a class="cart_quantity_down" href=""> - </a>*@
+                                                            </div>
+                                                        </td>
+
+                                                        <td class="cart_delete">
+                                                            @using (Html.BeginForm("RemoveFromCart", "Mapping"))
+                                                            {
+                                                                @Html.Hidden("ProductId", p.Product.productID)
+                                                                @Html.HiddenFor(x => x.ReturnUrl)
+                                                                <button class="actionButtons cart_quantity_delete btn-danger" type="submit"><i class="fa fa-times"></i></button>
+                                                            }
+                                                            @using (Html.BeginForm("", "Mapping"))
+                                                            {
+
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                }
                                             }
-                                        }
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td>
-                                                <a href="@Model.ReturnUrl" class="btn btn-info">Продовжити покупки</a>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer" style="background-color:rgba(212, 199, 199, 0.19)">
+                                <div style="float:left; margin-left:20px"><a href="@Model.ReturnUrl" class="btn btn-info btnny">Продовжити покупки</a></div>
 
-                                            </td>
-                                            <td>
-                                                <p align="center" class="ui-button-icon-secondary">
-                                                    @using (Html.BeginForm("AddToOrder", "Mapping"))
-                                                    {
-                                                        @Html.HiddenFor(x => x.ReturnUrl)
-                                                        <div class="idf"><input value="Підтвердити Замовлення" type="submit" class="logs btn btn-info aSize"></div>
+                                @using (Html.BeginForm("AddToOrder", "Mapping"))
+                                {
+                                    @Html.HiddenFor(x => x.ReturnUrl)
+                                    <div style="float:left; margin-left:20px"><input value="Підтвердити Замовлення" type="submit" class=" btn btn-success"></div>
+                                }
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
 
-                                                    }
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                        </div>
                     </div>
-                </div>
-            </div>
-
-
-            <script src="~/Areas/MappingProducts/Scripts/js/jquery.js"></script>
-            <script src="~/Areas/MappingProducts/Scripts/js/bootstrap.min.js"></script>
-            <script src="~/Areas/MappingProducts/Scripts/js/jquery.scrollUp.min.js"></script>
-            <script src="~/Areas/MappingProducts/Scripts/js/price-range.js"></script>
-            <script src="~/Areas/MappingProducts/Scripts/js/jquery.prettyPhoto.js"></script>
-            <script src="~/Areas/MappingProducts/Scripts/js/main.js"></script>
-</body>
-</html>
+                </div>            </div>
+        </div>
+    </div>
+          
+<

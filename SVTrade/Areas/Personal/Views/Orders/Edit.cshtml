@@ -2,73 +2,99 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Areas/Personal/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container">
 
-    <h2>Редагування</h2>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.orderID)
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.orderDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.orderDate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.orderDate, "", new { @class = "text-danger" })
-                </div>
+<div class="container maincont">
+    <div class="tab-container">
+        <div class="tab-details">
+            <ul class="nav nav-tabs new" id="myTab">
+                <li>
+                    <a href="~/Personal/Users/Index">Профіль</a>
+                </li>
+                <li class="active">
+                    <a href="~/Personal/Orders/Index">Замовлення</a>
+                </li>
+                <li>
+                    <a href="~/Personal/ProductToBuys/Index">Передзамовлення</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Products/Index">Ваші товари</a>
+                </li>
+                <li>
+                    <a href="#">Статистика продаж</a>
+                </li>
+                <li>
+                    <a href="#">Побажання</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabCont">
+            <div class="tab-pane active" id="annonces">
+                <ul class="nav nav-pills" id="ulMyTab">
+                    <li class="active">
+                        <a href="~/Personal/Products/Index" rel="nofollow">
+                            Список замовлень
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/MappingProducts/Mapping/Mapping" rel="nofollow">
+                            Замовити товар
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" rel="nofollow">
+                            Історія
+                        </a>
+                    </li>
+                </ul>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.finishDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.finishDate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.finishDate, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.productID, "productID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("productID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.productID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.amount, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.statusDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.statusDate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.statusDate, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+            <div class="tab-pane active" id="received">
+                <div class="messages-container clearfix">
+                    <ol class="unstyled received-thread">
+                        Це сторінка редагування замовлення.Ви можете змінити дату замовлення та кількість. Після зміни замовлення збережіть його, натиснувши кнопку "Зберегти". Замовлення буде підтверджено після перевірки Адміністратором.
+                    </ol>
                 </div>
             </div>
         </div>
-    }
 
-    <div>
-        @Html.ActionLink("Повернутись", "Index", new { id = Model.userID })
     </div>
-</div>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal formClass">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.orderID)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.amount, "Кількість(кг)", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.finishDate, "Кінцева дата", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.finishDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.finishDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Зберегти" class="btn butstyle btn-default" />
+                        @Html.ActionLink("Повернутись", "Index", new { }, new { @class = "butstyle btn " })
+                        @Html.ActionLink("Видалити", "Delete", new { id = Model.productID }, new { @class = "butstyleDel" })
+                    </div>
+                </div>
+            </div>
+        }
+        <div>
+
+        </div>
+    </div>
+    </div>

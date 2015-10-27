@@ -25,13 +25,18 @@ namespace SVTrade.Areas.Personal.Controllers
         public ActionResult Index()
         {
             int tID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
-            var user = r.Users.Include(u => u.UserGroup).Where(p=>p.userID== tID);
-            return View(user.ToList());
+            var user = r.Users.FirstOrDefault(p => p.userID == tID);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
         }
 
         // GET: Personal/Users/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
+            int id = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -69,8 +74,10 @@ namespace SVTrade.Areas.Personal.Controllers
         }
 
         // GET: Personal/Users/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit()
         {
+            int id = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,7 +88,7 @@ namespace SVTrade.Areas.Personal.Controllers
                 return HttpNotFound();
             }
             ViewBag.userGroupID = new SelectList(r.UserGroups, "userGroupID", "name", user.userGroupID);
-            return View(user);
+            return View("Index",user);
         }
 
         // POST: Personal/Users/Edit/5
@@ -91,19 +98,27 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "userID,password,userGroupID,companyName,juridicalAddress,address,contactPerson,post,phoneNumber,email,merchantLicense,tradeLicense,approved,passwordSalt")] User user)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            int tid= Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            User tempUser = r.Users.FirstOrDefault(p=>p.userID==tid);
+            tempUser.companyName = user.companyName;
+            tempUser.juridicalAddress = user.juridicalAddress;
+            tempUser.address = user.address;
+            tempUser.contactPerson = user.contactPerson;
+            tempUser.post = user.post;
+            tempUser.phoneNumber = user.phoneNumber;
+            tempUser.approved = false;
+
+            r.SaveUser(tempUser);
+            
+            
             ViewBag.userGroupID = new SelectList(r.UserGroups, "userGroupID", "name", user.userGroupID);
-            return View(user);
+            return View("Index",tempUser);
         }
 
         // GET: Personal/Users/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete()
         {
+            int id = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -119,8 +134,9 @@ namespace SVTrade.Areas.Personal.Controllers
         // POST: Personal/Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed()
         {
+            int id = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
             r.DeleteUser(id);
             return RedirectToAction("Index");
         }

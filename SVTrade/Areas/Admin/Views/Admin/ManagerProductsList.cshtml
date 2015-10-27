@@ -1,42 +1,46 @@
 ﻿@model IEnumerable<SVTrade.Models.Product>
 
-    @{
-        ViewBag.Title = "Адмін: непідтверджені товари";
-        Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    }
+@{
+    ViewBag.Title = "Админ: все товары";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
 
-    <h2>Непідтверджені товари</h2>
+<p>
+    <a href="/Admin/Admin/CreateProduct" class="btn btn-default">Добавить товар</a>
+</p>
 
-    <table class="table table-bordered">
+<div class="content-panel">
+
+    <table class="table table-hover table-advance table-hover">
+        <h4><i class="fa fa-angle-right"></i> Товары</h4>
         <tr>
-            <td>
+            <th>
                 @Html.DisplayNameFor(model => model.title)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.productCategoryID)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.imageURL)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.amount)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.price)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.description)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.userID)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.approved)
-            </td>
+            </th>
 
-
-
-            <td></td>
+            <th>
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -44,10 +48,10 @@
             <tr>
                 <td>@Html.DisplayFor(model => item.title)</td>
                 <td>@Html.DisplayFor(model => item.ProductCategory.name)</td>
-                <td>@Html.DisplayFor(model => item.imageURL)</td>
+                <td class="maxw">@Html.DisplayFor(model => item.imageURL)</td>
                 <td>@Html.DisplayFor(model => item.amount)</td>
                 <td>@Html.DisplayFor(model => item.price)</td>
-                <td>@Html.DisplayFor(model => item.description)</td>
+                <td class="maxw">@Html.DisplayFor(model => item.description)</td>
                 <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
                 <td>@Html.DisplayFor(model => item.approved)</td>
 
@@ -55,17 +59,26 @@
                     @using (Html.BeginForm("DeleteProduct", "Admin"))
                     {
                         @Html.Hidden("productID", item.productID)
+                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                    }
+                    <a href="@Url.Action("EditProduct", "Admin" , new { item.productID } )" class="btn btn-primary btn-xs">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <button type="submit" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope-o"></i></button>
+                    @Html.Action("SendSMS", "Admin");
+                    <button type="submit" class="btn btn-warning btn-xs disabled" data-toggle="modal" data-target="#myModal"><i class="fa fa-archive"></i></button>
+                    
+                    @using (Html.BeginForm("ProductApproved", "Admin"))
+                    {
+                        @Html.Hidden("productID", item.productID)
                         <div class="btn-group" role="group">
-                            <input type="submit" value="Відхилити" class="btn btn-default" />
+                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-arrow-circle-right"></i>Підтвердити</button>
                         </div>
                     }
-                    @Html.ActionLink("Змінити", "EditManagerProduct", "Admin", new { item.productID }, new { @class = "btn btn-default" })
-                    <input type="submit" value="Підтвердити" class="btn disabled"/>
-                    <input type="submit" value="СМС розсилка" class="btn disabled"/>
-                    <input type="submit" value="Склад" class="btn disabled" />
                 </td>
             </tr>
         }
     </table>
+</div>
 
 
