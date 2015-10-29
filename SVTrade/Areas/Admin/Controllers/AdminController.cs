@@ -236,7 +236,7 @@ namespace SVTrade.Areas.Admin.Controllers
         [Authorize(Roles = "Директор")]
         public ViewResult ProductsList()
         {
-            return View(repository.Products);
+            return View(repository.Products.OrderBy(x => x.productCategoryID));
         }
         [Authorize(Roles = "Директор")]
         public ViewResult EditProduct(int productID)
