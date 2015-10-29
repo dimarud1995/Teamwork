@@ -8,6 +8,7 @@
     <title>@ViewBag.Title</title>
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link runat="server" rel="icon" href="~/Content/img/icow.jpg" type="image/jpg" />
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="/Content/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -44,14 +45,14 @@
                 <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Панель управления</b></a>
+            <a href="#" class="logo"><b>Панель управления</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
                     <!-- settings start -->
                     <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-tasks"></i>
                             <span class="badge bg-theme"></span>
                         </a>
@@ -61,7 +62,7 @@
                                 <p class="green">You have 4 pending tasks</p>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <div class="task-info">
                                         <div class="desc">DashGum Admin Panel</div>
                                         <div class="percent">40%</div>
@@ -74,7 +75,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <div class="task-info">
                                         <div class="desc">Database Update</div>
                                         <div class="percent">60%</div>
@@ -87,7 +88,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <div class="task-info">
                                         <div class="desc">Product Development</div>
                                         <div class="percent">80%</div>
@@ -100,7 +101,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <div class="task-info">
                                         <div class="desc">Payments Sent</div>
                                         <div class="percent">70%</div>
@@ -120,7 +121,7 @@
                     <!-- settings end -->
                     <!-- inbox dropdown start-->
                     <li id="header_inbox_bar" class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-envelope-o"></i>
                             <span class="badge bg-theme">5</span>
                         </a>
@@ -130,7 +131,7 @@
                                 <p class="green">У вас 5 новых сообщений</p>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                         <span class="from">Zac Snider</span>
@@ -142,7 +143,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-divya.jpg"></span>
                                     <span class="subject">
                                         <span class="from">Divya Manian</span>
@@ -154,7 +155,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                         <span class="from">Dan Rogers</span>
@@ -166,7 +167,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                         <span class="from">Dj Sherman</span>
@@ -178,7 +179,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">Все уведомления</a>
+                                <a href="#">Все уведомления</a>
                             </li>
                         </ul>
                     </li>
@@ -202,8 +203,9 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
 
-                    <p class="centered"><a href="profile.html"><img src="/Content/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                    <h5 class="centered">Username</h5>
+                    <p class="centered"><a href=""><img src="/Content/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                    @{SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));}
+                    <h5 class="centered">@SVTrade.LoggedUserInfo.getName()</h5>
 
                     <li class="sub-menu">
                         <a href="javascript:;">
@@ -220,7 +222,7 @@
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
-                            <i class="fa fa-book"></i>
+                            <i class="fa fa-cart-arrow-down"></i>
                             <span>Заказы</span>
                         </a>
                         <ul class="sub">
@@ -229,53 +231,58 @@
                             <li><a href="/Admin/Admin/ProductsToBuyList">Предзаказы</a></li>
                         </ul>
                     </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-cogs"></i>
-                            <span>Товары</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="/Admin/Admin/ProductsList">Все товары</a></li>
-                            <li><a href="/Admin/Admin/ManagerProductsList">Новые товары</a></li>
-                            <li><a href="/Admin/Admin/VirtualStorageList">Склад</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-cogs"></i>
-                            <span>Пользователи</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="/Admin/Admin/UsersList">Все пользователи</a></li>
-                            <li><a href="/Admin/Admin/ManagerUsersList">Новые пользователи</a></li>
-                        </ul>
-                    </li>
-                                        <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-cogs"></i>
-                            <span>Статистика</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="/Admin/Admin/SaleStatisticList">Статистика продажів</a></li>
-                            <li><a href="/Admin/Admin/ShoppingStatisticList">Статистика покупок</a></li>
-                            <li><a href="/Admin/Admin/ManagerStatisticList">Статистика менеджерів</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-tasks"></i>
-                            <span>Администрирование</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="/Admin/Admin/ShowedProductsList">Предложить товар</a></li>
-                            <li><a href="/Admin/Admin/OrderStatusesList">Состояния заказов</a></li>
-                            <li><a href="/Admin/Admin/ReservedProductsList">Продукты в резерве</a></li>
-                            <li><a href="/Admin/Admin/ChoosedCategoriesList">Списки интересов</a></li>
-                            <li><a href="/Admin/Admin/UserGroupsList">Группы пользователей</a></li>
-                            <li><a href="/Admin/Admin/ProductCategoriesList">Категории товаров</a></li>
-                            <li><a href="/Admin/Admin/ArticlesList">Новости</a></li>
-                        </ul>
-                    </li>
+                    @{
+                        if (SVTrade.LoggedUserInfo.getGroup() == "Директор")
+                        {
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-cube"></i>
+                                    <span>Товары</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/Admin/Admin/ProductsList">Все товары</a></li>
+                                    <li><a href="/Admin/Admin/ManagerProductsList">Новые товары</a></li>
+                                    <li><a href="/Admin/Admin/VirtualStorageList">Склад</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-users"></i>
+                                    <span>Пользователи</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/Admin/Admin/UsersList">Все пользователи</a></li>
+                                    <li><a href="/Admin/Admin/ManagerUsersList">Новые пользователи</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-bar-chart"></i>
+                                    <span>Статистика</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/Admin/Admin/SaleStatisticList">Статистика продажів</a></li>
+                                    <li><a href="/Admin/Admin/ShoppingStatisticList">Статистика покупок</a></li>
+                                    <li><a href="/Admin/Admin/ManagerStatisticList">Статистика менеджерів</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-wrench"></i>
+                                    <span>Администрирование</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/Admin/Admin/ShowedProductsList">Предложить товар</a></li>
+                                    <li><a href="/Admin/Admin/OrderStatusesList">Состояния заказов</a></li>
+                                    <li><a href="/Admin/Admin/ReservedProductsList">Продукты в резерве</a></li>
+                                    <li><a href="/Admin/Admin/ChoosedCategoriesList">Списки интересов</a></li>
+                                    <li><a href="/Admin/Admin/UserGroupsList">Группы пользователей</a></li>
+                                    <li><a href="/Admin/Admin/ProductCategoriesList">Категории товаров</a></li>
+                                    <li><a href="/Admin/Admin/ArticlesList">Новости</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }
                 </ul>
                 <!-- sidebar menu end-->
             </div>

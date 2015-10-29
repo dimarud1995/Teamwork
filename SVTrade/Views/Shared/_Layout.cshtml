@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
+    <link runat="server" rel="icon" href="~/Content/img/icow.jpg" type="image/jpg" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic,greek-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -41,18 +42,10 @@
                         using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
                         {
                             @Html.AntiForgeryToken()
-                            string name = "Гість";
-                            try
-                            {
-                                foreach (var a in (IEnumerable<SVTrade.Models.User>)ViewData["CurrentUser"])
-                                {
-                                    name = a.contactPerson;
-                                }
-                            }
-                            catch { }
+                            SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
                             <ul class="nav navbar-nav navbar-right">
-                                <li>@Html.ActionLink("Вітаємо " + (Request.IsAuthenticated ? @name : ""), "Index/ " + System.Web.HttpContext.Current.User.Identity.Name, "Personal/Products", routeValues: null, htmlAttributes: new { title = "" })</li>
-                                <li> <a href="javascript:document.getElementById('logoutForm').submit()">Вийти</a> </li>
+                                <li>@Html.ActionLink("Вітаємо " + SVTrade.LoggedUserInfo.getName(), "Index", "Personal/Products", new { area = "" }, new { @class = "" })</li>
+                                <li>@Html.ActionLink("Вихід", "Logout", "Account", new { area = "" }, new { @class = "" }) </li>
                             </ul>
                         }
                     }
@@ -60,7 +53,7 @@
                     {
                         <ul class="nav navbar-nav navbar-right">
                             <li>@Html.ActionLink("Реєстрація", "Register", "UserRegistration", routeValues: null, htmlAttributes: new { title = "" })</li>
-                            <li> @Html.ActionLink("Увійти", "Login", "Account") </li>
+                            <li>@Html.ActionLink("Увійти", "Login", "Account", new { area = "" }, new { @class = "" }) </li>
                         </ul>
                     }
                 }
@@ -68,14 +61,6 @@
 
         </div>
     </nav>
-
-    <div class="container info-point">
-        <div class="row">
-           <div class="col-lg-12">
-               <p>Информационная строка.</p>
-           </div>
-        </div>
-    </div>
 
     @RenderBody()
 

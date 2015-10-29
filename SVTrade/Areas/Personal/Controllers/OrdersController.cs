@@ -19,6 +19,11 @@ namespace SVTrade.Areas.Personal.Controllers
 
         public OrdersController(IRepository repo)
         {
+            try
+            {
+                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
+            }
+            catch { }
             r = repo;
         }
         // GET: Personal/Orders
@@ -99,12 +104,13 @@ namespace SVTrade.Areas.Personal.Controllers
         public ActionResult Edit([Bind(Include = "orderID,orderDate,finishDate,productID,userID,amount,statusDate,statusID,completed,canceled")] Order order)
         {
             Order tempOrder = r.Orders.FirstOrDefault(p=>p.orderID==order.orderID);
-            tempOrder.orderDate = order.orderDate;
+     
             tempOrder.finishDate = order.finishDate;
-            tempOrder.productID = order.productID;
+           
             tempOrder.amount = order.amount;
-            tempOrder.orderDate = System.DateTime.Today;
-            tempOrder.productID = order.productID;
+
+           
+
             if (ModelState.IsValid)
             {
                 r.SaveOrder(tempOrder);

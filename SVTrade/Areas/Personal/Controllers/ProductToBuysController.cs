@@ -18,7 +18,12 @@ namespace SVTrade.Areas.Personal.Controllers
         private IRepository r;
 
         public ProductToBuysController(IRepository repo)
-        { 
+        {
+            try
+            {
+                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
+            }
+            catch { }
             r = repo;
         }
         // GET: Personal/ProductToBuys

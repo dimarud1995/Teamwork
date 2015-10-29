@@ -24,14 +24,15 @@ namespace SVTrade.Models
         }
     
         [HiddenInput(DisplayValue = false)]
+        
         public int orderID { get; set; }
 
         [DisplayName("Дата початку")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public System.DateTime orderDate { get; set; }
 
         [DisplayName("Дата кінця")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public System.DateTime finishDate { get; set; }
 
         [DisplayName("Товар")]
@@ -47,7 +48,7 @@ namespace SVTrade.Models
         public double amount { get; set; }
 
         [DisplayName("Дата останньої зміни статусу")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public System.DateTime statusDate { get; set; }
 
         [DisplayName("Статус")]

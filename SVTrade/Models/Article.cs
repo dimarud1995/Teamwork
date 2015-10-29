@@ -25,7 +25,7 @@ namespace SVTrade.Models
         [Required(ErrorMessage = "Поле не може бути пустим")]
         public string title { get; set; }
 
-        [DisplayName("Користувач")]
+        [DisplayName("User")]
         [Required(ErrorMessage = "Оберіть користувача")]
         public int userID { get; set; }
 

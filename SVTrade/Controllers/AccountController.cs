@@ -20,7 +20,10 @@ namespace SVTrade.Controllers
 
         public ActionResult Login()
         {
-            return View();
+            if (Request.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+            else
+                return View();
         }
 
         [HttpPost]
@@ -35,6 +38,8 @@ namespace SVTrade.Controllers
                 if (user.password == crypto.Compute(l.password, user.passwordSalt))
                 {
                     FormsAuthentication.SetAuthCookie(user.userID.ToString(), l.RememberMe);
+
+                    SVTrade.LoggedUserInfo.SetLoggedUser(user.userID);
                     if (Url.IsLocalUrl(ReturnUrl))
                     {
                         return Redirect(ReturnUrl);

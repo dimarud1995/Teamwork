@@ -56,25 +56,29 @@
                 <td>@Html.DisplayFor(model => item.approved)</td>
 
                 <td>
+                    <!-- Confirm -->
+                    @using (Html.BeginForm("ProductApproved", "Admin"))
+                    {
+                        @Html.Hidden("productID", item.productID)
+                        <div class="btn-group" role="group">
+                            <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                        </div>
+                    }
+                    <!-- Edit -->
+                    <a href="@Url.Action("EditProduct", "Admin" , new { item.productID } )" class="btn btn-primary btn-xs">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <!-- Delete -->
                     @using (Html.BeginForm("DeleteProduct", "Admin"))
                     {
                         @Html.Hidden("productID", item.productID)
                         <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                     }
-                    <a href="@Url.Action("EditProduct", "Admin" , new { item.productID } )" class="btn btn-primary btn-xs">
-                        <i class="fa fa-pencil"></i>
-                    </a>
+                    <!-- SMS -->
                     <button type="submit" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope-o"></i></button>
-                    @Html.Action("SendSMS", "Admin");
-                    <button type="submit" class="btn btn-warning btn-xs disabled" data-toggle="modal" data-target="#myModal"><i class="fa fa-archive"></i></button>
-                    
-                    @using (Html.BeginForm("ProductApproved", "Admin"))
-                    {
-                        @Html.Hidden("productID", item.productID)
-                        <div class="btn-group" role="group">
-                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-arrow-circle-right"></i>Підтвердити</button>
-                        </div>
-                    }
+                    @Html.Action("SendSMS", "Admin")
+                    <!-- Add to Storage -->
+                    <button class="btn btn-warning btn-xs"><i class="fa fa-archive"></i></button>
                 </td>
             </tr>
         }

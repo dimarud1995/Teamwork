@@ -1,0 +1,90 @@
+﻿@model SVTrade.Models.Register
+@{Layout = "~/Views/Shared/_Layout.cshtml";
+ViewBag.Title = "Реєстрація";}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="container container-body">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                    <form role="form">
+                        <h2>Будь ласка, зареєструйтеся</h2>                        
+
+                        <div class="form-group">
+                            <div class="text-danger">@ViewBag.Message</div>
+                            @Html.TextBoxFor(model => model.companyName, new { @type = "text", @name = "company_name", id = "company_name", @class = "form-control input-lg", @placeholder = "Назва компанії", @tabindex = "1" })
+                            @Html.ValidationMessageFor(model => model.companyName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.juridicalAddress, new { @type = "text", @name = "juridicalAddress", id = "juridicalAddress", @class = "form-control input-lg", @placeholder = "Юридична адреса", @tabindex = "2" })
+                            @Html.ValidationMessageFor(model => model.juridicalAddress, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.address, new { @type = "text", @name = "address", id = "address", @class = "form-control input-lg", @placeholder = "Адреса потужностей", @tabindex = "3" })
+                            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.contactPerson, new { @type = "text", @name = "contactPerson", id = "contactPerson", @class = "form-control input-lg", @placeholder = "Контактна особа", @tabindex = "4" })
+                            @Html.ValidationMessageFor(model => model.contactPerson, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.post, new { @type = "text", @name = "post", id = "post", @class = "form-control input-lg", @placeholder = "Посада", @tabindex = "5" })
+                            @Html.ValidationMessageFor(model => model.post, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.phoneNumber, new { @type = "text", @name = "phoneNumber", id = "phoneNumber", @class = "form-control input-lg", @placeholder = "Номер телефону +38", @tabindex = "6" })
+                            @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.email, new { @class = "form-control input-lg", @placeholder = "Email", @tabindex = "7" })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.password, new { @type = "password", @name = "password", id = "password", @class = "form-control input-lg", @placeholder = "Пароль", @tabindex = "8" })
+                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.ConfirmPassword, new { @type = "password", @name = "password_confirmation", id = "password_confirmation", @class = "form-control input-lg", @placeholder = "Підтвердіть пароль", @tabindex = "9" })
+                                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                        <br />
+                        <div class="row mb-x2">
+                            <div class="col-xs-12 col-md-6">
+                                <input type="submit" value="Зареєструватися" class="btn btn-success btn-block btn-lg" tabindex="7">
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <a href="@Url.Action("Index", "Home")" class="btn btn-lg btn-primary btn-block">Відмінити</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+  
+
+</body>
+</html>

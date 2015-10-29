@@ -23,7 +23,10 @@ namespace SVTrade.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-            return PartialView();
+            if (Request.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+            else
+                return PartialView();
         }
 
 
@@ -57,19 +60,24 @@ namespace SVTrade.Controllers
                     ModelState.Clear();
                     a = "Login";
                     b = "Account";
-                    RedirectToAction(a, b);
+
                 }
                 else
                 {
                     ViewBag.Message = "Користувач уже існує!";
+                    a = "Register";
+                    b = "UserRegistration";
                 }
 
             }
             else
             {
                 ViewBag.Message = "Невірні дані!";
+                a = "Register";
+                b = "UserRegistration";
             }
-            return View(); ;
+            return RedirectToAction(a, b);
+
         }
     }
 }

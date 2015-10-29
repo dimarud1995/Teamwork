@@ -12,10 +12,14 @@ namespace SVTrade.Areas.Admin.Controllers
         //
         // GET: /Admin/Admin/
         private IRepository repository;
-        static public int CurrentUserId = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
 
         public AdminController(IRepository repo)
         {
+            try
+            {
+                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
+            }
+            catch { }
             repository = repo;
         }
         
@@ -131,7 +135,7 @@ namespace SVTrade.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult EditArticle(Article article)
         {
-            article.userID = CurrentUserId;
+            article.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
             if (ModelState.IsValid)
             {
                 article.date = DateTime.Now;

@@ -61,15 +61,25 @@
                 <td>@Html.DisplayFor(model => item.canceled)</td>
 
                 <td>
+                    <!-- Confirm -->
+                    @using (Html.BeginForm("OrderApproved", "Admin"))
+                    {
+                        @Html.Hidden("orderID", item.orderID)
+                        <div class="btn-group" role="group">
+                            <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                        </div>
+                    }
+                    <!-- Edit -->
+                    <a href="@Url.Action("EditOrder", "Admin" , new { item.orderID } )" class="btn btn-primary btn-xs">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <!-- Delete -->
                     @using (Html.BeginForm("DeleteOrder", "Admin"))
                     {
                         @Html.Hidden("orderID", item.orderID)
                         <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                        <a href="@Url.Action("EditOrder", "Admin" , new { item.orderID } )" class="btn btn-primary btn-xs">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-envelope-o"></i></a>
                     }
+                    <!-- NextStatus -->
                     @using (Html.BeginForm("EditStatusInOrder", "Admin"))
                     {
                         @Html.Hidden("orderID", item.orderID)
@@ -77,13 +87,8 @@
                             <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-arrow-circle-right"></i></button>
                         </div>
                     }
-                    @using (Html.BeginForm("OrderApproved", "Admin"))
-                    {
-                        @Html.Hidden("orderID", item.orderID)
-                        <div class="btn-group" role="group">
-                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-arrow-circle-right"></i>Підтвердити</button>
-                        </div>
-                    }
+                    <!-- SMS -->
+                    <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-envelope-o"></i></a>
                 </td>
             </tr>
         }
