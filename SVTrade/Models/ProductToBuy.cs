@@ -37,9 +37,8 @@ namespace SVTrade.Models
         [Required(ErrorMessage = "Поле не може бути пустим")]
         public double amount { get; set; }
 
-        [DisplayName("Ціна")]
+        [DisplayName("Ціна(грн/кг)")]
         [Required(ErrorMessage = "Поле не може бути пустим")]
-        [DataType(DataType.Currency)]
         public double price { get; set; }
 
         [DisplayName("Опис")]

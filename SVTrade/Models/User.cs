@@ -70,10 +70,10 @@ namespace SVTrade.Models
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Некоректна адреса")]
         public string email { get; set; }
 
-        [DisplayName("Ліцензія на покупку")]
+        [DisplayName("Ліцензія на продаж")]
         public bool merchantLicense { get; set; }
 
-        [DisplayName("Ліцензія на продаж")]
+        [DisplayName("Ліцензія на покупку")]
         public bool tradeLicense { get; set; }
 
         [DisplayName("Підтвердження")]
