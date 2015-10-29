@@ -214,7 +214,7 @@
                                             {
                                                 if (Request.IsAuthenticated)
                                                 {
-                                                    if (p.idUser == Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name))
+                                                    if (p.idUser == SVTrade.LoggedUserInfo.currentUserId)
                                                     {
                                                     <tr>
                                                         <td class="cart_product">

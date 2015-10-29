@@ -12,15 +12,15 @@
         <tr>
             <th>
                 <i class="fa fa-bullhorn"></i>
-                Компания
+                @Html.DisplayNameFor(model => model.companyName)
             </th>
 
             <th>
-                Контакты
+                @Html.DisplayNameFor(model => model.contactPerson)
             </th>
 
             <th>
-                Адресса
+                @Html.DisplayNameFor(model => model.address)
             </th>
 
             <th>
@@ -41,6 +41,7 @@
 
         @foreach (var item in Model)
         {
+
             <tr>
                 <td>
                     <div>
@@ -72,14 +73,16 @@
                     {
                         @Html.Hidden("userID", item.userID)
                         <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                        <a href="@Url.Action("edituser", "Admin" , new { item.userID } )" class="btn btn-primary btn-xs">
+                        <a href="@Url.Action("edituser", "Admin", new {item.userID})" class="btn btn-primary btn-xs">
                             <i class="fa fa-pencil"></i>
                         </a>
                         <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-envelope-o"></i></a>
                     }
                 </td>
             </tr>
+
         }
     </table>
 
 </div>
+

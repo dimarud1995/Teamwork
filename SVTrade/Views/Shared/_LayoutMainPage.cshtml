@@ -36,7 +36,6 @@
                     {
                         using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
                         {
-                            string link = "Personal/Products/Index/" + System.Web.HttpContext.Current.User.Identity.Name;
                             @Html.AntiForgeryToken()
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="Personal/Products/Index/">Вітаємо @SVTrade.LoggedUserInfo.getName()</a></li>

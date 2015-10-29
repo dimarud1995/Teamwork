@@ -21,7 +21,8 @@ namespace SVTrade.Areas.Personal.Controllers
         {
             try
             {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
+                HttpCookie cookie = HttpContext.Request.Cookies["name"];
+                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(cookie.Value));
             }
             catch { }
             r = repo;
@@ -29,7 +30,7 @@ namespace SVTrade.Areas.Personal.Controllers
         // GET: Personal/Orders
         public ActionResult Index()
         {
-            int tid= Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int tid= SVTrade.LoggedUserInfo.currentUserId;
             var order = r.Orders.Include(o => o.OrderStatus).Include(o => o.Product).Include(o => o.User).Where(p=>p.userID==tid);
             return View(order.ToList());
         }

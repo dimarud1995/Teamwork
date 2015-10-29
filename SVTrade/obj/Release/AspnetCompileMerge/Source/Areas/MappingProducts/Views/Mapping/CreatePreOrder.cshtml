@@ -29,7 +29,9 @@
                 <div class="row">
                     <div class="col-md-4">Бажана ціна(грн/кг) : </div><div class="col-md-6">@Html.EditorFor(x => x.price)</div>
                 </div>
-
+                <div class="row">
+                    <div class="col-md-4">Побажання : </div><div class="col-md-6">@Html.EditorFor(x => x.description)</div>
+                </div>
                 <div class="row">
                     <div class="col-md-4 ">Категорія товару : </div>
                     <div class="col-md-6">@Html.DropDownListFor(m => m.productCategoryID,

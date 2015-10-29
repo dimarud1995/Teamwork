@@ -17,7 +17,8 @@ namespace SVTrade.Controllers
         {
             try
             {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
+                HttpCookie cookie = HttpContext.Request.Cookies["name"];
+                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(cookie.Value));
             }
             catch { }
             this.repository = repo;
@@ -29,7 +30,7 @@ namespace SVTrade.Controllers
             try
             {
                 int currentUserGroup = 1;
-                ViewData["CurrentUser"] = from User in repository.Users where User.userID == Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name) select User;
+                ViewData["CurrentUser"] = from User in repository.Users where User.userID == Convert.ToInt32(SVTrade.LoggedUserInfo.currentUserId) select User;
 
                 foreach (var a in (IEnumerable<SVTrade.Models.User>)ViewData["CurrentUser"])
                 {

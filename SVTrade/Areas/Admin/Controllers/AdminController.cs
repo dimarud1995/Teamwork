@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using SVTrade.Abstract;
 using SVTrade.Models;
+using System.Web;
 
 namespace SVTrade.Areas.Admin.Controllers
 {
@@ -20,7 +21,8 @@ namespace SVTrade.Areas.Admin.Controllers
         {
             try
             {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
+                HttpCookie cookie = HttpContext.Request.Cookies["name"];
+                SVTrade.LoggedUserInfo.SetLoggedUser(SVTrade.LoggedUserInfo.currentUserId);
             }
             catch { }
             repository = repo;
@@ -138,7 +140,7 @@ namespace SVTrade.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult EditArticle(Article article)
         {
-            article.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            article.userID = SVTrade.LoggedUserInfo.currentUserId;
             if (ModelState.IsValid)
             {
                 article.date = DateTime.Now;

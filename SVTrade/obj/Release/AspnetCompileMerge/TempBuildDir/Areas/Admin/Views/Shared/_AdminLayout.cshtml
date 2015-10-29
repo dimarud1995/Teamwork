@@ -253,6 +253,8 @@
                                 <ul class="sub">
                                     <li><a href="/Admin/Admin/UsersList">Все пользователи</a></li>
                                     <li><a href="/Admin/Admin/ManagerUsersList">Новые пользователи</a></li>
+                                    <li><a href="/Admin/Admin/UsersLicenseList">Активные пользователи</a></li>
+
                                 </ul>
                             </li>
                             <li class="sub-menu">
@@ -295,8 +297,7 @@
         <section id="main-content">
             <section class="wrapper">
                 <div class="row mt">
-                    <div class="col-md-1">
-                    </div>
+                    <div class="col-md-1"></div>
                     <div class="col-md-10">
                         @if (TempData["message"] != null)
                         {
@@ -304,10 +305,9 @@
                         }
                         @RenderBody()
                     </div>
-                    <div class="col-md-1">
-                    </div>
+                    <div class="col-md-1"></div>
                 </div>
-            </section><! --/wrapper -->
+            </section><!--/wrapper -->
         </section><!-- /MAIN CONTENT -->
         <!--main content end-->
         <!--footer start-->

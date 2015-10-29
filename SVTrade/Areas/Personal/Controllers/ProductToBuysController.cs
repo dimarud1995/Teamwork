@@ -14,14 +14,14 @@ namespace SVTrade.Areas.Personal.Controllers
     public class ProductToBuysController : Controller
     {
         private TradeDBEntities db = new TradeDBEntities();
-
         private IRepository r;
 
         public ProductToBuysController(IRepository repo)
         {
             try
             {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
+                HttpCookie cookie = HttpContext.Request.Cookies["name"];
+                SVTrade.LoggedUserInfo.SetLoggedUser(SVTrade.LoggedUserInfo.currentUserId);
             }
             catch { }
             r = repo;
@@ -29,7 +29,7 @@ namespace SVTrade.Areas.Personal.Controllers
         // GET: Personal/ProductToBuys
         public ActionResult Index()
         {
-            int tID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int tID = Convert.ToInt32(SVTrade.LoggedUserInfo.currentUserId);
             var productToBuy = r.ProductsToBuy.Include(p => p.ProductCategory).Include(p => p.User).Where(p=>p.userID== tID);
             return View(productToBuy.ToList());
         }
@@ -64,7 +64,7 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "productToBuyID,userID,title,productCategoryID,amount,price,description,approved")] ProductToBuy productToBuy)
         {
-            productToBuy.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            productToBuy.userID = Convert.ToInt32(SVTrade.LoggedUserInfo.currentUserId);
             if (ModelState.IsValid)
             {
                 r.SaveProductToBuy(productToBuy);
@@ -101,7 +101,7 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "productToBuyID,userID,title,productCategoryID,amount,price,description,approved")] ProductToBuy productToBuy)
         {
-            productToBuy.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            productToBuy.userID = Convert.ToInt32(SVTrade.LoggedUserInfo.currentUserId);
             if (ModelState.IsValid)
             {
                 db.Entry(productToBuy).State = EntityState.Modified;

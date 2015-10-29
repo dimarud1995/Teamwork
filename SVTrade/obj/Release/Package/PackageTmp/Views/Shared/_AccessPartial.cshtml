@@ -8,7 +8,6 @@
                         using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
                         {
                             @Html.AntiForgeryToken()
-                            string temp = " " + System.Web.HttpContext.Current.User.Identity.Name;
                             if (groupName == "Директор" || groupName == "Менеджер")
                             {
                     <ul class="nav navbar-nav navbar-left">

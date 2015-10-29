@@ -42,7 +42,6 @@
                         using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
                         {
                             @Html.AntiForgeryToken()
-                            SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
                             <ul class="nav navbar-nav navbar-right">
                                 <li>@Html.ActionLink("Вітаємо " + SVTrade.LoggedUserInfo.getName(), "Index", "Personal/Products", new { area = "" }, new { @class = "" })</li>
                                 <li>@Html.ActionLink("Вихід", "Logout", "Account", new { area = "" }, new { @class = "" }) </li>

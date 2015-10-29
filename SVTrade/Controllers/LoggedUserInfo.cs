@@ -20,6 +20,7 @@ namespace SVTrade
 
         static public void SetLoggedUser (int id)
         {
+            currentUserId = id;
             db = new TradeDBEntities();
             loggedUser = from User in db.Users where User.userID == id select User;
             userIfno = loggedUser.FirstOrDefault();
