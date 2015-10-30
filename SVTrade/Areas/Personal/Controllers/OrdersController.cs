@@ -146,6 +146,13 @@ namespace SVTrade.Areas.Personal.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public ActionResult History()
+        {
+             return View();
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -154,5 +161,6 @@ namespace SVTrade.Areas.Personal.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

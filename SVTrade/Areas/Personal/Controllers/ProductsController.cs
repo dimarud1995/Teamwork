@@ -218,5 +218,10 @@ namespace SVTrade.Areas.Personal.Controllers
             }
             
         }
+
+        public ActionResult History()
+        {
+            return View();
+        }
     }
 }
