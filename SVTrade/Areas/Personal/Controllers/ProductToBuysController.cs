@@ -18,12 +18,6 @@ namespace SVTrade.Areas.Personal.Controllers
 
         public ProductToBuysController(IRepository repo)
         {
-            try
-            {
-                HttpCookie cookie = HttpContext.Request.Cookies["name"];
-                SVTrade.LoggedUserInfo.SetLoggedUser(SVTrade.LoggedUserInfo.currentUserId);
-            }
-            catch { }
             r = repo;
         }
         // GET: Personal/ProductToBuys

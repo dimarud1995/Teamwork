@@ -19,12 +19,6 @@ namespace SVTrade.Areas.Admin.Controllers
 
         public AdminController(IRepository repo)
         {
-            try
-            {
-                HttpCookie cookie = HttpContext.Request.Cookies["name"];
-                SVTrade.LoggedUserInfo.SetLoggedUser(SVTrade.LoggedUserInfo.currentUserId);
-            }
-            catch { }
             repository = repo;
         }
         

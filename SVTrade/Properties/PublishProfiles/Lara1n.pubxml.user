@@ -6,14 +6,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\SV_Trade\v1.0</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\SV_Trade\v1.2 Async</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/TradeDB.mdf">
-      <publishTime>10/30/2015 01:35:32</publishTime>
+      <publishTime>10/30/2015 02:47:57</publishTime>
     </File>
     <File Include="App_Data/TradeDB_log.ldf">
-      <publishTime>10/30/2015 01:35:32</publishTime>
+      <publishTime>10/30/2015 02:47:57</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ArticlesList.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -490,10 +490,10 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>10/30/2015 01:36:57</publishTime>
+      <publishTime>10/30/2015 03:16:07</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>10/30/2015 01:36:57</publishTime>
+      <publishTime>10/30/2015 03:16:07</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/29/2015 18:43:06</publishTime>
@@ -580,10 +580,10 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="bin/SVTrade.dll">
-      <publishTime>10/30/2015 01:36:49</publishTime>
+      <publishTime>10/30/2015 03:16:01</publishTime>
     </File>
     <File Include="bin/SVTrade.dll.config">
-      <publishTime>10/29/2015 19:37:31</publishTime>
+      <publishTime>10/30/2015 02:24:03</publishTime>
     </File>
     <File Include="bin/System.Data.SqlServerCe.dll">
       <publishTime>10/29/2015 18:43:06</publishTime>
@@ -3862,10 +3862,10 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/29/2015 18:43:11</publishTime>
+      <publishTime>10/30/2015 02:23:57</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>10/30/2015 01:36:53</publishTime>
+      <publishTime>10/30/2015 03:16:04</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>10/29/2015 18:43:06</publishTime>
@@ -3988,7 +3988,7 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/29/2015 23:07:41</publishTime>
+      <publishTime>10/30/2015 02:48:36</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -13,13 +13,7 @@ namespace SVTrade.Areas.MappingProducts.Controllers
     {
         private IRepository repository;
         public MappingController(IRepository repo)
-        {
-            try
-            {
-                HttpCookie cookie = HttpContext.Request.Cookies["name"];
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(cookie.Value));
-            }
-            catch { }
+        { 
             this.repository = repo;
         }
         static private IEnumerable<Product> AllProd;

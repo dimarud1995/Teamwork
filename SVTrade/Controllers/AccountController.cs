@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SVTrade.Models;
 using SVTrade.Abstract;
 using System.Web.Security;
+using System.Threading.Tasks;
 
 namespace SVTrade.Controllers
 {
@@ -28,11 +29,11 @@ namespace SVTrade.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Login l, string ReturnUrl = "")
+        public async Task<ActionResult> Login(Login l, string ReturnUrl = "")
         {
             var crypto = new SimpleCrypto.PBKDF2();
-
-            var user = repository.Users.Where(a => a.email.Equals(l.email)).FirstOrDefault();
+   
+            var user = await SVTrade.LoggedUserInfo.findUser(l.email);
             if (user != null)
             {
                 if (user.password == crypto.Compute(l.password, user.passwordSalt))
@@ -41,7 +42,6 @@ namespace SVTrade.Controllers
                     var ck = new HttpCookie("name", user.userID.ToString());
                     Response.Cookies.Add(ck);
                     HttpCookie cookie = HttpContext.Request.Cookies["name"];
-                    SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(cookie.Value));
                     if (Url.IsLocalUrl(ReturnUrl))
                     {
                         return Redirect(ReturnUrl);

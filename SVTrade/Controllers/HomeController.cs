@@ -15,12 +15,6 @@ namespace SVTrade.Controllers
 
         public HomeController(IRepository repo)
         {
-            try
-            {
-                HttpCookie cookie = HttpContext.Request.Cookies["name"];
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(cookie.Value));
-            }
-            catch { }
             this.repository = repo;
         }
 
@@ -29,6 +23,9 @@ namespace SVTrade.Controllers
         {
             try
             {
+                HttpCookie cookie = HttpContext.Request.Cookies["name"];
+                ViewBag.UserID = Convert.ToInt32(cookie.Value);
+
                 int currentUserGroup = 1;
                 ViewData["CurrentUser"] = from User in repository.Users where User.userID == Convert.ToInt32(SVTrade.LoggedUserInfo.currentUserId) select User;
 

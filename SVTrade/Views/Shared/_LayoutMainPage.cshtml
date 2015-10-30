@@ -38,7 +38,7 @@
                         {
                             @Html.AntiForgeryToken()
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="Personal/Products/Index/">Вітаємо @SVTrade.LoggedUserInfo.getName()</a></li>
+                                <li><a href="Personal/Products/Index/">Вітаємо @SVTrade.LoggedUserInfo.getName(Convert.ToInt32(ViewBag.UserID))</a></li>
                                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Вийти</a></li>
                             </ul>
                         }

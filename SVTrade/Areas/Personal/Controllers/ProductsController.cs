@@ -19,12 +19,6 @@ namespace SVTrade.Areas.Personal.Controllers
 
         public ProductsController(IRepository repo)
         {
-            try
-            {
-                HttpCookie cookie = HttpContext.Request.Cookies["name"];
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(cookie.Value));
-            }
-            catch { }
             r = repo;
         }
         // GET: Personal/Products
