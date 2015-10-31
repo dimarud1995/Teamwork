@@ -461,8 +461,6 @@
     <Content Include="bin\Ninject.Web.Common.dll" />
     <Content Include="bin\Ninject.Web.Mvc.dll" />
     <Content Include="bin\Owin.dll" />
-    <Content Include="bin\ru\EntityFramework.resources.dll" />
-    <Content Include="bin\ru\EntityFramework.SqlServer.resources.dll" />
     <Content Include="bin\ru\System.Data.SqlServerCe.resources.dll" />
     <Content Include="bin\ru\System.Net.Http.Formatting.resources.dll" />
     <Content Include="bin\ru\System.Web.Helpers.resources.dll" />
@@ -477,6 +475,7 @@
     <Content Include="bin\ru\System.Web.WebPages.resources.dll" />
     <Content Include="bin\SimpleCrypto.dll" />
     <Content Include="bin\SVTrade.dll" />
+    <Content Include="bin\SVTrade.dll.config" />
     <Content Include="bin\SVTrade.pdb" />
     <Content Include="bin\System.Data.SqlServerCe.dll" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />
@@ -667,7 +666,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="bin\SVTrade.dll.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />

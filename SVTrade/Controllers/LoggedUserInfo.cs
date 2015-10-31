@@ -7,25 +7,27 @@ using SVTrade.Abstract;
 using System.Web.Mvc;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Web.Security;
 
 namespace SVTrade
 {
     static public class LoggedUserInfo
     {
         static public int currentUserId;
-        static private List<User> usersIfno = new List<User>();
+        static private List<User> onlineUsersList = new List<User>();
         static private IRepository repository;
         static TradeDBEntities db;
 
         static public List<User> GetOnlineUsers()
         {
-            return usersIfno;
+            return onlineUsersList;
         }
 
+        // Serach the user in Online Users List;
         static private User LocatedUser (int id)
         {
             User locatedUser = new User();
-            foreach(var user in usersIfno)
+            foreach(var user in onlineUsersList)
             {
                 if (user.userID == id)
                     locatedUser = user;
@@ -33,44 +35,54 @@ namespace SVTrade
             return locatedUser;
         }
 
+        // Search user info in Data Base and add him in Online Users List;
         public static async Task<User> FindUser(string email)
         {
             db = new TradeDBEntities();
             var user = await db.Users.Where(x => x.email.Equals(email)).FirstOrDefaultAsync();
-            usersIfno.Add(user);
+            onlineUsersList.Add(user);
             return user;
+        }
+
+        public static void RemoveLoggedUser(int id)
+        {
+            User tempUser = LocatedUser(id);
+            onlineUsersList.Remove(tempUser);
+        }
+
+        // Check if the user with cookie exist in Online Users List;
+        // If not then add him in;
+        private static void ValidateUser(int id)
+        {
+            try
+            {
+                User locatedUser = LocatedUser(id);
+                if (locatedUser.contactPerson == null && HttpContext.Current.Request.Cookies["name"] != null)
+                {
+                    db = new TradeDBEntities();
+                    var user = db.Users.Where(x => x.userID.Equals(id)).FirstOrDefault();
+                    onlineUsersList.Add(user);
+                }
+            }
+            catch { };
         }
 
         public static string GetName(int id)
         {
+            ValidateUser(id);
             User tempUser = LocatedUser(id);
             string temp;
             try
             {
                 temp = Convert.ToString(tempUser.contactPerson);
             }
-            catch(Exception ex) { temp = ex.Message; };
+            catch (Exception ex) { temp = ex.Message; };
             return temp;
-        }
-
-        public static void RemoveLoggedUser(int id)
-        {
-            try
-            {
-                int index = 0, counter = 0;
-                foreach (var onlineUser in usersIfno)
-                {
-                    if (onlineUser.userID == id)
-                        index = counter;
-                    counter++;
-                }
-                usersIfno.RemoveAt(index);
-            }
-            catch { }
         }
 
         public static int GetGroupID(int id)
         {
+            ValidateUser(id);
             int tempID = 1;
             try
             {
