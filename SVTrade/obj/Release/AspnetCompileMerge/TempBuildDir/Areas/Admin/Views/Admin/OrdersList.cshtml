@@ -88,7 +88,8 @@
                         </div>
                     }
                     <!-- SMS -->
-                    <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-envelope-o"></i></a>
+                    <button type="submit" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope-o"></i></button>
+                    @Html.Action("SendSMS", "Admin")
                 </td>
             </tr>
         }

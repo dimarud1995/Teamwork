@@ -46,13 +46,13 @@
 
                 <td>
                     @using (Html.BeginForm("DeleteReservedProduct", "Admin"))
-                {
+                    {
                         @Html.Hidden("reservID", item.reservID)
                         <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                        <a href="@Url.Action("EditReservedProduct", "Admin" , new { item.reservID } )" class="btn btn-primary btn-xs">
-                            <i class="fa fa-pencil"></i>
-                        </a>
                     }
+                    <a href="@Url.Action("EditReservedProduct", "Admin" , new { item.reservID } )" class="btn btn-primary btn-xs">
+                        <i class="fa fa-pencil"></i>
+                    </a>
                 </td>
             </tr>
         }

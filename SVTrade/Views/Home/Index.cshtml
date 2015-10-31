@@ -34,7 +34,7 @@
                             using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
                             {
                                 @Html.AntiForgeryToken()
-                                <p>Вітаємо, @LoggedUserInfo.getName(Convert.ToInt32(ViewBag.UserID)) </p>
+                                <p>Вітаємо, @SVTrade.LoggedUserInfo.GetName(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value)) </p>
                                 <div class="idf">
                                     @Html.ActionLink("Особистий кабінет", "Index", "Personal/Products", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "logs btn btn-ghost" })
                                 </div>

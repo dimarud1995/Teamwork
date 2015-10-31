@@ -6,14 +6,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\SV_Trade\v1.2 Async</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\SV_Trade\v1.3.1 Async</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/TradeDB.mdf">
-      <publishTime>10/30/2015 02:47:57</publishTime>
+      <publishTime>10/31/2015 20:11:35</publishTime>
     </File>
     <File Include="App_Data/TradeDB_log.ldf">
-      <publishTime>10/30/2015 02:47:57</publishTime>
+      <publishTime>10/31/2015 20:11:35</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ArticlesList.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -61,16 +61,16 @@
       <publishTime>10/29/2015 22:58:11</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ManagerProductsList.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/31/2015 17:57:08</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ManagerStatisticList.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ManagerUsersList.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/31/2015 17:57:01</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/OrdersList.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/31/2015 17:59:10</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/OrderStatusesList.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -79,7 +79,7 @@
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ProductsList.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/31/2015 17:56:42</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ProductsToBuyList.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -106,25 +106,25 @@
       <publishTime>10/29/2015 22:02:38</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/UsersList.cshtml">
-      <publishTime>10/29/2015 22:02:38</publishTime>
+      <publishTime>10/31/2015 17:57:12</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/VirtualStorageList.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Shared/_AdminLayout.cshtml">
-      <publishTime>10/29/2015 22:02:38</publishTime>
+      <publishTime>10/31/2015 19:29:25</publishTime>
     </File>
     <File Include="Areas/Admin/Views/web.config">
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/css/blablacar.css">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/25/2015 19:54:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/css/bootstrap.min.css">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>01/16/2014 11:01:10</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/css/font-awesome.min.css">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>01/16/2014 11:01:10</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/css/main.css">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -133,7 +133,7 @@
       <publishTime>10/30/2015 01:36:19</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/css/price-range.css">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/10/2015 15:21:24</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/fonts/bbc-icons-e8bd59ab2ecd0308151b2eb332f5e846.woff">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -142,7 +142,7 @@
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/fonts/fontawesome-webfont.svg">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>01/16/2014 12:01:10</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/fonts/fontawesome-webfont.woff">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -151,7 +151,7 @@
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>01/16/2014 12:01:10</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/fonts/glyphicons-halflings-regular.woff">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -193,13 +193,13 @@
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Scripts/js/bootstrap.min.js">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>01/16/2014 11:01:10</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Scripts/js/html5shiv.js">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>01/16/2014 11:01:10</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Scripts/js/jquery.js">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>01/16/2014 11:01:10</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Scripts/js/jquery.scrollUp.min.js">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -211,28 +211,28 @@
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Mapping/CreatePreOrder.cshtml">
-      <publishTime>10/30/2015 01:11:11</publishTime>
+      <publishTime>10/29/2015 11:18:54</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Mapping/Mapping.cshtml">
-      <publishTime>10/30/2015 00:48:42</publishTime>
+      <publishTime>10/31/2015 19:27:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Mapping/MappingCategory.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Mapping/Summary.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/31/2015 19:25:30</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Shared/AddPreOrder.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Shared/MappingProduct.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/31/2015 19:48:49</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Shared/Summary.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Shared/_Layout.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/30/2015 04:09:16</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/web.config">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -451,7 +451,7 @@
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/Personal/Views/ProductToBuys/Index.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>10/31/2015 19:05:32</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Shared/GoUp.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -490,10 +490,10 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>10/30/2015 03:16:07</publishTime>
+      <publishTime>10/31/2015 20:14:51</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>10/30/2015 03:16:07</publishTime>
+      <publishTime>10/31/2015 20:14:51</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/29/2015 18:43:06</publishTime>
@@ -580,7 +580,7 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="bin/SVTrade.dll">
-      <publishTime>10/30/2015 03:16:01</publishTime>
+      <publishTime>10/31/2015 20:10:33</publishTime>
     </File>
     <File Include="bin/SVTrade.dll.config">
       <publishTime>10/30/2015 02:24:03</publishTime>
@@ -3865,7 +3865,7 @@
       <publishTime>10/30/2015 02:23:57</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>10/30/2015 03:16:04</publishTime>
+      <publishTime>10/31/2015 20:14:48</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>10/29/2015 18:43:06</publishTime>
@@ -3946,7 +3946,7 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/29/2015 18:43:06</publishTime>
+      <publishTime>10/31/2015 19:31:33</publishTime>
     </File>
     <File Include="Views/Home/ManagerIndex.cshtml">
       <publishTime>10/29/2015 18:43:06</publishTime>
@@ -3961,16 +3961,16 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="Views/Shared/_AccessPartial.cshtml">
-      <publishTime>10/30/2015 00:38:15</publishTime>
+      <publishTime>10/31/2015 19:42:01</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/30/2015 00:37:22</publishTime>
+      <publishTime>10/31/2015 19:30:07</publishTime>
     </File>
     <File Include="Views/Shared/_Layout2.cshtml">
       <publishTime>10/12/2015 03:52:31</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutMainPage.cshtml">
-      <publishTime>10/30/2015 00:37:30</publishTime>
+      <publishTime>10/31/2015 19:21:25</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>10/29/2015 18:43:06</publishTime>

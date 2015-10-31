@@ -23,7 +23,7 @@ namespace SVTrade.Areas.Personal.Controllers
         // GET: Personal/ProductToBuys
         public ActionResult Index()
         {
-            int tID = Convert.ToInt32(SVTrade.LoggedUserInfo.currentUserId);
+            int tID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             var productToBuy = r.ProductsToBuy.Include(p => p.ProductCategory).Include(p => p.User).Where(p=>p.userID== tID);
             return View(productToBuy.ToList());
         }
@@ -58,7 +58,7 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "productToBuyID,userID,title,productCategoryID,amount,price,description,approved")] ProductToBuy productToBuy)
         {
-            productToBuy.userID = Convert.ToInt32(SVTrade.LoggedUserInfo.currentUserId);
+            productToBuy.userID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             if (ModelState.IsValid)
             {
                 r.SaveProductToBuy(productToBuy);
@@ -95,7 +95,7 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "productToBuyID,userID,title,productCategoryID,amount,price,description,approved")] ProductToBuy productToBuy)
         {
-            productToBuy.userID = Convert.ToInt32(SVTrade.LoggedUserInfo.currentUserId);
+            productToBuy.userID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             if (ModelState.IsValid)
             {
                 db.Entry(productToBuy).State = EntityState.Modified;

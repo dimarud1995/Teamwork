@@ -33,7 +33,7 @@ namespace SVTrade.Controllers
         {
             var crypto = new SimpleCrypto.PBKDF2();
    
-            var user = await SVTrade.LoggedUserInfo.findUser(l.email);
+            var user = await SVTrade.LoggedUserInfo.FindUser(l.email);
             if (user != null)
             {
                 if (user.password == crypto.Compute(l.password, user.passwordSalt))
@@ -41,7 +41,6 @@ namespace SVTrade.Controllers
                     FormsAuthentication.SetAuthCookie(user.userID.ToString(), l.RememberMe);
                     var ck = new HttpCookie("name", user.userID.ToString());
                     Response.Cookies.Add(ck);
-                    HttpCookie cookie = HttpContext.Request.Cookies["name"];
                     if (Url.IsLocalUrl(ReturnUrl))
                     {
                         return Redirect(ReturnUrl);
@@ -65,6 +64,7 @@ namespace SVTrade.Controllers
         {
             if (Request.Cookies["name"] != null)
             {
+                SVTrade.LoggedUserInfo.RemoveLoggedUser(Convert.ToInt32(HttpContext.Request.Cookies["name"].Value));
                 var c = new HttpCookie("name");
                 c.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(c);

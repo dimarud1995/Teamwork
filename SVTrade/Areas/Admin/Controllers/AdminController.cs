@@ -289,6 +289,7 @@ namespace SVTrade.Areas.Admin.Controllers
         [Authorize(Roles = "Менеджер, Директор")]
         public ViewResult OrdersList()
         {
+
             return View(repository.Orders.OrderBy(x => x.statusID));
         }
 

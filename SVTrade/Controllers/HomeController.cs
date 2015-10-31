@@ -21,21 +21,7 @@ namespace SVTrade.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            try
-            {
-                HttpCookie cookie = HttpContext.Request.Cookies["name"];
-                ViewBag.UserID = Convert.ToInt32(cookie.Value);
 
-                int currentUserGroup = 1;
-                ViewData["CurrentUser"] = from User in repository.Users where User.userID == Convert.ToInt32(SVTrade.LoggedUserInfo.currentUserId) select User;
-
-                foreach (var a in (IEnumerable<SVTrade.Models.User>)ViewData["CurrentUser"])
-                {
-                    currentUserGroup = a.userGroupID;
-                }
-                ViewData["CurrentUserGroup"] = from UserGroup in repository.UserGroups where UserGroup.userGroupID == currentUserGroup select UserGroup;
-            }
-            catch { }
             return View();
         }
 

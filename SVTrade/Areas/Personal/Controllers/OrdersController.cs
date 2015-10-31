@@ -24,7 +24,12 @@ namespace SVTrade.Areas.Personal.Controllers
         // GET: Personal/Orders
         public ActionResult Index()
         {
-            int tid= SVTrade.LoggedUserInfo.currentUserId;
+            int tid;
+            try
+            {
+                tid = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
+            }
+            catch { tid = 0; }
             var order = r.Orders.Include(o => o.OrderStatus).Include(o => o.Product).Include(o => o.User).Where(p=>p.userID==tid);
             return View(order.ToList());
         }

@@ -76,7 +76,9 @@
                         <a href="@Url.Action("edituser", "Admin", new {item.userID})" class="btn btn-primary btn-xs">
                             <i class="fa fa-pencil"></i>
                         </a>
-                        <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-envelope-o"></i></a>
+                        <!-- SMS -->
+                        <button type="submit" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope-o"></i></button>
+                        @Html.Action("SendSMS", "Admin")
                     }
                 </td>
             </tr>

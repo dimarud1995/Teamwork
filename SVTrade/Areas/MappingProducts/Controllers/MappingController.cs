@@ -4,6 +4,7 @@ using SVTrade.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,17 +12,18 @@ namespace SVTrade.Areas.MappingProducts.Controllers
 {
     public class MappingController : Controller
     {
+        private SessionStateTempDataProvider session;
         private IRepository repository;
         public MappingController(IRepository repo)
-        { 
+        {
             this.repository = repo;
         }
         static private IEnumerable<Product> AllProd;
         static private IEnumerable<Product> AllProd1;
         #region Products
-        public ViewResult Mapping(int? currentCutegory, string returnUrl)
+        public async Task<ViewResult> Mapping(int? currentCutegory, string returnUrl)
         {
-            IEnumerable<SVTrade.Models.Product> ProductForUser = from Product in repository.Products  select Product;
+            IEnumerable<SVTrade.Models.Product> ProductForUser = from Product in repository.Products select Product;
             AllProd = repository.Products.Where(a =>
             a.productID == 0);
 
@@ -37,6 +39,11 @@ namespace SVTrade.Areas.MappingProducts.Controllers
             SelectList bCateg = new SelectList(repository.ProductCategories, "productCategoryID", "name");
             ViewData["Name"] = repository.ProductCategories.OrderBy(p => p.productCategoryID);
             ViewData["Product"] = ProductForUser;
+            try
+            {
+                ViewBag.UserID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
+            }
+            catch { }
             return View(new CartIndexViewModel
             {
                 Cart = GetCart(),
@@ -79,7 +86,14 @@ namespace SVTrade.Areas.MappingProducts.Controllers
 
                 ViewData["Name"] = repository.ProductCategories.OrderBy(p => p.productCategoryID);
                 ViewData["Product"] = AllProd1;
-                return View(new CartIndexViewModel
+                try {
+                    
+
+                    ViewBag.UserID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
+                }
+                catch { }
+
+            return View(new CartIndexViewModel
                 {
                     Cart = GetCart(),
                     ReturnUrl = returnUrl
@@ -95,23 +109,25 @@ namespace SVTrade.Areas.MappingProducts.Controllers
             .FirstOrDefault(p => p.productID == productId);
             if (product != null)
             {
-                GetCart().AddItem(product, SVTrade.LoggedUserInfo.currentUserId, pluser);
+                GetCart().AddItem(product, Convert.ToInt32(HttpContext.Request.Cookies["name"].Value), pluser);
             }
             return RedirectToAction("Mapping", new { returnUrl });
         }
 
-        public RedirectToRouteResult AddToOrder(string returnUrl)
+        public async Task<RedirectToRouteResult> AddToOrder(string returnUrl)
         {
 
                 TradeDBEntities _db = new TradeDBEntities();
-                var NewOrder = Cart.lineCollection;
+                
                 SVTrade.Models.Order SetOrder = new SVTrade.Models.Order();
-            
+            try
+            {
+                var NewOrder = Cart.lineCollection.Where(a => a.idUser.Equals(Convert.ToInt32(HttpContext.Request.Cookies["name"].Value)));
                 foreach (var a in NewOrder)
                 {
                     SetOrder.amount = a.Product.amount;
                     SetOrder.productID = a.Product.productID;
-                    SetOrder.userID = SVTrade.LoggedUserInfo.currentUserId;
+                    SetOrder.userID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
                     SetOrder.orderDate = DateTime.Today;
                     SetOrder.finishDate = DateTime.Today.AddMonths(1);
                     SetOrder.statusDate = DateTime.Today;
@@ -119,28 +135,33 @@ namespace SVTrade.Areas.MappingProducts.Controllers
                     SetOrder.completed = false;
                     SetOrder.statusID = 1;
                     _db.Orders.Add(SetOrder);
-                    _db.SaveChanges();
-                
+                    await _db.SaveChangesAsync();
+
                 }
 
+            }
+            catch { }
+        
             Cart.lineCollection.Clear();
             return RedirectToAction("Mapping", new { returnUrl });
         }
 
         public RedirectToRouteResult RemoveFromCart(int productId, string returnUrl)
         {
+
             SVTrade.Models.Product product = repository.Products
             .FirstOrDefault(p => p.productID == productId);
             if (product != null)
             {
-                GetCart().RemoveLine(product, SVTrade.LoggedUserInfo.currentUserId);
+                GetCart().RemoveLine(product, Convert.ToInt32(HttpContext.Request.Cookies["name"].Value));
             }
             return RedirectToAction("Mapping", new { returnUrl });
         }
         public RedirectToRouteResult AddItem(SVTrade.Models.Product product, int? pluser, string returnUrl)
         {
+
             CartLine line = Cart.lineCollection
-              .Where(p => p.Product.productID == product.productID && p.idUser == SVTrade.LoggedUserInfo.currentUserId)
+              .Where(p => p.Product.productID == product.productID && p.idUser == Convert.ToInt32(HttpContext.Request.Cookies["name"].Value))
               .FirstOrDefault();
 
             if (line == null)
@@ -187,7 +208,7 @@ namespace SVTrade.Areas.MappingProducts.Controllers
         }
         public ActionResult AddPreOrder( ProductToBuy preOrder)
         {
-            preOrder.userID = SVTrade.LoggedUserInfo.currentUserId;
+            preOrder.userID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             preOrder.approved = false;
             repository.SaveProductToBuy(preOrder);
             return RedirectToAction("CreatePreOrder");

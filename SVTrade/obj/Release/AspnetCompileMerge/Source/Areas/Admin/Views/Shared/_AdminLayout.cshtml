@@ -204,8 +204,7 @@
                 <ul class="sidebar-menu" id="nav-accordion">
 
                     <p class="centered"><a href=""><img src="/Content/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                    @{SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));}
-                    <h5 class="centered">@SVTrade.LoggedUserInfo.getName()</h5>
+                    <h5 class="centered">@SVTrade.LoggedUserInfo.GetName(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value))</h5>
 
                     <li class="sub-menu">
                         <a href="javascript:;">
@@ -232,7 +231,7 @@
                         </ul>
                     </li>
                     @{
-                        if (SVTrade.LoggedUserInfo.getGroup() == "Директор")
+                        if (SVTrade.LoggedUserInfo.GetGroupID(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value)) == 5)
                         {
                             <li class="sub-menu">
                                 <a href="javascript:;">

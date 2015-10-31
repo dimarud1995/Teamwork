@@ -13,17 +13,14 @@ namespace SVTrade
     static public class LoggedUserInfo
     {
         static public int currentUserId;
-        static public List<User> userIfno;
-        static string userGroupName;
+        static private List<User> usersIfno = new List<User>();
         static private IRepository repository;
-        static private IEnumerable<User> loggedUser;
-        static private IEnumerable<UserGroup> loggedUserGroup;
         static TradeDBEntities db;
 
-        static public User LocatedUser (int id)
+        static private User LocatedUser (int id)
         {
             User locatedUser = new User();
-            foreach(var user in userIfno)
+            foreach(var user in usersIfno)
             {
                 if (user.userID == id)
                     locatedUser = user;
@@ -31,15 +28,15 @@ namespace SVTrade
             return locatedUser;
         }
 
-        public static async Task<User> findUser(string email)
+        public static async Task<User> FindUser(string email)
         {
             db = new TradeDBEntities();
             var user = await db.Users.Where(x => x.email.Equals(email)).FirstOrDefaultAsync();
-            userIfno.Add(user);
+            usersIfno.Add(user);
             return user;
         }
 
-        public static string getName(int id)
+        public static string GetName(int id)
         {
             User tempUser = LocatedUser(id);
             string temp;
@@ -51,13 +48,35 @@ namespace SVTrade
             return temp;
         }
 
-        public static int getGroupID(int id)
+        public static void RemoveLoggedUser(int id)
         {
-            User tempUser = LocatedUser(id);
-            return tempUser.userGroupID;
+            try
+            {
+                int index = 0, counter = 0;
+                foreach (var onlineUser in usersIfno)
+                {
+                    if (onlineUser.userID == id)
+                        index = counter;
+                    counter++;
+                }
+                usersIfno.RemoveAt(index);
+            }
+            catch { }
         }
 
-        public static string getEmail(int id)
+        public static int GetGroupID(int id)
+        {
+            int tempID = 1;
+            try
+            {
+                User tempUser = LocatedUser(id);
+                tempID = tempUser.userGroupID;
+            }
+            catch { };
+            return tempID;
+        }
+
+        public static string GetEmail(int id)
         {
             User tempUser = LocatedUser(id);
             string temp;
@@ -69,7 +88,7 @@ namespace SVTrade
             return temp;
         }
 
-        public static string getPhoneNumber(int id)
+        public static string GetPhoneNumber(int id)
         {
             User tempUser = LocatedUser(id);
             string temp;
@@ -80,7 +99,7 @@ namespace SVTrade
             catch (Exception ex) { temp = ex.Message; };
             return temp;
         }
-        public static string getPost(int id)
+        public static string GetPost(int id)
         {
             User tempUser = LocatedUser(id);
             string temp;
@@ -93,7 +112,7 @@ namespace SVTrade
             return temp;
         }
 
-        public static string getCompanyName(int id)
+        public static string GetCompanyName(int id)
         {
             User tempUser = LocatedUser(id);
             string temp;
@@ -106,7 +125,7 @@ namespace SVTrade
             return temp;
         }
 
-        public static bool isTrader(int id)
+        public static bool IsTrader(int id)
         {
             User tempUser = LocatedUser(id);
             bool temp = false;
@@ -118,7 +137,7 @@ namespace SVTrade
             return temp;
         }
 
-        public static bool isMerchant(int id)
+        public static bool IsMerchant(int id)
         {
             User tempUser = LocatedUser(id);
             bool temp = false;
@@ -130,7 +149,7 @@ namespace SVTrade
             return temp;
         }
 
-        public static bool isApproved(int id)
+        public static bool IsApproved(int id)
         {
             User tempUser = LocatedUser(id);
             bool temp = false;
