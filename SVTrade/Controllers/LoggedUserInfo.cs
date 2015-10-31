@@ -17,6 +17,11 @@ namespace SVTrade
         static private IRepository repository;
         static TradeDBEntities db;
 
+        static public List<User> GetOnlineUsers()
+        {
+            return usersIfno;
+        }
+
         static private User LocatedUser (int id)
         {
             User locatedUser = new User();

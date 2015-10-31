@@ -1898,3 +1898,4 @@ E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\EntityFramework.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\EntityFramework.SqlServer.resources.dll
+E:\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
