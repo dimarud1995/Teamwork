@@ -14,22 +14,16 @@ namespace SVTrade.Areas.Personal.Controllers
     public class UsersController : Controller
     {
         private TradeDBEntities db = new TradeDBEntities();
-
         private IRepository r;
 
         public UsersController(IRepository repo)
         {
-            try
-            {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
-            }
-            catch { }
             r = repo;
         }
         // GET: Personal/Users
         public ActionResult Index()
         {
-            int tID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int tID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             var user = r.Users.FirstOrDefault(p => p.userID == tID);
             if (user == null)
             {
@@ -41,7 +35,7 @@ namespace SVTrade.Areas.Personal.Controllers
         // GET: Personal/Users/Details/5
         public ActionResult Details()
         {
-            int id = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int id = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,7 +75,7 @@ namespace SVTrade.Areas.Personal.Controllers
         // GET: Personal/Users/Edit/5
         public ActionResult Edit()
         {
-            int id = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int id = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
 
             if (id == null)
             {
@@ -103,7 +97,7 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "userID,password,userGroupID,companyName,juridicalAddress,address,contactPerson,post,phoneNumber,email,merchantLicense,tradeLicense,approved,passwordSalt")] User user)
         {
-            int tid= Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int tid= Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             User tempUser = r.Users.FirstOrDefault(p=>p.userID==tid);
             tempUser.companyName = user.companyName;
             tempUser.juridicalAddress = user.juridicalAddress;
@@ -123,7 +117,7 @@ namespace SVTrade.Areas.Personal.Controllers
         // GET: Personal/Users/Delete/5
         public ActionResult Delete()
         {
-            int id = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int id = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -141,7 +135,7 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed()
         {
-            int id = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int id = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             r.DeleteUser(id);
             return RedirectToAction("Index");
         }

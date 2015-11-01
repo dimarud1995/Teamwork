@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using SVTrade.Abstract;
 using SVTrade.Models;
+using System.Web;
 
 namespace SVTrade.Areas.Admin.Controllers
 {
@@ -18,11 +19,6 @@ namespace SVTrade.Areas.Admin.Controllers
 
         public AdminController(IRepository repo)
         {
-            try
-            {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
-            }
-            catch { }
             repository = repo;
         }
         
@@ -138,7 +134,7 @@ namespace SVTrade.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult EditArticle(Article article)
         {
-            article.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            article.userID = SVTrade.LoggedUserInfo.currentUserId;
             if (ModelState.IsValid)
             {
                 article.date = DateTime.Now;
@@ -293,6 +289,7 @@ namespace SVTrade.Areas.Admin.Controllers
         [Authorize(Roles = "Менеджер, Директор")]
         public ViewResult OrdersList()
         {
+
             return View(repository.Orders.OrderBy(x => x.statusID));
         }
 

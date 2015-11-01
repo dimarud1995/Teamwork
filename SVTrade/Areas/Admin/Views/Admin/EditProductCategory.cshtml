@@ -5,19 +5,24 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Змінити @Model.name</h2>
-@using (Html.BeginForm("EditProductCategory","Admin"))
-{
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.EditorForModel(new { htmlAttributes = new { @class = "form-control" } })
-            <div class="editor-label">
-                <input type="submit" value="Зберегти" class="btn btn-default"/>
-            </div>
-            <div class="editor-label">
-                @Html.ActionLink("Відмінити і повернутись до списку", "ProductCategoriesList")</div>
-            </div>
-    </div>
-    
-}
+<div class="col-md-10">
+    <div class="form-panel">
+        <h2>Змінити @Model.name</h2>
+        @using (Html.BeginForm("EditProductCategory", "Admin"))
+        {
+            <div class="form-group">
+               
+                    @Html.EditorForModel(new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="editor-label">
+                        <input type="submit" value="Зберегти" class="btn btn-theme" />
+                    </div>
+                    <div class="editor-label mt">
+                        @Html.ActionLink("Відмінити і повернутись до списку", "ProductCategoriesList")
+                    </div>
+                </div>
+             
 
+        }
+
+    </div>
+</div>

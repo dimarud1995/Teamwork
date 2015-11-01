@@ -15,29 +15,13 @@ namespace SVTrade.Controllers
 
         public HomeController(IRepository repo)
         {
-            try
-            {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
-            }
-            catch { }
             this.repository = repo;
         }
 
         [AllowAnonymous]
         public ActionResult Index()
         {
-            try
-            {
-                int currentUserGroup = 1;
-                ViewData["CurrentUser"] = from User in repository.Users where User.userID == Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name) select User;
 
-                foreach (var a in (IEnumerable<SVTrade.Models.User>)ViewData["CurrentUser"])
-                {
-                    currentUserGroup = a.userGroupID;
-                }
-                ViewData["CurrentUserGroup"] = from UserGroup in repository.UserGroups where UserGroup.userGroupID == currentUserGroup select UserGroup;
-            }
-            catch { }
             return View();
         }
 

@@ -19,17 +19,17 @@ namespace SVTrade.Areas.Personal.Controllers
 
         public OrdersController(IRepository repo)
         {
-            try
-            {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
-            }
-            catch { }
             r = repo;
         }
         // GET: Personal/Orders
         public ActionResult Index()
         {
-            int tid= Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int tid;
+            try
+            {
+                tid = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
+            }
+            catch { tid = 0; }
             var order = r.Orders.Include(o => o.OrderStatus).Include(o => o.Product).Include(o => o.User).Where(p=>p.userID==tid);
             return View(order.ToList());
         }
