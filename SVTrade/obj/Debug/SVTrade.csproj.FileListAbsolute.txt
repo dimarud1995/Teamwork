@@ -1918,6 +1918,6 @@ E:\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.pdb
 C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\bin\SVTrade.dll.config
 C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\bin\SVTrade.dll
 C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\bin\SVTrade.pdb
-C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\bin\System.Web.Mvc.xml
 C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\obj\Debug\SVTrade.dll
 C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\obj\Debug\SVTrade.pdb
+C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
