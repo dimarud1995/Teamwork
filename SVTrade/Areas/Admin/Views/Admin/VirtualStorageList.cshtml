@@ -4,5 +4,70 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Склад</h2>
+<div class="content-panel">
 
+    <table class="table table-hover table-advance table-hover">
+        <h4><i class="fa fa-angle-right"></i> Все пользователи</h4>
+        <tr>
+            <th>
+                <i class="fa fa-bullhorn"></i>
+                Компания
+            </th>
+
+            <th>
+                Имя
+            </th>
+
+            <th>
+                Адресс
+            </th>
+
+            <th>
+                ID группы
+            </th>
+            <th>
+                Лицензия продавца
+            </th>
+            <th>
+                Лицензия покупателя
+            </th>
+            <th>
+                Статус подтверждения
+            </th>
+        </tr>
+
+        @foreach (var item in SVTrade.LoggedUserInfo.GetOnlineUsers())
+        {
+
+            <tr>
+                <td>
+                    <div>
+                        @Html.DisplayFor(model => item.post)
+                        <strong>@Html.DisplayFor(model => item.companyName)</strong>
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => item.contactPerson)
+                    </div>
+                </td>
+                <td>
+                    <ul class="list-unstyled">
+                        <li>@Html.DisplayFor(model => item.email)</li>
+                        <li>@Html.DisplayFor(model => item.phoneNumber)</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="list-unstyled">
+                        <li>@Html.DisplayFor(model => item.juridicalAddress)</li>
+                        <li>@Html.DisplayFor(model => item.address)</li>
+                    </ul>
+                </td>
+                <td>@Html.DisplayFor(model => item.UserGroup.name)</td>
+                <td>@Html.DisplayFor(model => item.merchantLicense)</td>
+                <td>@Html.DisplayFor(model => item.tradeLicense)</td>
+                <td><div class="online-container">online<span class="online-status"></span></div></td>
+            </tr>
+
+        }
+    </table>
+
+</div>

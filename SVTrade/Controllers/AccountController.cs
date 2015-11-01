@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SVTrade.Models;
 using SVTrade.Abstract;
 using System.Web.Security;
+using System.Threading.Tasks;
 
 namespace SVTrade.Controllers
 {
@@ -28,18 +29,18 @@ namespace SVTrade.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Login l, string ReturnUrl = "")
+        public async Task<ActionResult> Login(Login l, string ReturnUrl = "")
         {
             var crypto = new SimpleCrypto.PBKDF2();
-
-            var user = repository.Users.Where(a => a.email.Equals(l.email)).FirstOrDefault();
+   
+            var user = await SVTrade.LoggedUserInfo.FindUser(l.email);
             if (user != null)
             {
                 if (user.password == crypto.Compute(l.password, user.passwordSalt))
                 {
                     FormsAuthentication.SetAuthCookie(user.userID.ToString(), l.RememberMe);
-
-                    SVTrade.LoggedUserInfo.SetLoggedUser(user.userID);
+                    var ck = new HttpCookie("name", user.userID.ToString());
+                    Response.Cookies.Add(ck);
                     if (Url.IsLocalUrl(ReturnUrl))
                     {
                         return Redirect(ReturnUrl);
@@ -61,6 +62,13 @@ namespace SVTrade.Controllers
         [Authorize]
         public ActionResult Logout()
         {
+            if (Request.Cookies["name"] != null)
+            {
+                SVTrade.LoggedUserInfo.RemoveLoggedUser(Convert.ToInt32(HttpContext.Request.Cookies["name"].Value));
+                var c = new HttpCookie("name");
+                c.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(c);
+            }
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
