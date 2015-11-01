@@ -15,22 +15,21 @@ namespace SVTrade.Areas.Personal.Controllers
     public class ProductsController : Controller
     {
         private TradeDBEntities db = new TradeDBEntities();
-
         private IRepository r;
 
         public ProductsController(IRepository repo)
         {
-            try
-            {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
-            }
-            catch { }
             r = repo;
         }
         // GET: Personal/Products
         public ActionResult Index()
         {
-            int tID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int tID;
+            try
+            {
+                tID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
+            }
+            catch { tID = 0; }
             var product = r.Products.OrderBy(p=>p.title).Include(p => p.ProductCategory).Include(p => p.User).Where(p=>p.userID== tID);
             ViewBag.Sorting = "1";
             return View(product.ToList());
@@ -70,7 +69,7 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "productID,title,productCategoryID,imageURL,amount,price,description,userID,approved")] Product product)
         {
-            product.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            product.userID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             product.approved = false;
             HttpPostedFileBase photo = Request.Files["photo"];
             String LocalAdress = "~/Areas/Personal/Pictures";
@@ -126,7 +125,7 @@ namespace SVTrade.Areas.Personal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "productID,title,productCategoryID,imageURL,amount,price,description")] Product product)
         {
-            product.userID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            product.userID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             product.approved = false;
             HttpPostedFileBase photo = Request.Files["photo"];
             String LocalAdress = "~/Areas/Personal/Pictures";
@@ -193,7 +192,7 @@ namespace SVTrade.Areas.Personal.Controllers
         {
             String type = Request["SortType"];
             
-            int tID = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int tID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             
             if (type=="За назвою")
             {
@@ -217,6 +216,11 @@ namespace SVTrade.Areas.Personal.Controllers
                 }
             }
             
+        }
+
+        public ActionResult History()
+        {
+            return View();
         }
     }
 }

@@ -42,9 +42,8 @@
                         using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
                         {
                             @Html.AntiForgeryToken()
-                            SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
                             <ul class="nav navbar-nav navbar-right">
-                                <li>@Html.ActionLink("Вітаємо " + SVTrade.LoggedUserInfo.getName(), "Index", "Personal/Products", new { area = "" }, new { @class = "" })</li>
+                                <li><a href="#">Вітаємо @SVTrade.LoggedUserInfo.GetName(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value))</a></li>
                                 <li>@Html.ActionLink("Вихід", "Logout", "Account", new { area = "" }, new { @class = "" }) </li>
                             </ul>
                         }
@@ -53,7 +52,7 @@
                     {
                         <ul class="nav navbar-nav navbar-right">
                             <li>@Html.ActionLink("Реєстрація", "Register", "UserRegistration", routeValues: null, htmlAttributes: new { title = "" })</li>
-                            <li> @Html.ActionLink("Увійти", "Login", "Account", new { area = "" }) </li>
+                            <li>@Html.ActionLink("Увійти", "Login", "Account", new { area = "" }, new { @class = "" }) </li>
                         </ul>
                     }
                 }

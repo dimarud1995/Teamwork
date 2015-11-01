@@ -2246,3 +2246,18 @@ label {
     word-break: break-word;
     overflow: hidden;
 }
+
+.online-container {
+    position: relative;
+    display: inline-block;
+}
+
+.online-status {
+    position: absolute;
+    top: 6px;
+    right: -7px;
+    height: 6px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: forestgreen;
+}

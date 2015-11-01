@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SVTrade.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "SVTrade";
     Layout ="~/Views/Shared/_Layout.cshtml";
 }
 
@@ -25,10 +25,10 @@
                     <a href="~/Personal/Products/Index">Ваші товари</a>
                 </li>
                 <li>
-                    <a href="#">Статистика продаж</a>
+                    <a href="~/Personal/Statistic/Index">Статистика продаж</a>
                 </li>
                 <li>
-                    <a href="#">Побажання</a>
+                    <a href="~/Personal/Wish/Index">Побажання</a>
                 </li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" rel="nofollow">
+                        <a href="~/Personal/Products/History" rel="nofollow">
                             Історія
                         </a>
                     </li>
