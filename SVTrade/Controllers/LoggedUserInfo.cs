@@ -5,127 +5,174 @@ using System.Web;
 using SVTrade.Models;
 using SVTrade.Abstract;
 using System.Web.Mvc;
+using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Web.Security;
 
 namespace SVTrade
 {
     static public class LoggedUserInfo
     {
         static public int currentUserId;
-        static public User userIfno;
-        static string userGroupName;
+        static private List<User> onlineUsersList = new List<User>();
         static private IRepository repository;
-        static private IEnumerable<User> loggedUser;
-        static private IEnumerable<UserGroup> loggedUserGroup;
         static TradeDBEntities db;
 
-        static public void SetLoggedUser (int id)
+        static public List<User> GetOnlineUsers()
+        {
+            return onlineUsersList;
+        }
+
+        // Serach the user in Online Users List;
+        static private User LocatedUser (int id)
+        {
+            User locatedUser = new User();
+            foreach(var user in onlineUsersList)
+            {
+                if (user.userID == id)
+                    locatedUser = user;
+            }
+            return locatedUser;
+        }
+
+        // Search user info in Data Base and add him in Online Users List;
+        public static async Task<User> FindUser(string email)
         {
             db = new TradeDBEntities();
-            loggedUser = from User in db.Users where User.userID == id select User;
-            userIfno = loggedUser.FirstOrDefault();
-
-            loggedUserGroup = from UserGroup in db.UserGroups where UserGroup.userGroupID == userIfno.userGroupID select UserGroup;
-            foreach (var groupName in loggedUserGroup)
-            {
-                userGroupName = groupName.name;
-            }
+            var user = await db.Users.Where(x => x.email.Equals(email)).FirstOrDefaultAsync();
+            onlineUsersList.Add(user);
+            return user;
         }
 
-        public static string getName()
+        public static void RemoveLoggedUser(int id)
         {
+            User tempUser = LocatedUser(id);
+            onlineUsersList.Remove(tempUser);
+        }
+
+        // Check if the user with cookie exist in Online Users List;
+        // If not then add him in;
+        private static void ValidateUser(int id)
+        {
+            try
+            {
+                User locatedUser = LocatedUser(id);
+                if (locatedUser.contactPerson == null && HttpContext.Current.Request.Cookies["name"] != null)
+                {
+                    db = new TradeDBEntities();
+                    var user = db.Users.Where(x => x.userID.Equals(id)).FirstOrDefault();
+                    onlineUsersList.Add(user);
+                }
+            }
+            catch { };
+        }
+
+        public static string GetName(int id)
+        {
+            ValidateUser(id);
+            User tempUser = LocatedUser(id);
             string temp;
             try
             {
-                temp = Convert.ToString(userIfno.contactPerson);
-            }
-            catch(Exception ex) { temp = ex.Message; };
-            return temp;
-        }
-
-        public static string getGroup()
-        {
-            string temp;
-            try
-            {
-                temp = Convert.ToString(userGroupName);
+                temp = Convert.ToString(tempUser.contactPerson);
             }
             catch (Exception ex) { temp = ex.Message; };
             return temp;
         }
 
-        public static string getEmail()
+        public static int GetGroupID(int id)
         {
+            ValidateUser(id);
+            int tempID = 1;
+            try
+            {
+                User tempUser = LocatedUser(id);
+                tempID = tempUser.userGroupID;
+            }
+            catch { };
+            return tempID;
+        }
+
+        public static string GetEmail(int id)
+        {
+            User tempUser = LocatedUser(id);
             string temp;
             try
             {
-                temp = Convert.ToString(userIfno.email);
+                temp = Convert.ToString(tempUser.email);
             }
             catch (Exception ex) { temp = ex.Message; };
             return temp;
         }
 
-        public static string getPhoneNumber()
+        public static string GetPhoneNumber(int id)
         {
+            User tempUser = LocatedUser(id);
             string temp;
             try
             {
-                temp = Convert.ToString(userIfno.phoneNumber);
+                temp = Convert.ToString(tempUser.phoneNumber);
             }
             catch (Exception ex) { temp = ex.Message; };
             return temp;
         }
-        public static string getPost()
+        public static string GetPost(int id)
         {
+            User tempUser = LocatedUser(id);
             string temp;
             try
             {
-                temp = Convert.ToString(userIfno.post);
-            }
-            catch (Exception ex) { temp = ex.Message; };
-
-            return temp;
-        }
-
-        public static string getCompanyName()
-        {
-            string temp;
-            try
-            {
-                temp = Convert.ToString(userIfno.companyName);
+                temp = Convert.ToString(tempUser.post);
             }
             catch (Exception ex) { temp = ex.Message; };
 
             return temp;
         }
 
-        public static bool isTrader()
+        public static string GetCompanyName(int id)
         {
+            User tempUser = LocatedUser(id);
+            string temp;
+            try
+            {
+                temp = Convert.ToString(tempUser.companyName);
+            }
+            catch (Exception ex) { temp = ex.Message; };
+
+            return temp;
+        }
+
+        public static bool IsTrader(int id)
+        {
+            User tempUser = LocatedUser(id);
             bool temp = false;
             try
             {
-                temp = Convert.ToBoolean(userIfno.tradeLicense);
+                temp = Convert.ToBoolean(tempUser.tradeLicense);
             }
             catch { };
             return temp;
         }
 
-        public static bool isMerchant()
+        public static bool IsMerchant(int id)
         {
+            User tempUser = LocatedUser(id);
             bool temp = false;
             try
             {
-                temp = Convert.ToBoolean(userIfno.merchantLicense);
+                temp = Convert.ToBoolean(tempUser.merchantLicense);
             }
             catch { };
             return temp;
         }
 
-        public static bool isApproved()
+        public static bool IsApproved(int id)
         {
+            User tempUser = LocatedUser(id);
             bool temp = false;
             try
             {
-                temp = Convert.ToBoolean(userIfno.approved);
+                temp = Convert.ToBoolean(tempUser.approved);
             }
             catch { };
             return temp;

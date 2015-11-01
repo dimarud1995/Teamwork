@@ -104,3 +104,10 @@ background-color:white;
     font-size:3em;
     color:orange;
 }
+textarea{
+    overflow: auto;
+    resize: none;
+}
+.unvisibleI{
+visibility: hidden;
+}

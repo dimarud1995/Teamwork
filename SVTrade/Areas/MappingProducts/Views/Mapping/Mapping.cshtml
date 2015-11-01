@@ -9,7 +9,7 @@
 
 }
 @{
-    ViewBag.Title = "ConfirmedUserIndex";
+    ViewBag.Title = "Каталог товарів";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -212,10 +212,8 @@
 
                                             foreach (var p in Model.Cart.Lines)
                                             {
-                                                if (Request.IsAuthenticated)
+                                                if (p.idUser == Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value))
                                                 {
-                                                    if (p.idUser == Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name))
-                                                    {
                                                     <tr>
                                                         <td class="cart_product">
                                                             <a href=""><img src="@Url.Content(Html.DisplayFor(modelItem => p.Product.imageURL).ToString())" alt="" width=" 66px" height="66px"></a>
@@ -232,7 +230,7 @@
                                                                 {
                                                                     @Html.Hidden("ProductId", p.Product.productID)
                                                                     @Html.HiddenFor(x => x.ReturnUrl)
-                                                                    <div id="plus" style="margin-left:10em"> @Html.TextBox("pluser", p.Product.amount, new { @id = "tableBody", @class = "cart_quantity_input", @type = "text", @name = "quantityUser", @autocomplete = "off", @size = "2" }) <input value="Змінити" class="btn-warning" type="submit" id="ChangeQ"></div>
+                                                                    <div id="plus" style="margin-left:10em"> @Html.TextBox("pluser", p.Product.amount, new { @id = "tableBody", @class = "cart_quantity_input", @type = "text", @name = "quantityUser", @value = p.Product.amount.ToString(), @autocomplete = "off", @size = "2" }) <input id="b @p.Product.productID "  value="Змінити" class="btn-warning" type="submit" onclick="document.getElementById('i @p.Product.productID').style.visibility = 'visible'"><i id="i @p.Product.productID" class="fa fa-chevron-circle-down" style="visibility:hidden;" ></i></div>
 
                                                                 }
                                                                 @*<a class="cart_quantity_down" href=""> - </a>*@
@@ -252,10 +250,9 @@
                                                             }
                                                         </td>
                                                     </tr>
-                                                        }
-                                                    }
                                                 }
                                             }
+                                        }
                                     </tbody>
                                 </table>
                             </div>

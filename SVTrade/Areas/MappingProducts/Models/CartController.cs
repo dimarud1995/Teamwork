@@ -14,8 +14,9 @@ namespace SVTrade.Areas.MappingProducts.Models
 
         public void AddItem(SVTrade.Models.Product product, int idUser, int pluser)
         {
+
             CartLine line = lineCollection
-              .Where(p => p.Product.productID == product.productID && p.idUser == Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name))
+              .Where(p => p.Product.productID == product.productID && p.idUser == idUser)
               .FirstOrDefault();
 
             if (line == null)

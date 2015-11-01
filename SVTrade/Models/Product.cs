@@ -54,7 +54,7 @@ namespace SVTrade.Models
 
         [DisplayName("Користувач")]
         [Required(ErrorMessage = "Оберіть користувача")]
-        public int userID { get; set; }
+        public int? userID { get; set; }
 
         [DisplayName("Підтверджено")]
         public bool approved { get; set; }

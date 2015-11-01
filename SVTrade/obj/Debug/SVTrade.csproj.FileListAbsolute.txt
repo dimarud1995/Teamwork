@@ -1886,6 +1886,9 @@ C:\Users\dimar\Desktop\Stable v4.1.1\Teamwork\SVTrade\obj\Debug\SVTrade.pdb
 E:\GitHub\Teamwork\SVTrade\bin\SVTrade.dll.config
 E:\GitHub\Teamwork\SVTrade\bin\SVTrade.dll
 E:\GitHub\Teamwork\SVTrade\bin\SVTrade.pdb
+E:\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.dll
+E:\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.pdb
+E:\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
 E:\GitHub\Teamwork\SVTrade\bin\EntityFramework.xml
 E:\GitHub\Teamwork\SVTrade\bin\EntityFramework.SqlServer.xml
 E:\GitHub\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.Core.xml
@@ -1902,8 +1905,6 @@ E:\GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.xml
 E:\GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.Deployment.xml
 E:\GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.Razor.xml
 E:\GitHub\Teamwork\SVTrade\bin\Newtonsoft.Json.xml
-E:\GitHub\Teamwork\SVTrade\bin\ru\EntityFramework.resources.dll
-E:\GitHub\Teamwork\SVTrade\bin\ru\EntityFramework.SqlServer.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Helpers.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Mvc.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Razor.resources.dll
@@ -1912,6 +1913,7 @@ E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+<<<<<<< HEAD
 E:\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
 E:\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.dll
 E:\GitHub\Teamwork\SVTrade\obj\Debug\SVTrade.pdb
@@ -1921,3 +1923,5 @@ C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\bin\SVTrade.pdb
 C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\obj\Debug\SVTrade.dll
 C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\obj\Debug\SVTrade.pdb
 C:\Users\dimar\Desktop\Stable v4.1.2\Teamwork\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
+=======
+>>>>>>> 5392257629c947474ae543d97c0f070b45e6e732

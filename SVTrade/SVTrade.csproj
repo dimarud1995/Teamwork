@@ -48,10 +48,13 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -273,12 +276,6 @@
     <Compile Include="MyRoleProvider.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -291,12 +288,50 @@
     <Content Include="App_Data\TradeDB_log.ldf">
       <DependentUpon>TradeDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Admin\ArticlesList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ChoosedCategoriesList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditArticle.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditChoosedCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditManagerProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditManagerUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditOrder.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditOrderStatus.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditProductCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditProductToBuy.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditReservedProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditShowedProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditUserGroup.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManagerProductsList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManagerStatisticList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManagerUsersList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\OrdersList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\OrderStatusesList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ProductCategoriesList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ProductsList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ProductsToBuyList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ReservedProductsList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\SaleStatisticList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\SendSMS.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ShoppingStatisticList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ShowedProductsList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\UserGroupsList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\UsersLicenseList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\UsersList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\VirtualStorageList.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\MappingProducts\Content\css\blablacar.css" />
     <Content Include="Areas\MappingProducts\Content\css\bootstrap.min.css" />
     <Content Include="Areas\MappingProducts\Content\css\font-awesome.min.css" />
     <Content Include="Areas\MappingProducts\Content\css\main.css" />
     <Content Include="Areas\MappingProducts\Content\css\main1.css" />
     <Content Include="Areas\MappingProducts\Content\css\price-range.css" />
+    <Content Include="Areas\MappingProducts\Content\fonts\bbc-icons-e8bd59ab2ecd0308151b2eb332f5e846.woff" />
+    <Content Include="Areas\MappingProducts\Content\fonts\blabla-icons.woff" />
     <Content Include="Areas\MappingProducts\Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Areas\MappingProducts\Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Areas\MappingProducts\Content\fonts\FontAwesome.otf" />
@@ -332,11 +367,13 @@
     <Content Include="Areas\MappingProducts\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Personal\Image\ans.png" />
     <Content Include="Areas\Personal\Image\goup.png" />
+    <Content Include="Areas\Personal\Pictures\13\2\0\IT managing.mpp" />
     <Content Include="Areas\Personal\Pictures\13\2\0\New Text Document.txt" />
     <Content Include="Areas\Personal\Pictures\13\2\0\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\13\2\tttt\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\13\3\Сало свиняче\New Text Document.txt" />
     <Content Include="Areas\Personal\Pictures\13\3\Сало свиняче\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\1\2\0\meat[1].png" />
     <Content Include="Areas\Personal\Pictures\22\2\0\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\22\2\14\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\22\2\eee\VictoriaseecretmodelAdrianaLima.jpg" />
@@ -415,29 +452,17 @@
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\EntityFramework.xml" />
     <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
     <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
     <Content Include="bin\Microsoft.Owin.dll" />
     <Content Include="bin\Microsoft.Owin.Security.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.xml" />
-    <Content Include="bin\Microsoft.Owin.xml" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
     <Content Include="bin\MySql.Data.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
-    <Content Include="bin\Newtonsoft.Json.xml" />
     <Content Include="bin\Ninject.dll" />
     <Content Include="bin\Ninject.Web.Common.dll" />
-    <Content Include="bin\Ninject.Web.Common.xml" />
     <Content Include="bin\Ninject.Web.Mvc.dll" />
-    <Content Include="bin\Ninject.Web.Mvc.xml" />
-    <Content Include="bin\Ninject.xml" />
     <Content Include="bin\Owin.dll" />
-    <Content Include="bin\ru\EntityFramework.resources.dll" />
-    <Content Include="bin\ru\EntityFramework.SqlServer.resources.dll" />
     <Content Include="bin\ru\System.Data.SqlServerCe.resources.dll" />
     <Content Include="bin\ru\System.Net.Http.Formatting.resources.dll" />
     <Content Include="bin\ru\System.Web.Helpers.resources.dll" />
@@ -452,28 +477,23 @@
     <Content Include="bin\ru\System.Web.WebPages.resources.dll" />
     <Content Include="bin\SimpleCrypto.dll" />
     <Content Include="bin\SVTrade.dll" />
+    <Content Include="bin\SVTrade.dll.config" />
     <Content Include="bin\SVTrade.pdb" />
     <Content Include="bin\System.Data.SqlServerCe.dll" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />
     <Content Include="bin\System.Net.Http.Formatting.xml" />
     <Content Include="bin\System.Web.Helpers.dll" />
-    <Content Include="bin\System.Web.Helpers.xml" />
     <Content Include="bin\System.Web.Http.dll" />
     <Content Include="bin\System.Web.Http.WebHost.dll" />
     <Content Include="bin\System.Web.Http.WebHost.xml" />
     <Content Include="bin\System.Web.Http.xml" />
     <Content Include="bin\System.Web.Mvc.dll" />
-    <Content Include="bin\System.Web.Mvc.xml" />
     <Content Include="bin\System.Web.Optimization.dll" />
     <Content Include="bin\System.Web.Providers.dll" />
     <Content Include="bin\System.Web.Razor.dll" />
-    <Content Include="bin\System.Web.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.Deployment.dll" />
-    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
     <Content Include="bin\System.Web.WebPages.dll" />
     <Content Include="bin\System.Web.WebPages.Razor.dll" />
-    <Content Include="bin\System.Web.WebPages.Razor.xml" />
-    <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebActivatorEx.dll" />
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\assets\css\bootstrap.css" />
@@ -612,28 +632,6 @@
       <DependentUpon>TradeDBModel.edmx</DependentUpon>
       <LastGenOutput>TradeDBModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\Admin\Views\Admin\ArticlesList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ChoosedCategoriesList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditArticle.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditChoosedCategory.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditManagerUser.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditOrder.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditProduct.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditProductCategory.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditShowedProduct.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditUser.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditUserGroup.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ManagerUsersList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\OrdersList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ProductCategoriesList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ProductsList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ShowedProductsList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\UserGroupsList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\UsersList.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Areas\Admin\Views\web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Content\css\bootstrap-theme.css.map" />
     <Content Include="Content\css\bootstrap.css.map" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
@@ -671,14 +669,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Areas\Admin\Views\Admin\OrderStatusesList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditOrderStatus.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ProductsToBuyList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditProductToBuy.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ReservedProductsList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditReservedProduct.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ManagerProductsList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\EditManagerProduct.cshtml" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap\css\bootstrap.css.map" />
@@ -686,15 +676,7 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Areas\Admin\Views\Admin\ManagerStatisticList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\SaleStatisticList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\ShoppingStatisticList.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\VirtualStorageList.cshtml" />
     <Content Include="Views\SMS\SendSMS.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\SendSMS.cshtml" />
-    <Content Include="Areas\MappingProducts\Content\fonts\bbc-icons-e8bd59ab2ecd0308151b2eb332f5e846.woff" />
-    <Content Include="Areas\MappingProducts\Content\fonts\blabla-icons.woff" />
-    <Content Include="Areas\Personal\Pictures\13\2\0\IT managing.mpp" />
     <Content Include="Content\assets\.DS_Store" />
     <Content Include="Content\assets\css\.DS_Store" />
     <Content Include="Content\assets\font-awesome\.DS_Store" />
@@ -726,12 +708,15 @@
     <Content Include="Content\assets\lineicons\fonts\linecons.eot" />
     <Content Include="Content\assets\lineicons\fonts\linecons.ttf" />
     <Content Include="Content\assets\lineicons\fonts\linecons.woff" />
+<<<<<<< HEAD
     <Content Include="bin\SVTrade.dll.config" />
     <Content Include="Areas\Personal\Views\Statistic\Index.cshtml" />
     <Content Include="Areas\Personal\Views\Wish\Index.cshtml" />
     <Content Include="Areas\Personal\Views\Products\History.cshtml" />
     <Content Include="Areas\Personal\Views\Orders\History.cshtml" />
     <Content Include="Areas\Personal\Views\ProductToBuys\History.cshtml" />
+=======
+>>>>>>> 5392257629c947474ae543d97c0f070b45e6e732
     <None Include="Properties\PublishProfiles\Lara1n.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

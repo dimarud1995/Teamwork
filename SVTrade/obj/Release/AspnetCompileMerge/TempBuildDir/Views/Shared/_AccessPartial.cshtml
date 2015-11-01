@@ -4,12 +4,10 @@
                     string groupName = "Користувачі";
                     try
                     {
-                        groupName = SVTrade.LoggedUserInfo.getGroup();
                         using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
                         {
                             @Html.AntiForgeryToken()
-                            string temp = " " + System.Web.HttpContext.Current.User.Identity.Name;
-                            if (groupName == "Директор" || groupName == "Менеджер")
+                            if (SVTrade.LoggedUserInfo.GetGroupID(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value)) == 4 || SVTrade.LoggedUserInfo.GetGroupID(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value)) == 5)
                             {
                     <ul class="nav navbar-nav navbar-left">
                         <li>@Html.ActionLink("Особистий кабінет", "Index", "Personal/Products", new { area = "" }, new { @class = "" })</li>
