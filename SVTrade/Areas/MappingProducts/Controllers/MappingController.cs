@@ -16,17 +16,17 @@ namespace SVTrade.Areas.MappingProducts.Controllers
         private IRepository repository;
         public MappingController(IRepository repo)
         {
+        
             this.repository = repo;
         }
         static private IEnumerable<Product> AllProd;
         static private IEnumerable<Product> AllProd1;
         #region Products
-        public async Task<ViewResult> Mapping(int? currentCutegory, string returnUrl)
+        public  ViewResult Mapping(int? currentCutegory, string returnUrl)
         {
-            IEnumerable<SVTrade.Models.Product> ProductForUser = from Product in repository.Products select Product;
+            IEnumerable<SVTrade.Models.Product> ProductForUser = from Product in repository.Products  select Product;
             AllProd = repository.Products.Where(a =>
             a.productID == 0);
-
             if (currentCutegory.HasValue)
             {
                 ProductForUser = ProductForUser.Where(a => a.productCategoryID == currentCutegory);
@@ -41,7 +41,8 @@ namespace SVTrade.Areas.MappingProducts.Controllers
             ViewData["Product"] = ProductForUser;
             try
             {
-                ViewBag.UserID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
+                HttpCookie cookie = HttpContext.Request.Cookies["name"];
+                ViewBag.UserID = Convert.ToInt64(cookie.Value);
             }
             catch { }
             return View(new CartIndexViewModel
@@ -89,7 +90,7 @@ namespace SVTrade.Areas.MappingProducts.Controllers
                 try {
                     
 
-                    ViewBag.UserID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
+                    ViewBag.UserID = Convert.ToInt64(HttpContext.Request.Cookies["name"].Value);
                 }
                 catch { }
 
