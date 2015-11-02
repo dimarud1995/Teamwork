@@ -41,7 +41,7 @@ namespace SVTrade.Models
         [Required(ErrorMessage = "Оберіть посаду")]
         public int userGroupID { get; set; }
 
-        [DisplayName("Назва компанії")]
+        [DisplayName("Компанія")]
         [Required(ErrorMessage = "Поле не може бути пустим")]
         public string companyName { get; set; }
 

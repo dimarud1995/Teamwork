@@ -27,11 +27,11 @@ namespace SVTrade.Models
         
         public int orderID { get; set; }
 
-        [DisplayName("Дата початку")]
+        [DisplayName("Дата замовлення")]
         [DataType(DataType.Date)]
         public System.DateTime orderDate { get; set; }
 
-        [DisplayName("Дата кінця")]
+        [DisplayName("Дата доставки")]
         [DataType(DataType.Date)]
         public System.DateTime finishDate { get; set; }
 
