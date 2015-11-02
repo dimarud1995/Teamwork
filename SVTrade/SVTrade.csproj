@@ -192,7 +192,9 @@
     <Compile Include="Areas\Personal\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Personal\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Personal\Controllers\ProductToBuysController.cs" />
+    <Compile Include="Areas\Personal\Controllers\StatisticController.cs" />
     <Compile Include="Areas\Personal\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Personal\Controllers\WishController.cs" />
     <Compile Include="Areas\Personal\PersonalAreaRegistration.cs" />
     <Compile Include="Concrete\Article.cs" />
     <Compile Include="Concrete\ChoosedCategory.cs" />
@@ -388,6 +390,7 @@
     <Content Include="Areas\Personal\Pictures\23\4\14\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\23\5\14\Screen.PNG" />
     <Content Include="Areas\Personal\Pictures\23\5\14\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\2\2\1\1.png" />
     <Content Include="Areas\Personal\Pictures\3\1\Supermodel-Obsession-victorias-secret-2360336-800-520.jpg" />
     <Content Include="Areas\Personal\Pictures\3\2\0\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\3\2\123\Supermodel-Obsession-victorias-secret-2360336-800-520.jpg" />
@@ -722,6 +725,11 @@
     <Content Include="Content\assets\lineicons\fonts\linecons.eot" />
     <Content Include="Content\assets\lineicons\fonts\linecons.ttf" />
     <Content Include="Content\assets\lineicons\fonts\linecons.woff" />
+    <Content Include="Areas\Personal\Views\Orders\History.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\History.cshtml" />
+    <Content Include="Areas\Personal\Views\ProductToBuys\History.cshtml" />
+    <Content Include="Areas\Personal\Views\Statistic\Index.cshtml" />
+    <Content Include="Areas\Personal\Views\Wish\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Lara1n.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -786,7 +794,6 @@
     <Folder Include="Areas\Personal\Pictures\22\2\11\" />
     <Folder Include="Areas\Personal\Pictures\23\3\14\" />
     <Folder Include="Areas\Personal\Pictures\23\5\q\" />
-    <Folder Include="Areas\Personal\Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -67,8 +67,9 @@ namespace SVTrade.Areas.Personal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "productID,title,productCategoryID,imageURL,amount,price,description,userID,approved")] Product product)
+        public ActionResult Create([Bind(Include = "productID,title,productCategoryID,imageURL,amount,price,description,approved")] Product product)
         {
+            
             product.userID = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
             product.approved = false;
             HttpPostedFileBase photo = Request.Files["photo"];
@@ -78,6 +79,7 @@ namespace SVTrade.Areas.Personal.Controllers
             System.IO.Directory.CreateDirectory(ProjPart);
             String PartAdress = System.IO.Path.Combine("~/Areas/Personal/Pictures", product.userID.ToString(), product.productCategoryID.ToString(), product.productID.ToString(), System.IO.Path.GetFileName(photo.FileName));
             PartAdress = PartAdress.Trim(' ');
+           
             
             if (photo.FileName!="")
             {
@@ -88,17 +90,17 @@ namespace SVTrade.Areas.Personal.Controllers
             {
                 product.imageURL = "Добавте картинку";
             }
-           
-            if (ModelState.IsValid)
-            {
-                r.SaveProduct(product);
-               
-                return RedirectToAction("Index");
-            }
 
-            ViewBag.productCategoryID = new SelectList(db.ProductCategories, "productCategoryID", "name", product.productCategoryID);
-            ViewBag.userID = new SelectList(db.Users, "userID", "userID", product.userID);
-            return View(product);
+            //if (ModelState.IsValid)
+            //{
+            r.SaveProduct(product);
+
+            return RedirectToAction("Index");
+            //}
+
+            //ViewBag.productCategoryID = new SelectList(db.ProductCategories, "productCategoryID", "name", product.productCategoryID);
+            //ViewBag.userID = new SelectList(db.Users, "userID", "userID", product.userID);
+            //return View(product);
         }
   
         // GET: Personal/Products/Edit/5
@@ -144,16 +146,16 @@ namespace SVTrade.Areas.Personal.Controllers
             {
                 product.imageURL = r.Products.FirstOrDefault(p => p.productID == product.productID).imageURL;
             }
-           
-            
-            if (ModelState.IsValid)
-            {
-                r.SaveProduct(product);
-                return RedirectToAction("Index");
-            }
-            ViewBag.productCategoryID = new SelectList(r.ProductCategories, "productCategoryID", "name", product.productCategoryID);
-            ViewBag.userID = new SelectList(r.Users, "userID", "userID", product.userID);
-            return View(product);
+
+
+            //if (ModelState.IsValid)
+            //{
+            r.SaveProduct(product);
+            return RedirectToAction("Index");
+            //}
+            //ViewBag.productCategoryID = new SelectList(r.ProductCategories, "productCategoryID", "name", product.productCategoryID);
+            //ViewBag.userID = new SelectList(r.Users, "userID", "userID", product.userID);
+            //return View(product);
         }
 
         // GET: Personal/Products/Delete/5
