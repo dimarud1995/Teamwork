@@ -34,7 +34,7 @@ namespace SVTrade.Models
 
         [DisplayName("Категорія товару")]
         [Required(ErrorMessage = "Оберіть категорію")]
-        public int productCategoryID { get; set; }
+        public int? productCategoryID { get; set; }
 
         [DisplayName("Картинка(посилання)")]
         public string imageURL { get; set; }

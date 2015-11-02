@@ -37,7 +37,7 @@ namespace SVTrade.Models
 
         [DisplayName("Товар")]
         [Required(ErrorMessage = "Оберіть товар")]
-        public int productID { get; set; }
+        public int? productID { get; set; }
 
         [DisplayName("Користувач")]
         [Required(ErrorMessage = "Оберіть користувача")]
