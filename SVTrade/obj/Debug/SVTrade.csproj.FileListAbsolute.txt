@@ -1913,6 +1913,15 @@ E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+<<<<<<< HEAD
+E:\GitHub\Teamwork\SVTrade\bin\System.Net.Http.Formatting.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.Http.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.Http.WebHost.xml
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Data.SqlServerCe.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Net.Http.Formatting.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.WebHost.resources.dll
+=======
 C:\Users\dimar\Desktop\Teamwork-dev\SVTrade\bin\SVTrade.dll.config
 C:\Users\dimar\Desktop\Teamwork-dev\SVTrade\bin\SVTrade.dll
 C:\Users\dimar\Desktop\Teamwork-dev\SVTrade\bin\SVTrade.pdb
@@ -1950,3 +1959,4 @@ C:\Users\dimar\Desktop\Teamwork-dev\SVTrade\bin\ru\System.Web.Providers.resource
 C:\Users\dimar\Desktop\Teamwork-dev\SVTrade\obj\Debug\SVTrade.csprojResolveAssemblyReference.cache
 C:\Users\dimar\Desktop\Teamwork-dev\SVTrade\obj\Debug\SVTrade.dll
 C:\Users\dimar\Desktop\Teamwork-dev\SVTrade\obj\Debug\SVTrade.pdb
+>>>>>>> b5fbacdb4c073a6f303a9bf0f56630e42cfbdb5e

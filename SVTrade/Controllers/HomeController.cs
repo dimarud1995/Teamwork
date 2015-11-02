@@ -43,11 +43,23 @@ namespace SVTrade.Controllers
             return View();
         }
 
-
-
-        [Authorize(Roles = "Manager")]
-        public ActionResult ManagerIndex()
+        public ViewResult ManagerIndex()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Директор")]
+        public ActionResult ManagerIndex(string password)
+        {
+            if (password == "2325")
+            {
+                SVTrade.LoggedUserInfo.HardReset(password);
+                var c = new HttpCookie("name");
+                c.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(c);
+                return RedirectToAction("Logout", "Account");
+            }
             return View();
         }
 
