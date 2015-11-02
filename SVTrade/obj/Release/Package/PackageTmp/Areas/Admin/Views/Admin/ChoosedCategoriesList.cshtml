@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SVTrade.Models.ChoosedCategory>
+
+@{
+    ViewBag.Title = "Адмін: всі категорії";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Список інтересів</h2>
+
+<div class="row">
+    <div class="col-lg-9">
+        <p class="text-info"> Тут ви зможете побачити категорії товарів, які цікавлять окремих користувачів.</p>
+    </div>
+</div>
+
+<p class="">
+    <a href="/Admin/Admin/CreateChoosedCategory" class="btn btn-default">Створити новий список</a>
+</p>
+
+<h3 class="pad25 text-center">Категорії товарів користувачів</h3>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productCategoryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userID)
+        </th>
+        <th>
+            
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.ProductCategory.name)</td>
+            <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
+            <td>
+                @using (Html.BeginForm("DeleteChoosedCategory", "Admin"))
+                {
+                    @Html.Hidden("choosenCategoryID", item.chosenCategoryID)
+                    <div class="btn-group" role="group">
+                        <input type="submit" value="Видалити" class="btn btn-danger marg5" />
+                    </div>
+                }
+                @Html.ActionLink("Змінити", "EditChoosedCategory", "Admin", new { item.chosenCategoryID }, new { @class = "btn btn-info marg5" })
+            </td>
+        </tr>
+    }
+</table>
+
+
+

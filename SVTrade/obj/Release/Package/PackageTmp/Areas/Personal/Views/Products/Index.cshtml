@@ -1,0 +1,133 @@
+﻿@model IEnumerable<SVTrade.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout ="~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("GoUp")
+
+<div class="container maincont">
+   
+    <div class="tab-container">
+        <div class="tab-details">
+            <ul class="nav nav-tabs new" id="myTab">
+                <li>
+                    <a href="~/Personal/Users/Index">Профіль</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Orders/Index">Замовлення</a>
+                </li>
+                <li>
+                    <a href="~/Personal/ProductToBuys/Index">Передзамовлення</a>
+                </li>
+                <li class="active">
+                    <a href="~/Personal/Products/Index">Ваші товари</a>
+                </li>
+                <li>
+                    <a href="#">Статистика продаж</a>
+                </li>
+                <li>
+                    <a href="#">Побажання</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabCont">
+            <div class="tab-pane active" id="annonces">
+                <ul class="nav nav-pills" id="ulMyTab">
+                    <li class="active">
+                        <a href="~/Personal/Products/Index" rel="nofollow">
+                            Список товарів
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Personal/Products/Create" rel="nofollow">
+                            Додати товар
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/MappingProducts/Mapping/Mapping" rel="nofollow">
+                            Замовити товар
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" rel="nofollow">
+                            Історія
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane active" id="received">
+                <div class="messages-container clearfix">
+                    <ol class="unstyled received-thread">
+                        Список товарів, які Ви виставили на продаж. Їх бачитимуть інші користувачі.
+                    </ol>
+
+
+                    <form action="~/Personal/Products/SortProductBy" method="post" enctype="multipart/form-data">
+                        <div class="col-lg-3">
+                            <select size="1" name="SortType" class="form-control" id="sort">
+                                <option value="За назвою">За назвою</option>
+                                <option value="За ціною">За ціною</option>
+                                <option value="За категорією">За категорією</option>
+                            </select>
+                        </div>
+                        <input type="submit" value="Сортувати" class="btn butstyleyellow" id="sortBut" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="myTable1">
+        <table class="table ">
+            <tr class="myTable">
+                <th>
+                    Назва
+                </th>
+                <th>
+                    Кількість (кг)
+                </th>
+                <th>
+                    Ціна (грн/кг)
+                </th>
+                <th>
+                    Опис
+                </th>
+                <th>
+                    Категорія
+                </th>
+                <th>Картинка</th>
+                <th> Підтверджено</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr class="myTable">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductCategory.name)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(Html.DisplayFor(modelItem => item.imageURL).ToString())" alt="Картинка" width="200" />
+                    </td>
+                    <td>
+                        <div class="cont">@Html.ActionLink("Редагувати", "Edit", new { id = item.productID }, new { @class = "butstyle" }) </div>
+                        <div class="cont">Статус: @Html.DisplayFor(modelItem => item.approved)</div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    </div>

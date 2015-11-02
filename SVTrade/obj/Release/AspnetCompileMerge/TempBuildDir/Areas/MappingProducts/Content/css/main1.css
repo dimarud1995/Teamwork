@@ -1,0 +1,113 @@
+﻿.main-column {
+    border: 1px solid #ccc;
+    background: #fff;
+}
+.main-column {
+    color: #666;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+.form-container {
+    background: #f1f1e9 !important;
+    color: #333;
+    border-radius: 3px;
+}
+.trip-search-results {
+    border: 1px solid #CCC;
+    border-radius : 1em 1em;
+    margin-top: 1em;
+    word-wrap: break-word;
+    padding : 1em 1em 1em 1em;
+}
+
+.trip-search-results:hover{
+    background-color: rgba(0, 107, 156, 0.12);
+}
+.mainPage{
+    background-color:rgba(212, 199, 199, 0.19);
+}
+.findBlock{
+    background-color:rgba(191, 191, 191, 0.41);
+    border-bottom:1px solid rgba(76, 73, 73, 0.41);
+    border-top :1px solid rgba(76, 73, 73, 0.41);
+    border-radius:2px;
+}
+.insideBlock{
+       border-top-right-radius: 3px;
+    border: 1px solid #d6d6d6;
+    margin-bottom: 3px;
+        font-family: Arial,Helvetica,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 18px;
+    text-align : left;
+    /*color : #58b20d;*/ 
+    line-height: 30px;
+    background: #f1f1e9 !important;
+}
+#imageRadius{
+        border-radius: 50%;
+}
+.firstProductBlock{
+    border-right:1px solid #d6d6d6;
+}
+.preOrderBlock{
+
+    background: url(/images/icons/email-envelope2.png) no-repeat 17px 50px #0ca9fa;
+        border-radius: 3px;
+    margin: 0 0 20px 0px;
+    padding: 7px 7px 7px 55px;
+    color: #fff;
+}
+.Acolor{
+    color: #fff;
+}
+.Acolor:hover{
+    color: #fff;
+}
+div#divBody a{
+    color: #fff;
+}
+div.row input ,div.row select ,div.row textarea
+{
+    color:black;
+}
+.borderClass{
+    border-top: solid white 1px;
+    padding-top : 10px;
+    padding-bottom : 10px;
+}
+#summaryCircle{
+       background-color: rgb(240, 173, 78);
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    padding: 0px 5px;
+    position: absolute;
+    z-index: 10;
+    top: -8px;
+    right: -5px;
+}
+#secBlock{
+    position:relative;
+}
+.bgblock{
+background-color:white;
+}
+#tablePadd{
+    padding-left:11em;
+}
+.priceFont{
+    font:bold;
+    font-size:3em;
+    color:orange;
+}
+textarea{
+    overflow: auto;
+    resize: none;
+}
+.unvisibleI{
+visibility: hidden;
+}

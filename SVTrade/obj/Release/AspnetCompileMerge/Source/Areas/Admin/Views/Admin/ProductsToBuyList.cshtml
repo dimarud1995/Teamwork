@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SVTrade.Models.ProductToBuy>
+
+@{
+    ViewBag.Title = "Адмін: всі передзамовлення";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>
+    <a href="/Admin/Admin/CreateProductToBuy" class="btn btn-default">Создать предзаказ</a>
+</p>
+
+<div class="content-panel">
+
+    <table class="table table-hover table-advance table-hover">
+        <h4><i class="fa fa-angle-right"></i> Предзаказы</h4>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productCategoryID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.approved)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.title)</td>
+                <td>@Html.DisplayFor(model => item.ProductCategory.name)</td>
+                <td>@Html.DisplayFor(model => item.amount)</td>
+                <td>@Html.DisplayFor(model => item.price)</td>
+                <td>@Html.DisplayFor(model => item.description)</td>
+                <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
+                <td>@Html.DisplayFor(model => item.approved)</td>
+
+                <td>
+                    @using (Html.BeginForm("DeleteProductToBuy", "Admin"))
+                    {
+                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                    }
+                    <a href="@Url.Action("EditProductToBuy", "Admin" , new { item.productToBuyID } )" class="btn btn-primary btn-xs">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-envelope-o"></i></a>
+                    @using (Html.BeginForm("ProductToBuyApproved", "Admin"))
+                    {
+                        @Html.Hidden("productToBuyID", item.productToBuyID)
+                        <div class="btn-group" role="group">
+                            <button type="submit" class="btn btn-info btn-xs"><i class="fa fa-arrow-circle-right"></i></button>
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+

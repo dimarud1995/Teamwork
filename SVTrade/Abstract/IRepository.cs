@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SVTrade.Models;
+using System.Threading.Tasks;
 
 namespace SVTrade.Abstract
 {
@@ -69,7 +70,7 @@ namespace SVTrade.Abstract
         #region ProductToBuy
 
         IQueryable<ProductToBuy> ProductsToBuy { get; }
-        void SaveProductToBuy(ProductToBuy productToBuy);
+          Task SaveProductToBuy(ProductToBuy productToBuy);
         ProductToBuy DeleteProductToBuy(int id);
 
         #endregion

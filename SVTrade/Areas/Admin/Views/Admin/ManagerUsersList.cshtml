@@ -68,22 +68,27 @@
                 <td>@Html.DisplayFor(model => item.tradeLicense)</td>
                 <td>@Html.DisplayFor(model => item.approved)</td>
                 <td>
-                    @using (Html.BeginForm("DeleteUser", "Admin"))
-                    {
-                        @Html.Hidden("userID", item.userID)
-                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                        <a href="@Url.Action("EditUser", "Admin" , new { item.userID } )" class="btn btn-primary btn-xs">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-envelope-o"></i></a>
-                    }
+                    <!-- Confirm -->
                     @using (Html.BeginForm("UserApproved", "Admin"))
                     {
                         @Html.Hidden("userID", item.userID)
                         <div class="btn-group" role="group">
-                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-arrow-circle-right"></i>Підтвердити</button>
+                            <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
                         </div>
                     }
+                    <!-- Edit -->
+                    <a href="@Url.Action("EditUser", "Admin" , new { item.userID } )" class="btn btn-primary btn-xs">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <!-- Delete -->
+                    @using (Html.BeginForm("DeleteUser", "Admin"))
+                    {
+                        @Html.Hidden("userID", item.userID)
+                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                    }
+                    <!-- SMS -->
+                    <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope-o"></i></button>
+                    @Html.Action("SendSMS", "Admin")
                 </td>
             </tr>
         }

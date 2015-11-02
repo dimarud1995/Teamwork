@@ -43,9 +43,8 @@ namespace SVTrade.Models
         [Required(ErrorMessage = "Поле не може бути пустим")]
         public double amount { get; set; }
 
-        [DisplayName("Ціна")]
+        [DisplayName("Ціна(грн/кг)")]
         [Required(ErrorMessage = "Поле не може бути пустим")]
-        [DataType(DataType.Currency)]
         public double price { get; set; }
 
         [DisplayName("Опис")]
@@ -55,7 +54,7 @@ namespace SVTrade.Models
 
         [DisplayName("Користувач")]
         [Required(ErrorMessage = "Оберіть користувача")]
-        public int userID { get; set; }
+        public int? userID { get; set; }
 
         [DisplayName("Підтверджено")]
         public bool approved { get; set; }

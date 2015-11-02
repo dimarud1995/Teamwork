@@ -1,4 +1,5 @@
 ﻿@model SVTrade.Areas.MappingProducts.Models.Cart
 
-        @Model.Lines.Sum(x => x.Quantity)
+@Model.Lines.Where(x => x.idUser == Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value)).Sum(x => x.Quantity)
+
   

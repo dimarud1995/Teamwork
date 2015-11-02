@@ -1,0 +1,10 @@
+﻿@model SVTrade.Areas.MappingProducts.Models.CartIndexViewModel
+
+<div id="cart">
+    <span class="caption">
+        <b>У вас в кошику:</b>
+        @Model.Lines.Sum(x => x.Quantity) item(s),
+        @Model.ComputeTotalValue().ToString("c")
+    </span>
+    @Html.ActionLink("Перейти до кошика", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery }, null)
+</div>

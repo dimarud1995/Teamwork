@@ -1,0 +1,107 @@
+﻿@model SVTrade.Models.Order
+
+@{
+    ViewBag.Title = "Адмін: змінити замовлення";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-10">
+    <div class="form-panel">
+        <h2>Змінити замовлення</h2>
+        @using (Html.BeginForm("EditOrder", "Admin"))
+        {
+            <div class="form-group">
+                
+                    <div class="editor-field">
+                        @Html.EditorFor(x => x.orderID, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.orderDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(x => x.orderDate, new { htmlAttributes = new { @class = "form-control datecontrol" } })
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.finishDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(x => x.finishDate, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.userID)
+                    </div>
+
+                    <div class="dropdown">
+                        @Html.DropDownListFor(m => m.userID,
+                    (IEnumerable<SelectListItem>)ViewData["AllUsers"], "choose", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.userID)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.productID)
+                    </div>
+
+                    <div class="dropdown">
+                        @Html.DropDownListFor(m => m.productID,
+                    (IEnumerable<SelectListItem>)ViewData["AllProducts"], "choose", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.productID)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.amount)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(x => x.amount, new { htmlAttributes = new { @class = "form-control " } })
+                        @Html.ValidationMessageFor(x => x.amount)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.statusDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(x => x.statusDate, new { htmlAttributes = new { @class = "form-control " } })
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.statusID)
+                    </div>
+
+                    <div class="dropdown">
+                        @Html.DropDownListFor(m => m.statusID,
+                    (IEnumerable<SelectListItem>)ViewData["AllStatuses"], "choose", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.statusID)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.completed)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(x => x.completed, new { htmlAttributes = new { @class = "form-control " } })
+                        @Html.ValidationMessageFor(x => x.completed)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.canceled)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(x => x.canceled, new { htmlAttributes = new { @class = "form-control " } })
+                        @Html.ValidationMessageFor(x => x.canceled)
+                    </div>
+
+
+
+                    <div class="editor-label">
+                        <input type="submit" value="Зберегти" class="btn btn-theme" />
+                    </div>
+                    <div class="editor-field mt">
+                        @Html.ActionLink("Відмінити і повернутись до списку", "OrdersList")
+                    </div>
+                </div>
+             
+
+        }
+    </div>
+</div>

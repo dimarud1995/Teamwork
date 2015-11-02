@@ -16,7 +16,7 @@
                 <strong>Тільки у нас на сайті ви можете оформити передзамовлення на потрібний вам товар і наш менеджер з вами зв'яжеться<img src="~/Areas/MappingProducts/Content/images/shop/information-inset.png" /></strong>
             </div>
     </div>
-    <div class="row" >
+    <div class="row "  >
         <div class="col-md-12">
             @using (Ajax.BeginForm("AddPreOrder", ajaxOptions))
             {
@@ -29,6 +29,9 @@
                 <div class="row">
                     <div class="col-md-4">Бажана ціна(грн/кг) : </div><div class="col-md-6">@Html.EditorFor(x => x.price)</div>
                 </div>
+                <div class="row">
+                    <div class="col-md-4">Побажання : </div><div class="col-md-6">@Html.EditorFor(x => x.description)</div>
+                </div>
 
                 <div class="row">
                     <div class="col-md-4 ">Категорія товару : </div>
@@ -36,9 +39,14 @@
                     (IEnumerable<SelectListItem>)ViewData["AllCategories"])</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6"><button type="submit" class="btn btn-success" id="ChangeQ"><i class="fa fa-thumbs-up"></i>Підтвердити</button></div>
+                    <div class="col-md-6"><button type="submit" class="btn btn-success" id="ChangeQ"><i class="fa fa-check"></i>Підтвердити</button></div>
+                    <div class="col-md-6">
+                        <div class="btn btn-success"><i class="fa fa-bus"> Транспортування</i></div>
+                    </div>
                 </div>
             }
         </div>
     </div>
     </div>
+
+

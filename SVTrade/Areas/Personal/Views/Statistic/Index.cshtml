@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "SVTrade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container maincont">
+    <div class="tab-container">
+        <div class="tab-details">
+            <ul class="nav nav-tabs new" id="myTab">
+                <li>
+                    <a href="~/Personal/Users/Index">Профіль</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Orders/Index">Замовлення</a>
+                </li>
+                <li>
+                    <a href="~/Personal/ProductToBuys/Index">Передзамовлення</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Products/Index">Ваші товари</a>
+                </li>
+                <li class="active">
+                    <a href="~/Personal/Statistic/Index">Статистика продаж</a>
+                </li>
+                <li  >
+                    <a href="~/Personal/Wish/Index">Побажання</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabCont">
+            <div class="tab-pane active" id="received">
+                <div class="messages-container clearfix">
+                    <ol class="unstyled received-thread">
+                        Тут Ви можете переглянути статистику.
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+       
+        <div class="myDiv ">
+
+            <div>
+                <h3>Статистика</h3>
+                <hr />
+                <p>Функція не етапі розробки</p>
+            </div>
+        </div>
+    </div>
+</div>

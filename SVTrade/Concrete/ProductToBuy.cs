@@ -2,6 +2,7 @@
 using System.Linq;
 using SVTrade.Abstract;
 using SVTrade.Models;
+using System.Threading.Tasks;
 
 namespace SVTrade.Concrete
 {
@@ -12,7 +13,7 @@ namespace SVTrade.Concrete
             get { return _db.ProductsToBuy; }
         }
 
-        public void SaveProductToBuy(ProductToBuy productToBuy)
+        public async Task SaveProductToBuy(ProductToBuy productToBuy)
         {
             if (productToBuy.productToBuyID == 0)
             {
@@ -20,7 +21,7 @@ namespace SVTrade.Concrete
             }
             else
             {
-                var dbEntry = _db.ProductsToBuy.Find(productToBuy.productToBuyID);
+                var dbEntry = await _db.ProductsToBuy.FindAsync(productToBuy.productToBuyID);
                 if (dbEntry != null)
                 {
                     dbEntry.title = productToBuy.title;
@@ -32,7 +33,7 @@ namespace SVTrade.Concrete
                     dbEntry.approved = productToBuy.approved;
                 }
             }
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
 
         public ProductToBuy DeleteProductToBuy(int id)

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SVTrade.Models.Product>
+@{
+    ViewBag.Title = "MappingCategory";
+    Layout = "~/Areas/MappingProducts/Views/Mapping/Mapping.cshtml";
+}
+
+<div class="col-sm-9 col-lg-9 col-md-9 padding-right">
+    <div class="features_items">
+        <!--features_items-->
+        <h2 class="title text-center">Пропозиції</h2>
+        @{
+            foreach (var p in Model)
+            {
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/product1.jpg" alt="" />
+                                <h2>@p.price грн.</h2>
+                                <p>@p.title</p>
+                                <p><strong>Категорія : @p.ProductCategory.name</strong> </p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В Кошик</a>
+                            </div>
+                            <div class="product-overlay">
+                                <div class="overlay-content">
+                                    <h2>@p.price грн.</h2>
+                                    <p>Опис:</p>
+                                    <p>@p.description</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В Кошик</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            }
+        }
+
+    </div><!--features_items-->
+
+
+</div>
+
+
+

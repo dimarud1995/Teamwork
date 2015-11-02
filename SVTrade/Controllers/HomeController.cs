@@ -11,35 +11,17 @@ namespace SVTrade.Controllers
 
     public class HomeController : Controller
     {
-        static public int CurrentUserId;
         private IRepository repository;
 
         public HomeController(IRepository repo)
         {
-            try
-            {
-                CurrentUserId = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
-            }
-            catch { }
             this.repository = repo;
         }
 
         [AllowAnonymous]
         public ActionResult Index()
         {
-            try
-            {
-                int currentUserGroup = 1;
-                ViewData["CurrentUser"] = from User in repository.Users where User.userID == CurrentUserId select User;
 
-                foreach (var a in (IEnumerable<SVTrade.Models.User>)ViewData["CurrentUser"])
-                {
-                    currentUserGroup = a.userGroupID;
-                }
-
-                ViewData["CurrentUserGroup"] = from UserGroup in repository.UserGroups where UserGroup.userGroupID == currentUserGroup select UserGroup;
-            }
-            catch { }
             return View();
         }
 
@@ -54,8 +36,6 @@ namespace SVTrade.Controllers
         {
             return View();
         }
-
-
 
         [Authorize(Roles = "User")]
         public ActionResult UserIndex()

@@ -24,7 +24,12 @@ namespace SVTrade.Areas.Personal.Controllers
         // GET: Personal/Orders
         public ActionResult Index()
         {
-            int tid= Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+            int tid;
+            try
+            {
+                tid = Convert.ToInt32(HttpContext.Request.Cookies["name"].Value);
+            }
+            catch { tid = 0; }
             var order = r.Orders.Include(o => o.OrderStatus).Include(o => o.Product).Include(o => o.User).Where(p=>p.userID==tid);
             return View(order.ToList());
         }
@@ -99,12 +104,13 @@ namespace SVTrade.Areas.Personal.Controllers
         public ActionResult Edit([Bind(Include = "orderID,orderDate,finishDate,productID,userID,amount,statusDate,statusID,completed,canceled")] Order order)
         {
             Order tempOrder = r.Orders.FirstOrDefault(p=>p.orderID==order.orderID);
-            tempOrder.orderDate = order.orderDate;
+     
             tempOrder.finishDate = order.finishDate;
-            tempOrder.productID = order.productID;
+           
             tempOrder.amount = order.amount;
-            tempOrder.orderDate = System.DateTime.Today;
-            tempOrder.productID = order.productID;
+
+           
+
             if (ModelState.IsValid)
             {
                 r.SaveOrder(tempOrder);
@@ -140,6 +146,13 @@ namespace SVTrade.Areas.Personal.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public ActionResult History()
+        {
+             return View();
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -148,5 +161,6 @@ namespace SVTrade.Areas.Personal.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

@@ -12,10 +12,11 @@ namespace SVTrade.Areas.MappingProducts.Models
     {
         static public List<CartLine> lineCollection = new List<CartLine>();
 
-        public void AddItem(SVTrade.Models.Product product, int quantity,int pluser)
+        public void AddItem(SVTrade.Models.Product product, int idUser, int pluser)
         {
+
             CartLine line = lineCollection
-              .Where(p => p.Product.productID == product.productID)
+              .Where(p => p.Product.productID == product.productID && p.idUser == idUser)
               .FirstOrDefault();
 
             if (line == null)
@@ -23,22 +24,23 @@ namespace SVTrade.Areas.MappingProducts.Models
                 lineCollection.Add(new CartLine
                 {
                     Product = product,
-                    Quantity = quantity
+                    Quantity = 1,
+                    idUser = idUser
                 });
             }
             else
-                if(pluser > 0 )
-                        {
+                if (pluser > 0)
+            {
 
-                         line.Quantity = pluser;
-                
-                        }
-                         
+                line.Quantity = pluser;
+
+            }
+
         }
 
-        public void RemoveLine(SVTrade.Models.Product product)
+        public void RemoveLine(SVTrade.Models.Product product, int userId)
         {
-            lineCollection.RemoveAll(l => l.Product.productID == product.productID);
+            lineCollection.RemoveAll(l => l.Product.productID == product.productID && l.idUser == userId);
         }
 
         public double ComputeTotalValue()
@@ -60,6 +62,7 @@ namespace SVTrade.Areas.MappingProducts.Models
     public class CartLine
     {
         public SVTrade.Models.Product Product { get; set; }
+        public int idUser { get; set; }
         public int Quantity { get; set; }
     }
 }

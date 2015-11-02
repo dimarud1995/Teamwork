@@ -1,32 +1,35 @@
 ﻿@model SVTrade.Models.Product
 
 
-<div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
-            <div class="product-description trip-search-results">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4 firstProductBlock">
-                        <p><strong>Продукт:</strong>@Model.title</p>
-                        <img src="@Url.Content(Html.DisplayFor(modelItem => Model.imageURL).ToString())" alt="@Model.title" width="77px" height="77px" id="imageRadius"/>
-                       
-                    </div>
-                    <div class="col-lg-5 col-md-4 col-xs-4 col-sm-4">
-                        <p><strong>Категорія :</strong> @Model.ProductCategory.name </p>
-                        <p><strong>Опис :</strong> @Model.description </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
-                        @using (Html.BeginForm("AddToCart", "Mapping"))
-                        {
-                            @Html.HiddenFor(x => x.productID)
-                            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                            @*@<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В Кошик</a>*@
-                            <p><strong>В наявності : </strong></p><p>@Model.amount кг.</p>
-                            <button type="submit" class="btn btn-danger add-to-cart" ><i class="fa fa-shopping-cart"> В Кошик</i></button>
-                        }
-                    </div>
-                    </div>
+<div class="col-sm-12 col-lg-12 col-md-12 col-xs-12 ">
+    <div class="product-description trip-search-results bgblock">
+        <div class="row ">
+            <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4 firstProductBlock">
+                <p><strong>Продукт:</strong>@Model.title</p>
+                <img src="@Url.Content(Html.DisplayFor(modelItem => Model.imageURL).ToString())" alt="@Model.title" width="77px" height="77px" id="imageRadius" />
+
             </div>
+            <div class="col-lg-5 col-md-4 col-xs-4 col-sm-4">
+                <p><strong>Категорія :</strong> @Model.ProductCategory.name </p>
+                <p><strong>Опис :</strong> @Model.description </p>
+            </div>
+       
+                {
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                    @using (Html.BeginForm("AddToCart", "Mapping"))
+                    {
+                        @Html.HiddenFor(x => x.productID)
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        @*@<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В Кошик</a>*@
+                        <p><strong>В наявності : </strong></p><p class="priceFont">@Model.amount кг.</p>
+                                <button type="submit" class="btn btn-danger add-to-cart"><i class="fa fa-shopping-cart"> В Кошик</i></button>
+                    }
+                </div>
+                }
+          
+        </div>
     </div>
-           @* <div class="product-overlay">
+</div>           @* <div class="product-overlay">
                 <div class="overlay-content">
                     <h2>@Model.price грн/кг</h2>
                     <p><strong style="color:black">В наявності: </strong>@Model.amount кг</p>

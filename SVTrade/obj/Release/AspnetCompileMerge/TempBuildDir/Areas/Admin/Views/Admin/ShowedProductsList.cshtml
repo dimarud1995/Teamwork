@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SVTrade.Models.ShowedProduct>
+
+@{
+    ViewBag.Title = "Адмін: товари що може бачити користувач";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="showback">
+    <div class="alert alert-info">За допомогою цієї сторінки ви зможете запропонувати товар обраному користувачу.</div>
+    <div class="alert alert-info">Для цього просто виберіть користувача і товар, який хочете, щоб користувач бачив.</div>
+</div>
+
+<p>
+    <a href="/Admin/Admin/CreateShowedProduct" class="btn btn-default mt">Предложить товар</a>
+</p>
+
+<div class="content-panel mt">
+    <table class="table table-hover table-advance table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.productID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userID)
+            </th>
+            <th>
+                Управління
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.Product.title)</td>
+                <td>@Html.DisplayFor(model => item.User.contactPerson)</td>
+                <td>
+                    @using (Html.BeginForm("DeleteShowedProduct", "Admin"))
+                {
+                        @Html.Hidden("showedProductID", item.showedProductID)
+                        <div class="btn-group" role="group">
+                            <input type="submit" value="Видалити" class="btn btn-danger marg5" />
+                        </div>
+                    }
+                    @Html.ActionLink("Змінити", "EditShowedProduct", "Admin", new { item.showedProductID }, new { @class = "btn btn-info marg5" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

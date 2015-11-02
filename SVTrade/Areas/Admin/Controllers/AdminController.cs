@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using SVTrade.Abstract;
 using SVTrade.Models;
+using System.Web;
 
 namespace SVTrade.Areas.Admin.Controllers
 {
@@ -12,7 +13,9 @@ namespace SVTrade.Areas.Admin.Controllers
         //
         // GET: /Admin/Admin/
         private IRepository repository;
-        static public int CurrentUserId = Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name);
+        private int oldStatus;
+        private int newStatus;
+        private DateTime oldDate;
 
         public AdminController(IRepository repo)
         {
@@ -131,7 +134,7 @@ namespace SVTrade.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult EditArticle(Article article)
         {
-            article.userID = CurrentUserId;
+            article.userID = SVTrade.LoggedUserInfo.currentUserId;
             if (ModelState.IsValid)
             {
                 article.date = DateTime.Now;
@@ -168,6 +171,12 @@ namespace SVTrade.Areas.Admin.Controllers
         #region User
         [Authorize(Roles = "Директор")]
         public ViewResult UsersList()
+        {
+            return View(repository.Users);
+        }
+
+        [Authorize(Roles = "Директор")]
+        public ViewResult UsersLicenseList()
         {
             return View(repository.Users);
         }
@@ -223,7 +232,7 @@ namespace SVTrade.Areas.Admin.Controllers
         [Authorize(Roles = "Директор")]
         public ViewResult ProductsList()
         {
-            return View(repository.Products);
+            return View(repository.Products.OrderBy(x => x.productCategoryID));
         }
         [Authorize(Roles = "Директор")]
         public ViewResult EditProduct(int productID)
@@ -280,12 +289,16 @@ namespace SVTrade.Areas.Admin.Controllers
         [Authorize(Roles = "Менеджер, Директор")]
         public ViewResult OrdersList()
         {
-            return View(repository.Orders);
+
+            return View(repository.Orders.OrderBy(x => x.statusID));
         }
+
         [Authorize(Roles = "Менеджер, Директор")]
         public ViewResult EditOrder(int orderID)
         {
             var order = repository.Orders.FirstOrDefault(p => p.orderID == orderID);
+            oldStatus = order.statusID;
+            oldDate = order.statusDate;
 
             ViewData["AllUsers"] = from item in repository.Users.AsEnumerable()
                                    select new SelectListItem { Text = item.contactPerson, Value = item.userID.ToString() };
@@ -303,6 +316,15 @@ namespace SVTrade.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult EditOrder(Order order)
         {
+            newStatus = order.statusID;
+            if (newStatus != oldStatus)
+            {
+                order.statusDate = DateTime.Now;
+            }
+            else
+            {
+                order.statusDate = oldDate;
+            }
 
             if (ModelState.IsValid)
             {
@@ -346,6 +368,7 @@ namespace SVTrade.Areas.Admin.Controllers
         {
             var order = repository.Orders.FirstOrDefault(c => c.orderID == orderID);
             var lastStatus = repository.OrderStatuses.ToList().Last();
+            order.statusDate = DateTime.Now;
             if (order.canceled)
             {
                 TempData["message"] = string.Format("Статус відхилено!");
@@ -819,6 +842,7 @@ namespace SVTrade.Areas.Admin.Controllers
 
 
         #endregion
+
 
         public ViewResult ManagerStatisticList()
         {

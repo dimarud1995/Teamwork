@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SVTrade.Models.ProductToBuy>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "SVTrade";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container maincont">
@@ -21,10 +21,10 @@
                     <a href="~/Personal/Products/Index">Ваші товари</a>
                 </li>
                 <li>
-                    <a href="#">Статистика продаж</a>
+                    <a href="~/Personal/Statistic/Index">Статистика продаж</a>
                 </li>
                 <li>
-                    <a href="#">Побажання</a>
+                    <a href="~/Personal/Wish/Index">Побажання</a>
                 </li>
             </ul>
         </div>
@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" rel="nofollow">
+                        <a href="~/Personal/ProductToBuys/History" rel="nofollow">
                             Історія
                         </a>
                     </li>
@@ -74,6 +74,9 @@
                 <th>
                     Категорія
                 </th>
+                <th>
+                    <i class="fa fa-truck"> Транспортування</i>
+                </th>
                 <th></th>
             </tr>
             @foreach (var item in Model)
@@ -93,6 +96,13 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ProductCategory.name)
+                    </td>
+                    <td>
+                        <div class="form-group">
+                               
+                                <input type="checkbox" />
+                           
+                        </div>
                     </td>
                     <td>
                         @Html.ActionLink("Редагувати", "Edit", new { id = item.productToBuyID }, new { @class = "butstyle" })
