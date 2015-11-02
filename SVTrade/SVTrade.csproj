@@ -390,6 +390,7 @@
     <Content Include="Areas\Personal\Pictures\23\4\14\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\23\5\14\Screen.PNG" />
     <Content Include="Areas\Personal\Pictures\23\5\14\VictoriaseecretmodelAdrianaLima.jpg" />
+    <Content Include="Areas\Personal\Pictures\2\2\1\1.png" />
     <Content Include="Areas\Personal\Pictures\3\1\Supermodel-Obsession-victorias-secret-2360336-800-520.jpg" />
     <Content Include="Areas\Personal\Pictures\3\2\0\VictoriaseecretmodelAdrianaLima.jpg" />
     <Content Include="Areas\Personal\Pictures\3\2\123\Supermodel-Obsession-victorias-secret-2360336-800-520.jpg" />
@@ -708,15 +709,11 @@
     <Content Include="Content\assets\lineicons\fonts\linecons.eot" />
     <Content Include="Content\assets\lineicons\fonts\linecons.ttf" />
     <Content Include="Content\assets\lineicons\fonts\linecons.woff" />
-<<<<<<< HEAD
-    <Content Include="bin\SVTrade.dll.config" />
+    <Content Include="Areas\Personal\Views\Orders\History.cshtml" />
+    <Content Include="Areas\Personal\Views\Products\History.cshtml" />
+    <Content Include="Areas\Personal\Views\ProductToBuys\History.cshtml" />
     <Content Include="Areas\Personal\Views\Statistic\Index.cshtml" />
     <Content Include="Areas\Personal\Views\Wish\Index.cshtml" />
-    <Content Include="Areas\Personal\Views\Products\History.cshtml" />
-    <Content Include="Areas\Personal\Views\Orders\History.cshtml" />
-    <Content Include="Areas\Personal\Views\ProductToBuys\History.cshtml" />
-=======
->>>>>>> 5392257629c947474ae543d97c0f070b45e6e732
     <None Include="Properties\PublishProfiles\Lara1n.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

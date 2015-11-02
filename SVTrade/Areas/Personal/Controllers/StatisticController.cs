@@ -8,24 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using SVTrade.Models;
 using SVTrade.Abstract;
+using System.IO;
 
 namespace SVTrade.Areas.Personal.Controllers
 {
     public class StatisticController : Controller
     {
         private TradeDBEntities db = new TradeDBEntities();
-
         private IRepository r;
 
         public StatisticController(IRepository repo)
         {
-            try
-            {
-                SVTrade.LoggedUserInfo.SetLoggedUser(Convert.ToInt32(System.Web.HttpContext.Current.User.Identity.Name));
-            }
-            catch { }
             r = repo;
         }
+    
         // GET: Personal/Statistic
         public ActionResult Index()
         {
