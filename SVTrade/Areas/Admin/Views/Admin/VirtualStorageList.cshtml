@@ -69,5 +69,16 @@
 
         }
     </table>
-
 </div>
+<div class="showback mt">
+    <div class="alert alert-warning"><b>Внимание</b> Введите пароль если вы наблюдаете ошибки в списке.</div>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+
+            @Html.TextBox("password", "", new { @class = "form-control maxw inline-block" })
+            <input type="submit" value="Исправить список" class="btn btn-danger inline-block ml" />
+        </div>
+    }
+</div>
+

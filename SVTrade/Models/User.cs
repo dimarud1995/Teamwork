@@ -91,5 +91,34 @@ namespace SVTrade.Models
         public virtual ICollection<ReservedProduct> ReservedProduct { get; set; }
         public virtual ICollection<ShowedProduct> ShowedProduct { get; set; }
         public virtual UserGroup UserGroup { get; set; }
+        public override bool Equals(object obj)  //Перегрузка метода 
+        {
+            // If parameter is null return false:
+            if (obj == null)
+                return false;
+            else
+            {
+                // Return true if the fields match:
+                User userA = (User)obj;
+                return (userID == userA.userID);
+            }
+        }
+        public bool Equals(User a)
+        {
+            // If parameter is null return false:
+            if ((object)a == null)
+                return false;
+            else
+            {
+                // Return true if the fields match:
+                return (userID == a.userID);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return this.userID.GetHashCode();
+        }
+
     }
 }
