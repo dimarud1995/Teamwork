@@ -15,7 +15,6 @@ namespace SVTrade
     {
         static public int currentUserId;
         static private List<User> onlineUsersList = new List<User>();
-        static private IRepository repository;
         static TradeDBEntities db;
 
         static public List<User> GetOnlineUsers()
@@ -40,13 +39,8 @@ namespace SVTrade
         {
             db = new TradeDBEntities();
             var user = await db.Users.Where(x => x.email.Equals(email)).FirstOrDefaultAsync();
-            onlineUsersList.Add(user);
+            AddLoggedUser(user);
             return user;
-        }
-
-        internal static void HardReset()
-        {
-            throw new NotImplementedException();
         }
 
         public static void HardReset(string password)
@@ -57,6 +51,24 @@ namespace SVTrade
             }
         }
 
+        public static void SmartClean()
+        {
+            IEnumerable<User> newList = onlineUsersList;
+            newList = newList.Distinct();
+            onlineUsersList = newList.ToList();
+        }
+
+        public static void AddLoggedUser(User newUser)
+        {
+            bool abort = false;
+            foreach (User user in onlineUsersList)
+            {
+                if (newUser.userID == user.userID)
+                    abort = true;
+            }
+            if (!abort)
+                onlineUsersList.Add(newUser);
+        } 
 
         public static void RemoveLoggedUser(int id)
         {
@@ -75,7 +87,7 @@ namespace SVTrade
                 {
                     db = new TradeDBEntities();
                     var user = db.Users.Where(x => x.userID.Equals(id)).FirstOrDefault();
-                    onlineUsersList.Add(user);
+                    AddLoggedUser(user);
                 }
             }
             catch { };

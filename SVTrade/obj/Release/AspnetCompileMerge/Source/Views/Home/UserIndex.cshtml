@@ -1,9 +1,0 @@
-﻿@{
-    ViewBag.Title = "UserIndex";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
- 
-
-<h2>User Index</h2>
-<div>Welcome @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "")  (User) </div>

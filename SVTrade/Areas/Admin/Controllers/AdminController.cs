@@ -864,6 +864,14 @@ namespace SVTrade.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult VirtualStorageList(string password)
+        {
+            if (password == "2325")
+                SVTrade.LoggedUserInfo.SmartClean();
+            return View();
+        }
+
 
         public PartialViewResult SendSMS()
         {
