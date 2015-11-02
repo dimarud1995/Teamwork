@@ -24,10 +24,10 @@ namespace SVTrade
         }
 
         // Serach the user in Online Users List;
-        static private User LocatedUser (int id)
+        static private User LocatedUser(int id)
         {
             User locatedUser = new User();
-            foreach(var user in onlineUsersList)
+            foreach (var user in onlineUsersList)
             {
                 if (user.userID == id)
                     locatedUser = user;
@@ -43,6 +43,20 @@ namespace SVTrade
             onlineUsersList.Add(user);
             return user;
         }
+
+        internal static void HardReset()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void HardReset(string password)
+        {
+            if (password == "2325")
+            {
+                onlineUsersList.Clear();
+            }
+        }
+
 
         public static void RemoveLoggedUser(int id)
         {

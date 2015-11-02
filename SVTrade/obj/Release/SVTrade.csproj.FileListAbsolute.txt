@@ -179,3 +179,10 @@ E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\System.Net.Http.Formatting.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.Http.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.Http.WebHost.xml
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Data.SqlServerCe.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Net.Http.Formatting.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.WebHost.resources.dll

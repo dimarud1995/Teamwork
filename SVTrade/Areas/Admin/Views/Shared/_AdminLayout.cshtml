@@ -2,9 +2,8 @@
 
 <html>
 <head>
-    <meta charset="windows-1251">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -204,7 +203,17 @@
                 <ul class="sidebar-menu" id="nav-accordion">
 
                     <p class="centered"><a href=""><img src="/Content/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                    <h5 class="centered">@SVTrade.LoggedUserInfo.GetName(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value))</h5>
+                    @{
+                        try
+                        {
+                            <h5 class="centered">@SVTrade.LoggedUserInfo.GetName(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value))</h5>
+                        }
+                        catch
+                        {
+                            
+                        }
+                    }
+                    
 
                     <li class="sub-menu">
                         <a href="javascript:;">

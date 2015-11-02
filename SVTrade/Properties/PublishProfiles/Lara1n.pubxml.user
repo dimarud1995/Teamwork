@@ -6,14 +6,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\SV_Trade\v1.3.2 Validation</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\SV_Trade\v1.3.3 NULLABLE</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/TradeDB.mdf">
-      <publishTime>10/31/2015 23:13:01</publishTime>
+      <publishTime>11/01/2015 00:31:27</publishTime>
     </File>
     <File Include="App_Data/TradeDB_log.ldf">
-      <publishTime>10/31/2015 23:13:01</publishTime>
+      <publishTime>11/01/2015 00:31:27</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ArticlesList.cshtml">
       <publishTime>10/31/2015 21:24:26</publishTime>
@@ -490,10 +490,10 @@
       <publishTime>10/29/2015 18:43:13</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>10/31/2015 23:14:56</publishTime>
+      <publishTime>11/01/2015 00:31:35</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>10/31/2015 23:14:55</publishTime>
+      <publishTime>11/01/2015 00:31:35</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/30/2015 02:23:54</publishTime>
@@ -580,7 +580,7 @@
       <publishTime>10/29/2015 18:43:13</publishTime>
     </File>
     <File Include="bin/SVTrade.dll">
-      <publishTime>10/31/2015 23:14:51</publishTime>
+      <publishTime>11/01/2015 00:31:27</publishTime>
     </File>
     <File Include="bin/SVTrade.dll.config">
       <publishTime>10/30/2015 02:24:03</publishTime>
@@ -3865,7 +3865,7 @@
       <publishTime>10/30/2015 02:23:57</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>10/31/2015 23:14:53</publishTime>
+      <publishTime>11/01/2015 00:31:32</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>10/29/2015 18:43:06</publishTime>

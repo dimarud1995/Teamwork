@@ -24,7 +24,7 @@ namespace SVTrade.Models
         }
     
         [HiddenInput(DisplayValue = false)]
-        public int statusID { get; set; }
+        public int? statusID { get; set; }
 
         [DisplayName("Назва")]
         [Required(ErrorMessage = "Поле не може бути пустим")]

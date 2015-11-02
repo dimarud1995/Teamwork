@@ -43,7 +43,14 @@
                         {
                             @Html.AntiForgeryToken()
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Вітаємо @SVTrade.LoggedUserInfo.GetName(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value))</a></li>
+                                @{
+                                    try
+                                    {
+                                        <li><a href="#">Вітаємо @SVTrade.LoggedUserInfo.GetName(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value))</a></li>
+                                    }
+                                    catch { }
+                                }
+                                
                                 <li>@Html.ActionLink("Вихід", "Logout", "Account", new { area = "" }, new { @class = "" }) </li>
                             </ul>
                         }
