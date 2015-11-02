@@ -141,6 +141,9 @@ namespace SVTrade.Areas.Personal.Controllers
             }
             base.Dispose(disposing);
         }
-     
+        public ActionResult History()
+        {
+            return View();
+        }
     }
 }
