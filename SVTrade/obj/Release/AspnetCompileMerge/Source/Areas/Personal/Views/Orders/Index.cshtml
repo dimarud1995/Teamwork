@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SVTrade.Models.Order>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "SVTrade";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container maincont">
@@ -21,10 +21,10 @@
                     <a href="~/Personal/Products/Index">Ваші товари</a>
                 </li>
                 <li>
-                    <a href="#">Статистика продаж</a>
+                    <a href="~/Personal/Statistic/Index">Статистика продаж</a>
                 </li>
                 <li>
-                    <a href="#">Побажання</a>
+                    <a href="~/Personal/Wish/Index">Побажання</a>
                 </li>
             </ul>
         </div>
@@ -32,7 +32,7 @@
             <div class="tab-pane active" id="annonces">
                 <ul class="nav nav-pills" id="ulMyTab">
                     <li class="active">
-                        <a href="~/Personal/Products/Index" rel="nofollow">
+                        <a href="~/Personal/Orders/Index" rel="nofollow">
                             Список замовлень
                         </a>
                     </li>
@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" rel="nofollow">
+                        <a href="~/Personal/Orders/History" rel="nofollow">
                             Історія
                         </a>
                     </li>

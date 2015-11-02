@@ -186,3 +186,39 @@ E:\GitHub\Teamwork\SVTrade\bin\ru\System.Data.SqlServerCe.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Net.Http.Formatting.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.resources.dll
 E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.WebHost.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\SVTrade.dll.config
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\SVTrade.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\SVTrade.pdb
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\EntityFramework.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\EntityFramework.SqlServer.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Microsoft.Owin.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Microsoft.Owin.Security.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Ninject.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Ninject.Web.Common.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Ninject.Web.Mvc.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Helpers.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Mvc.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Razor.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.Deployment.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.Razor.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Newtonsoft.Json.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Net.Http.Formatting.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Http.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Http.WebHost.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Helpers.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Mvc.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Razor.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Net.Http.Formatting.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.WebHost.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\obj\Release\SVTrade.csprojResolveAssemblyReference.cache
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\obj\Release\SVTrade.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\obj\Release\SVTrade.pdb

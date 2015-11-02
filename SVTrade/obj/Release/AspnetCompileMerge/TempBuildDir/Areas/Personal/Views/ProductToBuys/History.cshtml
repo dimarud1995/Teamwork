@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("GoUp")
+
+<div class="container maincont">
+
+    <div class="tab-container">
+        <div class="tab-details">
+            <ul class="nav nav-tabs new" id="myTab">
+                <li>
+                    <a href="~/Personal/Users/Index">Профіль</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Orders/Index">Замовлення</a>
+                </li>
+                <li class="active">
+                    <a href="~/Personal/ProductToBuys/Index">Передзамовлення</a>
+                </li>
+                <li >
+                    <a href="~/Personal/Products/Index">Ваші товари</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Statistic/Index">Статистика продаж</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Wish/Index">Побажання</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabCont">
+            <div class="tab-pane active" id="annonces">
+                <ul class="nav nav-pills" id="ulMyTab">
+                    <li >
+                        <a href="~/Personal/Producttobuys/Index" rel="nofollow">
+                            Список товарів
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" rel="nofollow">
+                            Зробити передзамовнення
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="~/Personal/ProductToBuys/History" rel="nofollow">
+                            Історія
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div> 
+    </div>
+</div>
+

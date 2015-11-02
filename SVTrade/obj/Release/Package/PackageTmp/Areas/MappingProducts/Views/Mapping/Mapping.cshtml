@@ -9,7 +9,7 @@
 
 }
 @{
-    ViewBag.Title = "Каталог товарів";
+    ViewBag.Title = "ConfirmedUserIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -212,7 +212,7 @@
 
                                             foreach (var p in Model.Cart.Lines)
                                             {
-                                                if (p.idUser == Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value))
+                                                if (p.idUser == ViewBag.UserID)
                                                 {
                                                     <tr>
                                                         <td class="cart_product">
@@ -230,7 +230,7 @@
                                                                 {
                                                                     @Html.Hidden("ProductId", p.Product.productID)
                                                                     @Html.HiddenFor(x => x.ReturnUrl)
-                                                                    <div id="plus" style="margin-left:10em"> @Html.TextBox("pluser", p.Product.amount, new { @id = "tableBody", @class = "cart_quantity_input", @type = "text", @name = "quantityUser", @value = p.Product.amount.ToString(), @autocomplete = "off", @size = "2" }) <input id="b @p.Product.productID "  value="Змінити" class="btn-warning" type="submit" onclick="document.getElementById('i @p.Product.productID').style.visibility = 'visible'"><i id="i @p.Product.productID" class="fa fa-chevron-circle-down" style="visibility:hidden;" ></i></div>
+                                                                    <div id="plus" style="margin-left:10em"> @Html.TextBox("pluser", p.Product.amount, new { @id = "tableBody", @class = "cart_quantity_input", @type = "text", @name = "quantityUser", @value = p.Product.amount.ToString(), @autocomplete = "off", @size = "2" }) <input id="i @p.Product.productID"  value="Змінити" class="btn-warning" type="submit" onclick="document.getElementById('i @p.Product.productID').style.visibility = 'visible'"><i id="i @p.Product.productID" class="fa fa-chevron-circle-down" style="visibility:hidden;" ></i></div>
 
                                                                 }
                                                                 @*<a class="cart_quantity_down" href=""> - </a>*@

@@ -64,10 +64,19 @@ li{
  #myTab{
      margin-bottom:2%;
       margin-top:2%;
-      box-shadow:inset 0 0 10px #DDDDDD;
+      box-shadow:inset 0 0 10px #ccc;
       border-radius:5px;
-     font: 0.9em arial;
+     font-size: 0.95em;
+     font-family:Arial, Tahoma;
+     border:1px #bbb solid;
+     
+     
        
+ }
+ #myTab > .active{
+   
+    
+
  }
  .myTable1{
    
@@ -191,7 +200,7 @@ li{
      font-family:Arial;
      color:#fff;
      text-align:center;
-     background-color:#FFBF00;
+     background-color:#FF9900;
      border-radius:5px 5px 0 0;
  }
  .supermenuleft li{
