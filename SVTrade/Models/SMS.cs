@@ -11,10 +11,12 @@ namespace SVTrade.Models
 
         public string Numbers { get; set; }
 
-        [DisplayName("Від кого відправляється СМС(Приклад: SVTRADE)")]
+        [DisplayName("Відправник СМС(Приклад: SVTRADE)")]
+        [Required(ErrorMessage = "Введіть відправника", AllowEmptyStrings = false)]
         public string SenderId { get; set; }
 
         [DisplayName("Текст повідомлення")]
+        [Required(ErrorMessage = "Введіть текст", AllowEmptyStrings = false)]
         public string Message { get; set; }
     }
 }
