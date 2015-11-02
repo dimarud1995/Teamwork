@@ -6,14 +6,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\SV_Trade\v1.3.3 NULLABLE</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\SV_Trade\v1.4 HardReset</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/TradeDB.mdf">
-      <publishTime>11/01/2015 00:31:27</publishTime>
+      <publishTime>11/02/2015 04:03:31</publishTime>
     </File>
     <File Include="App_Data/TradeDB_log.ldf">
-      <publishTime>11/01/2015 00:31:27</publishTime>
+      <publishTime>11/02/2015 04:03:32</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ArticlesList.cshtml">
       <publishTime>10/31/2015 21:24:26</publishTime>
@@ -43,7 +43,7 @@
       <publishTime>10/29/2015 22:58:11</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/EditProductCategory.cshtml">
-      <publishTime>10/29/2015 22:58:11</publishTime>
+      <publishTime>11/02/2015 03:31:59</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/EditProductToBuy.cshtml">
       <publishTime>10/29/2015 22:58:11</publishTime>
@@ -91,7 +91,7 @@
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/SendSMS.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ShoppingStatisticList.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -112,7 +112,7 @@
       <publishTime>10/31/2015 22:28:01</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Shared/_AdminLayout.cshtml">
-      <publishTime>10/31/2015 21:31:29</publishTime>
+      <publishTime>11/02/2015 03:53:23</publishTime>
     </File>
     <File Include="Areas/Admin/Views/web.config">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -130,7 +130,7 @@
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/css/main1.css">
-      <publishTime>10/30/2015 01:36:19</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Content/css/price-range.css">
       <publishTime>10/10/2015 15:21:24</publishTime>
@@ -202,40 +202,40 @@
       <publishTime>01/16/2014 11:01:10</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Scripts/js/jquery.scrollUp.min.js">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Scripts/js/price-range.js">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Mapping/CartIndex.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Mapping/CreatePreOrder.cshtml">
-      <publishTime>10/29/2015 11:18:54</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Mapping/Mapping.cshtml">
-      <publishTime>10/31/2015 19:27:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Mapping/MappingCategory.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Mapping/Summary.cshtml">
-      <publishTime>10/31/2015 19:25:30</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Shared/AddPreOrder.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Shared/MappingProduct.cshtml">
-      <publishTime>10/31/2015 19:48:49</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Shared/Summary.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/Shared/_Layout.cshtml">
-      <publishTime>10/30/2015 04:09:16</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/web.config">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/MappingProducts/Views/_ViewStart.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -266,6 +266,9 @@
     </File>
     <File Include="Areas/Personal/Pictures/13/3/Сало свиняче/VictoriaseecretmodelAdrianaLima.jpg">
       <publishTime>10/29/2015 18:43:05</publishTime>
+    </File>
+    <File Include="Areas/Personal/Pictures/2/2/1/1.png">
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Pictures/22/2/0/VictoriaseecretmodelAdrianaLima.jpg">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -406,52 +409,61 @@
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/Personal/Style/stylePersonal.css">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Orders/Create.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Orders/Delete.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Orders/Details.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Orders/Edit.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
+    </File>
+    <File Include="Areas/Personal/Views/Orders/History.cshtml">
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Orders/Index.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Products/Create.cshtml">
-      <publishTime>10/31/2015 21:41:34</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Products/Delete.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Products/Details.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Products/Edit.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
+    </File>
+    <File Include="Areas/Personal/Views/Products/History.cshtml">
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Products/Index.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/ProductToBuys/Create.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/ProductToBuys/Delete.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/ProductToBuys/Details.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/ProductToBuys/Edit.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
+    </File>
+    <File Include="Areas/Personal/Views/ProductToBuys/History.cshtml">
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/ProductToBuys/Index.cshtml">
-      <publishTime>10/31/2015 19:05:32</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Shared/GoUp.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
@@ -468,32 +480,38 @@
     <File Include="Areas/Personal/Views/Shared/_Layout.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
+    <File Include="Areas/Personal/Views/Statistic/Index.cshtml">
+      <publishTime>11/02/2015 02:28:14</publishTime>
+    </File>
     <File Include="Areas/Personal/Views/Users/Create.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Users/Delete.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Users/Details.cshtml">
       <publishTime>10/29/2015 18:43:05</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Users/Edit.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/Users/Index.cshtml">
-      <publishTime>10/29/2015 18:43:05</publishTime>
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="Areas/Personal/Views/web.config">
       <publishTime>10/29/2015 18:43:05</publishTime>
+    </File>
+    <File Include="Areas/Personal/Views/Wish/Index.cshtml">
+      <publishTime>11/02/2015 02:28:14</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>10/29/2015 18:43:13</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/01/2015 00:31:35</publishTime>
+      <publishTime>11/02/2015 04:15:33</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/01/2015 00:31:35</publishTime>
+      <publishTime>11/02/2015 04:15:33</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/30/2015 02:23:54</publishTime>
@@ -580,7 +598,7 @@
       <publishTime>10/29/2015 18:43:13</publishTime>
     </File>
     <File Include="bin/SVTrade.dll">
-      <publishTime>11/01/2015 00:31:27</publishTime>
+      <publishTime>11/02/2015 04:15:25</publishTime>
     </File>
     <File Include="bin/SVTrade.dll.config">
       <publishTime>10/30/2015 02:24:03</publishTime>
@@ -3865,7 +3883,7 @@
       <publishTime>10/30/2015 02:23:57</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/01/2015 00:31:32</publishTime>
+      <publishTime>11/02/2015 04:15:30</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>10/29/2015 18:43:06</publishTime>
@@ -3946,10 +3964,10 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/31/2015 19:31:33</publishTime>
+      <publishTime>11/02/2015 03:59:09</publishTime>
     </File>
     <File Include="Views/Home/ManagerIndex.cshtml">
-      <publishTime>10/29/2015 18:43:06</publishTime>
+      <publishTime>11/02/2015 03:55:48</publishTime>
     </File>
     <File Include="Views/Home/MyProfile.cshtml">
       <publishTime>10/29/2015 18:43:06</publishTime>
@@ -3961,16 +3979,16 @@
       <publishTime>10/29/2015 18:43:06</publishTime>
     </File>
     <File Include="Views/Shared/_AccessPartial.cshtml">
-      <publishTime>10/31/2015 19:42:01</publishTime>
+      <publishTime>11/02/2015 01:27:31</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/31/2015 19:30:07</publishTime>
+      <publishTime>11/02/2015 03:53:46</publishTime>
     </File>
     <File Include="Views/Shared/_Layout2.cshtml">
       <publishTime>10/12/2015 03:52:31</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutMainPage.cshtml">
-      <publishTime>10/31/2015 19:21:25</publishTime>
+      <publishTime>11/02/2015 03:53:53</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>10/29/2015 18:43:06</publishTime>
