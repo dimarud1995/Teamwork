@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link runat="server" rel="icon" href="~/Content/img/icow.jpg" type="image/jpg" />
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/Content/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="/Content/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- Theme style -->
+    <!--external css-->
+    <link href="/Content/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="/Content/assets/css/style.css" rel="stylesheet">
+    <link href="/Content/assets/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="#" class="logo"><b>Панель управления</b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- settings start -->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-tasks"></i>
+                            <span class="badge bg-theme"></span>
+                        </a>
+                        <ul class="dropdown-menu extended tasks-bar">
+                            <div class="notify-arrow notify-arrow-green"></div>
+                            <li>
+                                <p class="green">You have 4 pending tasks</p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div class="desc">DashGum Admin Panel</div>
+                                        <div class="percent">40%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div class="desc">Database Update</div>
+                                        <div class="percent">60%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div class="desc">Product Development</div>
+                                        <div class="percent">80%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div class="desc">Payments Sent</div>
+                                        <div class="percent">70%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                            <span class="sr-only">70% Complete (Important)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="external">
+                                <a href="#">Все задания</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- settings end -->
+                    <!-- inbox dropdown start-->
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge bg-theme">5</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-green"></div>
+                            <li>
+                                <p class="green">У вас 5 новых сообщений</p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-zac.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Zac Snider</span>
+                                        <span class="time">Только что</span>
+                                    </span>
+                                    <span class="message">
+                                        Хай, как дела?
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-divya.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Divya Manian</span>
+                                        <span class="time">40 мин.</span>
+                                    </span>
+                                    <span class="message">
+                                        Привет, нужна твоя помощь.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-danro.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Dan Rogers</span>
+                                        <span class="time">2 часа.</span>
+                                    </span>
+                                    <span class="message">
+                                        Нравится твоя новая админка.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="/Content/assets/img/ui-sherman.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Dj Sherman</span>
+                                        <span class="time">4 часа.</span>
+                                    </span>
+                                    <span class="message">
+                                        Ответь как можно скорее.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">Все уведомления</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- inbox dropdown end -->
+                </ul>
+                <!--  notification end -->
+            </div>
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/Home/Index">Выйти</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--header end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+
+                    <p class="centered"><a href=""><img src="/Content/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                    @{
+                        try
+                        {
+                            <h5 class="centered">@SVTrade.LoggedUserInfo.GetName(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value))</h5>
+                        }
+                        catch
+                        {
+                            
+                        }
+                    }
+                    
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-desktop"></i>
+                            <span>Панель менеджера</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Admin/Admin/ManagerUsersList">Новые пользователи</a></li>
+                            <li><a href="/Admin/Admin/ManagerProductsList">Новые товары</a></li>
+                            <li><a href="/Admin/Admin/OrdersList">Заказы</a></li>
+                            <li><a href="/Admin/Admin/ProductsToBuyList">Предзаказы</a></li>
+                            <li><a href="/Admin/Admin/ArticlesList">Новости</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-cart-arrow-down"></i>
+                            <span>Заказы</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Admin/Admin/OrdersList">Новые заказы</a></li>
+                            <li><a href="/Admin/Admin/OrdersList">Все заказы</a></li>
+                            <li><a href="/Admin/Admin/ProductsToBuyList">Предзаказы</a></li>
+                        </ul>
+                    </li>
+                    @{
+                        if (SVTrade.LoggedUserInfo.GetGroupID(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value)) == 5)
+                        {
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-cube"></i>
+                                    <span>Товары</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/Admin/Admin/ProductsList">Все товары</a></li>
+                                    <li><a href="/Admin/Admin/ManagerProductsList">Новые товары</a></li>
+                                    <li><a href="/Admin/Admin/VirtualStorageList">Склад</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-users"></i>
+                                    <span>Пользователи</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/Admin/Admin/UsersList">Все пользователи</a></li>
+                                    <li><a href="/Admin/Admin/ManagerUsersList">Новые пользователи</a></li>
+                                    <li><a href="/Admin/Admin/UsersLicenseList">Активные пользователи</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-bar-chart"></i>
+                                    <span>Статистика</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/Admin/Admin/SaleStatisticList">Статистика продажів</a></li>
+                                    <li><a href="/Admin/Admin/ShoppingStatisticList">Статистика покупок</a></li>
+                                    <li><a href="/Admin/Admin/ManagerStatisticList">Статистика менеджерів</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-wrench"></i>
+                                    <span>Администрирование</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/Admin/Admin/ShowedProductsList">Предложить товар</a></li>
+                                    <li><a href="/Admin/Admin/OrderStatusesList">Состояния заказов</a></li>
+                                    <li><a href="/Admin/Admin/ReservedProductsList">Продукты в резерве</a></li>
+                                    <li><a href="/Admin/Admin/ChoosedCategoriesList">Списки интересов</a></li>
+                                    <li><a href="/Admin/Admin/UserGroupsList">Группы пользователей</a></li>
+                                    <li><a href="/Admin/Admin/ProductCategoriesList">Категории товаров</a></li>
+                                    <li><a href="/Admin/Admin/ArticlesList">Новости</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row mt">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        @if (TempData["message"] != null)
+                        {
+                            <div>@TempData["message"]</div>
+                        }
+                        @RenderBody()
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </section><!--/wrapper -->
+        </section><!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer navbar-fixed-bottom">
+            <div class="text-center">
+                2015 @@ Lara1n
+                <a href="#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+
+    <!-- jQuery 2.1.4 -->
+    <script src="/Content/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <!-- FastClick -->
+    <script class="include" type="text/javascript" src="/Content/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/Content/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/Content/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--common script for all pages-->
+    <script src="/Content/assets/js/common-scripts.js"></script>
+
+</body>
+</html>

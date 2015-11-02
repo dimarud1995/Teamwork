@@ -1,0 +1,120 @@
+﻿@model IEnumerable<SVTrade.Models.Order>
+
+@{
+    ViewBag.Title = "SVTrade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container maincont">
+    <div class="tab-container">
+        <div class="tab-details">
+            <ul class="nav nav-tabs new" id="myTab">
+                <li>
+                    <a href="~/Personal/Users/Index">Профіль</a>
+                </li>
+                <li class="active">
+                    <a href="~/Personal/Orders/Index">Замовлення</a>
+                </li>
+                <li>
+                    <a href="~/Personal/ProductToBuys/Index">Передзамовлення</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Products/Index">Ваші товари</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Statistic/Index">Статистика продаж</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Wish/Index">Побажання</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabCont">
+            <div class="tab-pane active" id="annonces">
+                <ul class="nav nav-pills" id="ulMyTab">
+                    <li class="active">
+                        <a href="~/Personal/Orders/Index" rel="nofollow">
+                            Список замовлень
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/MappingProducts/Mapping/Mapping" rel="nofollow">
+                            Замовити товар
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Personal/Orders/History" rel="nofollow">
+                            Історія
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane active" id="received">
+                <div class="messages-container clearfix">
+                    <ol class="unstyled received-thread">
+                        Список Ваших замовлень. Тут ви можете переглядати Ваші замовлення та редагувати їх. А також замовити новий товар.
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="myTable1">
+        <table class="table">
+            <tr>
+                <th>
+                    Продукт
+                </th>
+                <th>
+                    Кількість(кг)
+                </th>
+                <th>
+                    Дата замовлення
+                </th>
+                <th>
+                    Кінцева дата
+                </th>
+
+                <th>
+                    Дата зміни статусу
+                </th>
+                <th>
+                    Статус
+                </th>
+
+
+                <th>    Підтвердження</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.orderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.finishDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.statusDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderStatus.name)
+                    </td>
+
+                    <td>
+                        <div class="cont">
+                            @Html.ActionLink("Редагувати", "Edit", new { id = item.orderID }, new { @class = "butstyle" })
+                        </div>
+                        <div class="cont">Стан: @Html.DisplayFor(modelItem => item.completed)</div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    </div>

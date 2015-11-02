@@ -1,0 +1,77 @@
+﻿@model SVTrade.Models.Login
+
+
+@{
+    ViewBag.Title = "СВ Трейд Холод";
+    Layout = "~/Views/Shared/_LayoutMainPage.cshtml";
+}
+
+<header class="">
+    <div class="blured"></div>
+    <div class="header-content">
+        <div class="container ghost">
+            <div class="row">
+                <p class="big-text">СВ Трейд Холод </p>
+                <p class="">Пропонує вам тисячі тон готової продукції онлайн дозволяють заощадити ваш час та гроші!</p>
+                <ul class="list-inline text-good">
+                    <li>Тільки свіжа продукція</li>
+                    <li>Тільки перевірена якість</li>
+                    <li>Всі економлять час та гроші</li>
+                </ul>
+            </div>
+            <div class="row smtop-pad">
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="discount-news">
+                        <div class="discount-title">Мясо свинне</div>
+                        <div class="discount-description">Лише до кінця неділі знижка на все мясо</div>
+                        <div class="discount-value">50%</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                try
+                                {
+                                <p>Вітаємо, @SVTrade.LoggedUserInfo.GetName(Convert.ToInt32(HttpContext.Current.Request.Cookies["name"].Value)) </p>
+                                }
+                                catch
+                                {
+                                }
+
+                                <div class="idf">
+                                    @Html.ActionLink("Особистий кабінет", "Index", "Personal/Products", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "logs btn btn-ghost" })
+                                </div>
+                                <div class="idf">
+                                    @Html.ActionLink("Товари", "Mapping", "MappingProducts/Mapping", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "logs btn btn-ghost" })
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p>Приєднуйтесь до нас!</p>
+                            <div class="idf">
+                                @Html.ActionLink("Реєстрація", "Register", "UserRegistration", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "logs btn btn-ghost" })
+                            </div>
+                            <div class="idf">
+                                @Html.ActionLink("Увійти", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "logs btn btn-ghost" })
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="discount-news">
+                        <div class="discount-title">Мясо свинне</div>
+                        <div class="discount-description">Лише до кінця неділі знижка на все мясо</div>
+                        <div class="discount-value">50%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div><!--//row-->
+    </div>
+</header>

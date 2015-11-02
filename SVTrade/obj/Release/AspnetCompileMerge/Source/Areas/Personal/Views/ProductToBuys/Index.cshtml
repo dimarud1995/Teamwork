@@ -1,0 +1,114 @@
+﻿@model IEnumerable<SVTrade.Models.ProductToBuy>
+
+@{
+    ViewBag.Title = "SVTrade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container maincont">
+    <div class="tab-container">
+        <div class="tab-details">
+            <ul class="nav nav-tabs new" id="myTab">
+                <li>
+                    <a href="~/Personal/Users/Index">Профіль</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Orders/Index">Замовлення</a>
+                </li>
+                <li class="active">
+                    <a href="~/Personal/ProductToBuys/Index">Передзамовлення</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Products/Index">Ваші товари</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Statistic/Index">Статистика продаж</a>
+                </li>
+                <li>
+                    <a href="~/Personal/Wish/Index">Побажання</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabCont">
+            <div class="tab-pane active" id="annonces">
+                <ul class="nav nav-pills" id="ulMyTab">
+                    <li class="active">
+                        <a href="~/Personal/Producttobuys/Index" rel="nofollow">
+                            Список товарів
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" rel="nofollow">
+                            Зробити передзамовнення
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Personal/ProductToBuys/History" rel="nofollow">
+                            Історія
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane active" id="received">
+                <div class="messages-container clearfix">
+                    <ol class="unstyled received-thread"></ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="myTable1">
+        <table class="table">
+            <tr>
+                <th>
+                    Назва
+                </th>
+                <th>
+                    Кількість
+                </th>
+                <th>
+                    Ціна
+                </th>
+                <th>
+                    Підтвердження
+                </th>
+                <th>
+                    Категорія
+                </th>
+                <th>
+                    <i class="fa fa-truck"> Транспортування</i>
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.approved)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductCategory.name)
+                    </td>
+                    <td>
+                        <div class="form-group">
+                               
+                                <input type="checkbox" />
+                           
+                        </div>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Редагувати", "Edit", new { id = item.productToBuyID }, new { @class = "butstyle" })
+                           </td>
+                </tr>
+            }
+        </table>
+    </div>
+    </div>

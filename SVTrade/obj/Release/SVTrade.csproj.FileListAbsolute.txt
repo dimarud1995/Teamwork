@@ -1,0 +1,224 @@
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\SVTrade.dll.config
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\SVTrade.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\SVTrade.pdb
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Antlr3.Runtime.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\EntityFramework.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\EntityFramework.SqlServer.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.Core.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.Owin.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.Owin.Security.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.Web.Infrastructure.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Newtonsoft.Json.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Ninject.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Ninject.Web.Common.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Ninject.Web.Mvc.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Owin.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\SimpleCrypto.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Helpers.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Mvc.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Optimization.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Providers.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Razor.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.WebPages.Deployment.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.WebPages.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.WebPages.Razor.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\WebActivatorEx.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\WebGrease.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\EntityFramework.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\EntityFramework.SqlServer.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.Core.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.Owin.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.Owin.Security.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Ninject.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Ninject.Web.Common.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Ninject.Web.Mvc.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Helpers.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Mvc.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Razor.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.WebPages.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.WebPages.Deployment.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\System.Web.WebPages.Razor.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\Newtonsoft.Json.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\EntityFramework.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\EntityFramework.SqlServer.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Helpers.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Mvc.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Razor.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.WebPages.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\obj\Release\SVTrade.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.0\Teamwork\SVTrade\obj\Release\SVTrade.pdb
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\SVTrade.dll.config
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\SVTrade.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\SVTrade.pdb
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\EntityFramework.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\EntityFramework.SqlServer.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.Core.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.Owin.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\Microsoft.Owin.Security.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\Ninject.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\Ninject.Web.Common.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\Ninject.Web.Mvc.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Helpers.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Mvc.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\System.Web.Razor.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\System.Web.WebPages.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\System.Web.WebPages.Deployment.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\System.Web.WebPages.Razor.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\Newtonsoft.Json.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\EntityFramework.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\EntityFramework.SqlServer.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Helpers.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Mvc.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Razor.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.WebPages.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\obj\Release\SVTrade.csprojResolveAssemblyReference.cache
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\obj\Release\SVTrade.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.0\Teamwork\SVTrade\obj\Release\SVTrade.pdb
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\SVTrade.dll.config
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\SVTrade.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\SVTrade.pdb
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\EntityFramework.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\EntityFramework.SqlServer.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.Core.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\Microsoft.Owin.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\Microsoft.Owin.Security.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\Ninject.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\Ninject.Web.Common.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\Ninject.Web.Mvc.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\System.Web.Helpers.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\System.Web.Mvc.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\System.Web.Razor.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\System.Web.WebPages.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\System.Web.WebPages.Deployment.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\System.Web.WebPages.Razor.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\Newtonsoft.Json.xml
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\EntityFramework.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\EntityFramework.SqlServer.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\System.Web.Helpers.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\System.Web.Mvc.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\System.Web.Razor.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\System.Web.WebPages.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\obj\Release\SVTrade.csprojResolveAssemblyReference.cache
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\obj\Release\SVTrade.dll
+E:\WorkSpace\A SITE VERSIONS\SHOW\Stable v4.1\Teamwork\SVTrade\obj\Release\SVTrade.pdb
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\SVTrade.dll.config
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\SVTrade.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\SVTrade.pdb
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\obj\Release\SVTrade.csprojResolveAssemblyReference.cache
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\obj\Release\SVTrade.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\obj\Release\SVTrade.pdb
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\EntityFramework.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\EntityFramework.SqlServer.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.Core.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\Microsoft.Owin.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\Microsoft.Owin.Security.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\Ninject.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\Ninject.Web.Common.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\Ninject.Web.Mvc.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\System.Web.Helpers.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\System.Web.Mvc.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\System.Web.Razor.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\System.Web.WebPages.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\System.Web.WebPages.Deployment.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\System.Web.WebPages.Razor.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\Newtonsoft.Json.xml
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\EntityFramework.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\EntityFramework.SqlServer.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\System.Web.Helpers.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\System.Web.Mvc.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\System.Web.Razor.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\System.Web.WebPages.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
+E:\WorkSpace\A SITE VERSIONS\Stable v4.1.1\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\SVTrade.dll.config
+E:\GitHub\Teamwork\SVTrade\bin\SVTrade.dll
+E:\GitHub\Teamwork\SVTrade\bin\SVTrade.pdb
+E:\GitHub\Teamwork\SVTrade\obj\Release\SVTrade.csprojResolveAssemblyReference.cache
+E:\GitHub\Teamwork\SVTrade\obj\Release\SVTrade.dll
+E:\GitHub\Teamwork\SVTrade\obj\Release\SVTrade.pdb
+E:\GitHub\Teamwork\SVTrade\bin\EntityFramework.xml
+E:\GitHub\Teamwork\SVTrade\bin\EntityFramework.SqlServer.xml
+E:\GitHub\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.Core.xml
+E:\GitHub\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\GitHub\Teamwork\SVTrade\bin\Microsoft.Owin.xml
+E:\GitHub\Teamwork\SVTrade\bin\Microsoft.Owin.Security.xml
+E:\GitHub\Teamwork\SVTrade\bin\Ninject.xml
+E:\GitHub\Teamwork\SVTrade\bin\Ninject.Web.Common.xml
+E:\GitHub\Teamwork\SVTrade\bin\Ninject.Web.Mvc.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.Helpers.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.Mvc.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.Razor.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.Deployment.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.Razor.xml
+E:\GitHub\Teamwork\SVTrade\bin\Newtonsoft.Json.xml
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Helpers.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Mvc.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Razor.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\System.Net.Http.Formatting.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.Http.xml
+E:\GitHub\Teamwork\SVTrade\bin\System.Web.Http.WebHost.xml
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Data.SqlServerCe.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Net.Http.Formatting.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.resources.dll
+E:\GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.WebHost.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\SVTrade.dll.config
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\SVTrade.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\SVTrade.pdb
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\EntityFramework.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\EntityFramework.SqlServer.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Microsoft.Owin.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Microsoft.Owin.Security.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Ninject.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Ninject.Web.Common.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Ninject.Web.Mvc.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Helpers.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Mvc.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Razor.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.Deployment.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.WebPages.Razor.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\Newtonsoft.Json.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Net.Http.Formatting.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Http.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\System.Web.Http.WebHost.xml
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Helpers.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Mvc.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Razor.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Net.Http.Formatting.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Http.WebHost.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Optimization.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\bin\ru\System.Web.Providers.resources.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\obj\Release\SVTrade.csprojResolveAssemblyReference.cache
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\obj\Release\SVTrade.dll
+D:\Projects\SVTradeProjects\Stable GitHub\Teamwork\SVTrade\obj\Release\SVTrade.pdb

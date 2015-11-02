@@ -1,0 +1,52 @@
+﻿@model SVTrade.Models.ProductToBuy
+@{
+    ViewBag.Title = "GetPeople";
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "divBody"
+    };
+
+
+}
+
+<div class="col-sm-12 col-lg-12 col-md-12 col-xs-12 preOrderBlock" id="divBody">
+    
+    <div class="row">
+            <div class="col-lg-12" style="padding-bottom:4px;">
+                <strong>Тільки у нас на сайті ви можете оформити передзамовлення на потрібний вам товар і наш менеджер з вами зв'яжеться<img src="~/Areas/MappingProducts/Content/images/shop/information-inset.png" /></strong>
+            </div>
+    </div>
+    <div class="row "  >
+        <div class="col-md-12">
+            @using (Ajax.BeginForm("AddPreOrder", ajaxOptions))
+            {
+                <div class="row">
+                    <div class="col-md-4">Назва : </div> <div class="col-md-6">@Html.EditorFor(x => x.title)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Кількість(в кг.) : </div><div class="col-md-6">@Html.EditorFor(x => x.amount)</div> 
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Бажана ціна(грн/кг) : </div><div class="col-md-6">@Html.EditorFor(x => x.price)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Побажання : </div><div class="col-md-6">@Html.EditorFor(x => x.description)</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 ">Категорія товару : </div>
+                    <div class="col-md-6">@Html.DropDownListFor(m => m.productCategoryID,
+                    (IEnumerable<SelectListItem>)ViewData["AllCategories"])</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><button type="submit" class="btn btn-success" id="ChangeQ"><i class="fa fa-check"></i>Підтвердити</button></div>
+                    <div class="col-md-6">
+                        <div class="btn btn-success"><i class="fa fa-bus"> Транспортування</i></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    </div>
+
+
